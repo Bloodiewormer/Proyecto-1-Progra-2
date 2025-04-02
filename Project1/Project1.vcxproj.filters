@@ -14,4 +14,80 @@
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
   </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Controladora.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Usuario.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Prestamo.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="GestorPrestamo.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Nodo.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Biblioteca.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="IntefazUsuario.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Material.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Libro.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Revista.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Articulo.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Video.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Controladora.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Usuario.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Prestamo.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="GestorPrestamo.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Lista.h">
+      <Filter>Header Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Biblioteca.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="IntefazUsuario.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Material.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Libro.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Revista.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Articulo.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Video.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
 </Project>
