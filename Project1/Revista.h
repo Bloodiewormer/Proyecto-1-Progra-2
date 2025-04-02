@@ -1,5 +1,6 @@
 #pragma once
-class Revista
+#include "Material.h"
+class Revista : public Material
 {
 };
 

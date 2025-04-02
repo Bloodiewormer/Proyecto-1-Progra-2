@@ -1,5 +1,6 @@
 #pragma once
-class Video
+#include "Material.h"
+class Video : public Material
 {
 };
 

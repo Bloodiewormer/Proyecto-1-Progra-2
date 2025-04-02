@@ -130,6 +130,7 @@
     <ClInclude Include="Articulo.h" />
     <ClInclude Include="Biblioteca.h" />
     <ClInclude Include="Controladora.h" />
+    <ClInclude Include="GestorArchivos.h" />
     <ClInclude Include="GestorPrestamo.h" />
     <ClInclude Include="IntefazUsuario.h" />
     <ClInclude Include="Libro.h" />
@@ -144,10 +145,12 @@
     <ClCompile Include="Articulo.cpp" />
     <ClCompile Include="Biblioteca.cpp" />
     <ClCompile Include="Controladora.cpp" />
+    <ClCompile Include="GestorArchivos.cpp" />
     <ClCompile Include="GestorPrestamo.cpp" />
     <ClCompile Include="IntefazUsuario.cpp" />
     <ClCompile Include="Libro.cpp" />
     <ClCompile Include="Lista.h" />
+    <ClCompile Include="main.cpp" />
     <ClCompile Include="Material.cpp" />
     <ClCompile Include="Prestamo.cpp" />
     <ClCompile Include="Revista.cpp" />

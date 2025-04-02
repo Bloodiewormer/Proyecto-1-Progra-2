@@ -51,6 +51,9 @@
     <ClInclude Include="Video.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="GestorArchivos.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Controladora.cpp">
@@ -87,6 +90,12 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Video.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="GestorArchivos.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

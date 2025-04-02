@@ -1,5 +1,6 @@
 #pragma once
-class Articulo
+#include "Material.h"
+class Articulo : public Material
 {
 };
 

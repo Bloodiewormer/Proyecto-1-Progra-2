@@ -1,5 +1,7 @@
 #pragma once
-class Libro
+#include "Material.h"
+
+class Libro : public Material
 {
 };
 
