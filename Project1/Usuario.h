@@ -16,9 +16,5 @@ public:
 	bool getEstado() const;
 	void setEstado(bool estado);
 	std::string toString() const;
-
-
-	
-
 };
 

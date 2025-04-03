@@ -127,7 +127,6 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="Articulo.h" />
     <ClInclude Include="Biblioteca.h" />
     <ClInclude Include="Controladora.h" />
     <ClInclude Include="GestorArchivos.h" />
@@ -142,7 +141,6 @@
     <ClInclude Include="Video.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Articulo.cpp" />
     <ClCompile Include="Biblioteca.cpp" />
     <ClCompile Include="Controladora.cpp" />
     <ClCompile Include="GestorArchivos.cpp" />
