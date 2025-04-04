@@ -1,7 +1,6 @@
 #pragma once
 #include "Material.h"
-class Video : public Material
-{
+class Video : public Material{
 private:
 	std::string duracion;
 	std::string formato;
@@ -13,8 +12,5 @@ public:
 
 	~Video();
 	std::string toString() const override;
-
-	
-
 };
 

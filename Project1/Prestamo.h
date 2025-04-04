@@ -4,9 +4,7 @@
 #include "Usuario.h"
 #include "Material.h"
 
-
-class Prestamo
-{
+class Prestamo{
 private:
 	std::string fechaPrestamo;
 	std::string fechaDevolucion;
@@ -14,7 +12,6 @@ private:
 	Usuario* usuario;
 	Material* material;
 public:
-
 
 };
 

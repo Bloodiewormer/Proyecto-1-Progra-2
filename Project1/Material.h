@@ -1,8 +1,7 @@
 #pragma once
 #include <iostream>
 #include <sstream>
-class Material
-{
+class Material{
 protected:
 	std::string identificador;
 	std::string cantidad;

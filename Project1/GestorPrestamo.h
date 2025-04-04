@@ -1,5 +1,4 @@
 #pragma once
-class GestorPrestamo
-{
+class GestorPrestamo{
 };
 

@@ -1,7 +1,6 @@
 #pragma once
 #include "Material.h"
-class Revista : public Material
-{
+class Revista : public Material{
 private:
 	std::string volumen;
 	std::string numero;

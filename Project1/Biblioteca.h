@@ -4,8 +4,7 @@
 #include "Usuario.h"
 #include "Material.h"
 #include "GestorPrestamo.h"
-class Biblioteca
-{
+class Biblioteca{
 private:
 	Lista<Material*> listaMateriales;
 	Lista<Usuario*> listaUsuarios;
@@ -13,10 +12,7 @@ private:
 public:
 	Biblioteca();
 	~Biblioteca();
-
 	//void guardarDatos(); // Guardar datos en un archivo
 	//void cargarDatos(); // Cargar datos desde un archivo
-
-
 };
 

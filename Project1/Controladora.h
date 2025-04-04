@@ -3,8 +3,7 @@
 #include "Biblioteca.h"
 #include "GestorArchivos.h"
 
-class Controladora
-{
+class Controladora{
 private:
 	Biblioteca* biblioteca;
 	GestorArchivos* gestorArchivos;
@@ -15,9 +14,5 @@ public:
 	~Controladora();
 	void iniciar();
 	void mostrarMenuPrincipal();
-
-
-
-	
 };
 

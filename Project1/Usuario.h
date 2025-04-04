@@ -2,8 +2,7 @@
 #include <iostream>
 #include <sstream>
 
-class Usuario
-{
+class Usuario{
 private:
 	std::string cedula;
 	std::string nombre;

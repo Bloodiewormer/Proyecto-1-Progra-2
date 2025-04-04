@@ -1,7 +1,6 @@
 #pragma once
 #include <iostream>
-class IntefazUsuario
-{
+class IntefazUsuario{
 public:
 	static void bannerBienvenida();
 	static void mostrarMenuPrincipal();

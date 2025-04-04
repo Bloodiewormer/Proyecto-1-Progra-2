@@ -1,7 +1,6 @@
 #pragma once
-class GestorArchivos
-{
+class GestorArchivos{
 	public:
-		//static void guardar
+	//static void guardar
 }
 
