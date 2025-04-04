@@ -129,21 +129,25 @@
   <ItemGroup>
     <ClInclude Include="Biblioteca.h" />
     <ClInclude Include="Controladora.h" />
+    <ClInclude Include="CustomExeception.h" />
     <ClInclude Include="GestorArchivos.h" />
     <ClInclude Include="GestorPrestamo.h" />
     <ClInclude Include="IntefazUsuario.h" />
     <ClInclude Include="Libro.h" />
     <ClInclude Include="Material.h" />
     <ClInclude Include="MaterialDigital.h" />
+    <ClInclude Include="MaterialFisico.h" />
     <ClInclude Include="Nodo.h" />
     <ClInclude Include="Prestamo.h" />
     <ClInclude Include="Revista.h" />
     <ClInclude Include="Usuario.h" />
-    <ClInclude Include="Video.h" />
+    <ClInclude Include="VideoDigital.h" />
+    <ClInclude Include="VideoFisico.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Biblioteca.cpp" />
     <ClCompile Include="Controladora.cpp" />
+    <ClCompile Include="CustomExeception.cpp" />
     <ClCompile Include="GestorArchivos.cpp" />
     <ClCompile Include="GestorPrestamo.cpp" />
     <ClCompile Include="IntefazUsuario.cpp" />
@@ -152,10 +156,12 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Material.cpp" />
     <ClCompile Include="MaterialDigital.cpp" />
+    <ClCompile Include="MaterialFisico.cpp" />
     <ClCompile Include="Prestamo.cpp" />
     <ClCompile Include="Revista.cpp" />
     <ClCompile Include="Usuario.cpp" />
-    <ClCompile Include="Video.cpp" />
+    <ClCompile Include="VideoDigital.cpp" />
+    <ClCompile Include="VideoFisico.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

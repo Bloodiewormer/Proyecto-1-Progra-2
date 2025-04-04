@@ -1,17 +1,15 @@
 #pragma once
 #include <iostream>
 #include <sstream>
+#include "Lista.h"
 class Material{
 protected:
-	std::string identificador;
-	std::string cantidad;
+	std::string identificador; //Este es el identificador unico de la biblioteca, todos los demas datos se pueden repetir
 	std::string titulo;
-	std::string autor;//implementar para mas de un autor podemos usar un vector o aprovechar la clase lista
-	std::string palabrasClave;//implementar para mas de una palabra clave podemos usar un vector o aprovechar la clase lista
-	std::string tipoMaterial;
-	std::string estado;//(buen estado, regular, malo)
+	Lista<std::string> palabrasClave; //Lista de palabras clave
+	Lista<std::string> autores; //Lista de autores 
 public:
-	Material(std::string identificador, std::string cantidad, std::string titulo, std::string autor, std::string palabrasClave, std::string tipoMaterial, std::string estado);
+	Material(std::string identificador, std::string titulo, Lista<std::string> palabrasClave, Lista<std::string> autores);
 	~Material();
 	virtual std::string toString() const = 0;
 };

@@ -1,16 +1,12 @@
 #include "Revista.h"
 
-Revista::Revista(std::string identificador, std::string cantidad, std::string titulo, std::string autor, std::string palabrasClave, std::string tipoMaterial, std::string estado, std::string volumen, std::string numero){
-	this->identificador = identificador;
-	this->cantidad = cantidad;
-	this->titulo = titulo;
-	this->autor = autor;
-	this->palabrasClave = palabrasClave;
-	this->tipoMaterial = tipoMaterial;
-	this->estado = estado;
-	this->volumen = volumen;
-	this->numero = numero;
 
+
+
+Revista::Revista(std::string identificador, std::string titulo, Lista<std::string> palabrasClave, Lista<std::string> autores, std::string cantidad, std::string tipoMaterial, std::string estado, std::string volumen, std::string numero)
+	:MaterialFisico(identificador, titulo, palabrasClave, autores, cantidad, tipoMaterial, estado), volumen(volumen), numero(numero)
+{
+	// Constructor
 }
 
 Revista::~Revista(){
@@ -24,8 +20,15 @@ std::string Revista::toString() const{
 	oss << "Identificador: " << identificador << std::endl;
 	oss << "Cantidad: " << cantidad << std::endl;
 	oss << "Titulo: " << titulo << std::endl;
-	oss << "Autor: " << autor << std::endl;
-	oss << "Palabras Clave: " << palabrasClave << std::endl;
+	for (int i = 0; i < autores.getLength(); i++)
+	{
+		oss << "Autor: " << autores.get(i) << std::endl;
+	}
+	oss << "Palabras Clave: " << std::endl;
+	for (int i = 0; i < palabrasClave.getLength(); i++)
+	{
+		oss << "Palabra Clave: " << palabrasClave.get(i) << std::endl;
+	}
 	oss << "Tipo de Material: " << tipoMaterial << std::endl;
 	oss << "Estado: " << estado << std::endl;
 	oss << "Volumen: " << volumen << std::endl;

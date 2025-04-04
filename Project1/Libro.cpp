@@ -1,9 +1,11 @@
 #include "Libro.h"
 
-Libro::Libro(std::string identificador, std::string cantidad, std::string titulo, std::string autor, std::string palabrasClave, std::string tipoMaterial, std::string estado, std::string isbn, std::string editorial): Material(identificador, cantidad, titulo, autor, palabrasClave, tipoMaterial, estado) { 
-	this->isbn = isbn;
-	this->editorial = editorial;
+Libro::Libro(std::string identificador, std::string titulo, Lista<std::string> palabrasClave, Lista<std::string> autores, std::string cantidad, std::string tipoMaterial, std::string estado, std::string isbn, std::string editorial)
+	: MaterialFisico(identificador, titulo, palabrasClave, autores, cantidad, tipoMaterial, estado), isbn(isbn), editorial(editorial)
+{
+	// Constructor
 }
+
 
 Libro::~Libro() {
 	// Destructor
@@ -16,8 +18,15 @@ std::string Libro::toString() const {
 	oss << "Identificador: " << identificador << std::endl;
 	oss << "Cantidad: " << cantidad << std::endl;
 	oss << "Titulo: " << titulo << std::endl;
-	oss << "Autor: " << autor << std::endl;
-	oss << "Palabras Clave: " << palabrasClave << std::endl;
+	for (int i = 0; i < autores.getLength(); i++)
+	{
+		oss << "Autor: " << autores.get(i) << std::endl;
+	}
+	oss << "Palabras Clave: " << std::endl;
+	for (int i = 0; i < palabrasClave.getLength(); i++)
+	{
+		oss << "Palabra Clave: " << palabrasClave.get(i) << std::endl;
+	}
 	oss << "Tipo de Material: " << tipoMaterial << std::endl;
 	oss << "Estado: " << estado << std::endl;
 	oss << "ISBN: " << isbn << std::endl;

@@ -1,31 +1,37 @@
-#pragma once
+
+#ifndef NODO_H
+#define NODO_H
+
 template <class T>
 class Nodo {
 private:
-	Nodo* siguiente;  // Puntero al siguiente nodo
-	T* elemento;      // Puntero al objeto que "almacena"
+	T* data;
+	Nodo<T>* next;
 public:
-	Nodo(Nodo<T>* sig, T* ele) { 
-		siguiente = sig;
-		elemento = ele;
-	};
-	Nodo(T* ele) {
-		elemento = ele;
-		siguiente = nullptr;
-	};
-	virtual ~Nodo() {
-	
-	};
-	Nodo<T>* obtenerSiguiente() {
-		return siguiente;
-	};
-	T* obtenerElemento() {
-		return elemento;
-	};
-	void setElemento(T*) {
-		elemento = ele;
-	};
-	void setSiguiente(Nodo<T>*) {
-		siguiente = sig;
-	};
+	Nodo(T* data) {
+		this->data = data;
+		this->next = nullptr;
+	}
+	Nodo(T data, Nodo<T>* next) {
+		this->data = data;
+		this->next = next;
+	}
+	~Nodo() {
+		if (data != nullptr) {
+			delete data;
+		}
+	}
+	T* getData() {
+		return data;
+	}
+	Nodo<T>* getNext() {
+		return next;
+	}
+	void setData(T* data) {
+		this->data = data;
+	}
+	void setNext(Nodo<T>* next) {
+		this->next = next;
+	}
 };
+#endif //NODO_H

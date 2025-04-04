@@ -1,77 +1,122 @@
+#pragma once
+#include <iostream>
 #include "Nodo.h"
+#include "CustomExeception.h"
 
 template <class T>
 class Lista {
 private:
-	Nodo<T>* Pirmas;
-	Nodo<T>* Exo;
-	int Tamanio;
+	Nodo<T>* first;
+	int length;
 public:
-	Lista() {
-		Pirmas = nullptr;
-		Exo = nullptr;
-	};
 
-	virtual ~Lista() {
-		while (Pirmas != nullptr) {
-			Nodo<T>* aux = Pirmas;
-			Pirmas = Pirmas->obtenerSiguiente();
+	Lista() {
+		first = nullptr;
+		length = 0;
+	}
+
+	~Lista() {
+		while (first != nullptr) {
+			Nodo<T>* aux = first;
+			first = first->getNext();
 			delete aux;
 		}
-	};
+	}
 
-	bool estaVacia() {
-		return Pirmas == nullptr;
-	};
+	int getLength() const {
+		return length;
+	}
 
-	int obtenerTamanio() {
-		return Tamanio;
-	};
+	bool isEmpty() const {
+		return first == nullptr;
+	}
 
-	void agregarInicio(T* ele) {
-		Exo = new Nodo<T>(ele);
-		if (estaVacia()) {
-			Pirmas = Exo;
-			Tamanio++;
+	void addBegin(T* data) {
+		Nodo<T>* aux = new Nodo<T>(data);
+		aux->setNext(first);
+		first = aux;
+		length++;
+	}
+
+	void addEnd(T* data) {
+		if (isEmpty()) {
+			first = new Nodo<T>(data);
+			length++;
+			return;
 		}
 		else {
-			Exo->setSiguiente(Pirmas);
-			Pirmas = Exo;
-			Tamanio++;
-		}
-	};
-
-	int getPosition(T* ele) {
-		exo = Pirmas;
-		int pos = 0;
-		while (aux != nullptr) {
-			if (exo->obtenerElemento() == ele) {
-				return pos;
+			Nodo<T>* aux = first;
+			while (aux->getNext() != nullptr) {
+				aux = aux->getNext();
 			}
-			exo = exo->obtenerSiguiente();
-			pos++;
+			aux->setNext(new Nodo<T>(data));
+			length++;
 		}
-		throw "No se encontro el elemento"; //Crear clase de excepcion
-		return -1;
-	};
+	}
 
-	T* obtenerElemento(int pos) {
-		if (pos < 0 || pos >= Tamanio) {
-			throw "Posicion invalida"; //Crear clase de excepcion
+	T* get(unsigned int index) const {
+		Nodo<T>* aux = first;
+		if (index >= length) {
+			throw IndexOutOfBoundsException("Index out of bounds");
 		}
-		Nodo<T>* aux = Pirmas;
-		for (int i = 0; i < pos; i++) {
-			aux = aux->obtenerSiguiente();
+		if (index == 0) {
+			return first->getData();
 		}
-		return aux->obtenerElemento();
-	};
+		for (unsigned int idx = 0; idx < index; ++idx) {
+			aux = aux->getNext();
+		}
+		return aux->getNext()->getData();
+	}
 
-	void mostra() {// Solo para probar
-		Nodo<T>* aux = Pirmas;
+
+	void remove(T* data) {
+		if (first == nullptr) {
+			return;
+		}
+		if (first->getData() == data) {
+			Nodo<T>* aux = first;
+			first = first->getNext();
+			delete aux;
+			length--;
+			return;
+		}
+		Nodo<T>* aux = first;
+		while (aux->getNext() != nullptr) {
+			if (aux->getNext()->getData() == data) {
+				Nodo<T>* aux2 = aux->getNext();
+				aux->setNext(aux2->getNext());
+				delete aux2;
+				length--;
+				return;
+			}
+			aux = aux->getNext();
+		}
+	}
+
+	int getLength() {
+		return length;
+	}
+
+	bool contains(T data) {
+		Nodo<T>* aux = first;
 		while (aux != nullptr) {
-			std::cout << aux->obtenerElemento() << std::endl;
-			aux = aux->obtenerSiguiente();
+			if (aux->getData() == data) {
+				return true;
+			}
+			aux = aux->getNext();
 		}
-	};	
+		return false;
+	}
 
+
+	//void show() const {
+	//	Nodo<T>* aux = first;
+	//	while (aux != nullptr) {
+	//		if (aux->getData()) {
+	//			std::cout << aux->getData()->toString() << std::endl; // aqui se asume que el objeto tiene un metodo toString()
+	//		}
+	//		aux = aux->getNext();
+	//	}
+	//}
 };
+

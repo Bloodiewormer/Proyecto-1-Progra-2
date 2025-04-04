@@ -13,6 +13,12 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Source Files\MaterialesConcretos">
+      <UniqueIdentifier>{16c11be2-1a5f-458b-8b41-c76844e07428}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\MaterialesConcretos">
+      <UniqueIdentifier>{17ef7fcd-6e77-4898-9957-969b8bc2759d}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Controladora.h">
@@ -39,20 +45,29 @@
     <ClInclude Include="Material.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Libro.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Revista.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Video.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="GestorArchivos.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="MaterialDigital.h">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MaterialFisico.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="CustomExeception.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Revista.h">
+      <Filter>Header Files\MaterialesConcretos</Filter>
+    </ClInclude>
+    <ClInclude Include="Libro.h">
+      <Filter>Header Files\MaterialesConcretos</Filter>
+    </ClInclude>
+    <ClInclude Include="VideoDigital.h">
+      <Filter>Header Files\MaterialesConcretos</Filter>
+    </ClInclude>
+    <ClInclude Include="VideoFisico.h">
+      <Filter>Header Files\MaterialesConcretos</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -80,15 +95,6 @@
     <ClCompile Include="Material.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Libro.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Revista.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Video.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -97,6 +103,24 @@
     </ClCompile>
     <ClCompile Include="MaterialDigital.cpp">
       <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="MaterialFisico.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="CustomExeception.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Libro.cpp">
+      <Filter>Source Files\MaterialesConcretos</Filter>
+    </ClCompile>
+    <ClCompile Include="VideoFisico.cpp">
+      <Filter>Source Files\MaterialesConcretos</Filter>
+    </ClCompile>
+    <ClCompile Include="VideoDigital.cpp">
+      <Filter>Source Files\MaterialesConcretos</Filter>
+    </ClCompile>
+    <ClCompile Include="Revista.cpp">
+      <Filter>Source Files\MaterialesConcretos</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
