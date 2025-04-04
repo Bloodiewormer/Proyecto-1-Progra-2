@@ -1,8 +1,6 @@
 #include "Video.h"
 
-
-Video::Video(std::string identificador, std::string cantidad, std::string titulo, std::string autor, std::string palabrasClave, std::string tipoMaterial, std::string estado, std::string duracion, std::string formato, std::string tipo, std::string tema)
-{
+Video::Video(std::string identificador, std::string cantidad, std::string titulo, std::string autor, std::string palabrasClave, std::string tipoMaterial, std::string estado, std::string duracion, std::string formato, std::string tipo, std::string tema){
 	this->identificador = identificador;
 	this->cantidad = cantidad;
 	this->titulo = titulo;
@@ -16,12 +14,10 @@ Video::Video(std::string identificador, std::string cantidad, std::string titulo
 	this->tema = tema;
 }
 
-Video::~Video()
-{
+Video::~Video(){
 }
 
-std::string Video::toString() const
-{
+std::string Video::toString() const{
 	std::ostringstream oss;
 	oss << "====================" << std::endl;
 	oss << "Video: " << std::endl;

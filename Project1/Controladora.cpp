@@ -1,20 +1,17 @@
 #include "Controladora.h"
 
-Controladora::Controladora()
-{
+Controladora::Controladora(){
 	biblioteca = new Biblioteca();
 	gestorArchivos = new GestorArchivos();
 	interfaz = new IntefazUsuario();
 }
 
-Controladora::~Controladora()
-{
+Controladora::~Controladora(){
 	delete biblioteca;
 	delete gestorArchivos;
 }
 
-void Controladora::iniciar()
-{
+void Controladora::iniciar(){
 	// Inicializar la interfaz de usuario
 	
 	interfaz->bannerBienvenida();
@@ -23,7 +20,6 @@ void Controladora::iniciar()
 
 }
 
-void Controladora::mostrarMenuPrincipal()
-{
+void Controladora::mostrarMenuPrincipal(){
 
 }

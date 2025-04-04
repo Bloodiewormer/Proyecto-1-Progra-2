@@ -134,6 +134,7 @@
     <ClInclude Include="IntefazUsuario.h" />
     <ClInclude Include="Libro.h" />
     <ClInclude Include="Material.h" />
+    <ClInclude Include="MaterialDigital.h" />
     <ClInclude Include="Nodo.h" />
     <ClInclude Include="Prestamo.h" />
     <ClInclude Include="Revista.h" />
@@ -150,6 +151,7 @@
     <ClCompile Include="Lista.h" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Material.cpp" />
+    <ClCompile Include="MaterialDigital.cpp" />
     <ClCompile Include="Prestamo.cpp" />
     <ClCompile Include="Revista.cpp" />
     <ClCompile Include="Usuario.cpp" />

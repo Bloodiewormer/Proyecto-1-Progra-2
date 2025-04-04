@@ -72,8 +72,6 @@ public:
 			std::cout << aux->obtenerElemento() << std::endl;
 			aux = aux->obtenerSiguiente();
 		}
-	};
-
-	
+	};	
 
 };
