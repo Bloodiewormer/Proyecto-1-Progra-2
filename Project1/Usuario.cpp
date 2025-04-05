@@ -35,15 +35,17 @@ std::string Usuario::toString() const{
 	return oss.str();
 }
 
-std::ostream& operator<<(std::ostream& os, const Usuario& usuario)
+void Usuario::setCedula(std::string cedula)
 {
-	os << "====================" << std::endl;
-	os << "Usuario: " << std::endl;
-	os << "Cedula: " << usuario.getCedula() << std::endl;
-	os << "Nombre: " << usuario.nombre << std::endl;
-	os << "Apellido: " << usuario.apellido << std::endl;
-	os << "Estado: " << (usuario.estado ? "Activo" : "Inactivo") << std::endl;
-	os << "====================" << std::endl;
-	return os;
-	
+	this->cedula = cedula;
+}
+
+void Usuario::setNombre(std::string nombre)
+{
+	this->nombre = nombre;
+}
+
+void Usuario::setApellido(std::string apellido)
+{
+	this->apellido = apellido;
 }

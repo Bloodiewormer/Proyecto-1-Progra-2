@@ -42,7 +42,6 @@ void Controladora::MenuPrincipal(){
 			}
 			else {
 				interfaz->msj("Regresando al menu principal...");
-				system("pause");
 			}
 			break;
 		case 1:
@@ -51,8 +50,7 @@ void Controladora::MenuPrincipal(){
 			break;
 		case 2:
 			// Agregar usuario
-			biblioteca->agregarUsuario(interfaz->crearUsuario());
-			interfaz->msj("Usuario agregado correctamente");
+			MenusubMenuUsuario();
 			break;
 		case 5:
 			// Mostrar materiales
@@ -90,6 +88,61 @@ void Controladora::MenuPrincipal(){
 	} while (opcion != -1);
 
 
+}
+
+void Controladora::MenusubMenuUsuario()
+{
+	int opcion;
+	do {
+		system("cls");
+		opcion = interfaz->mostrarSubMenuUsuario();
+		switch (opcion) {
+		case 0:
+				opcion = -2;
+			break;
+		case 1:
+			biblioteca->agregarUsuario(interfaz->crearUsuario());
+			interfaz->msj("Usuario agregado correctamente");
+			break;
+		case 2:
+			// Modificar usuario
+			switch (interfaz->mostrarSubMenuModificarUsuario()) {
+			case 1:
+				biblioteca->modificarUsuario(interfaz->pedirDatos("cedula",false), interfaz->pedirDatos("nombre", true), 1);
+				break;	
+			case 2:
+				biblioteca->modificarUsuario(interfaz->pedirDatos("cedula", false), interfaz->pedirDatos("apellido", true), 2);
+				break;
+			case 3:
+				biblioteca->modificarUsuario(interfaz->pedirDatos("cedula", false), interfaz->pedirDatosBool("estado") ? "true" : "false", 3);
+				break;
+			case 4:
+				biblioteca->modificarUsuario(interfaz->pedirDatos("cedula", false), interfaz->pedirDatos("cedula",true), 4);
+
+				break;
+			default:
+				interfaz->opcionInvalida();
+				break;
+			}
+			system("pause");
+			break;
+		case 3:
+			// Eliminar usuario
+			biblioteca->eliminarUsuario(interfaz->pedirDatos("cedula", false));
+			interfaz->msj("Usuario eliminado correctamente");
+			system("pause");
+			break;
+		case 4:
+			// Buscar usuario
+			std::cout<<biblioteca->buscarUsuario(interfaz->pedirDatos("cedula", false))->toString();
+			system("pause");
+			break;
+		default:
+			interfaz->opcionInvalida();
+			break;
+		}
+	
+	} while (opcion != -2);
 }
 
 void Controladora::MenuAgregarMaterial()

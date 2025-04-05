@@ -29,10 +29,40 @@ int IntefazUsuario::mostrarMenuPrincipal()
 	system("cls");
 	int opcion;
 	std::cout << "Menu Principal" << std::endl;
-	std::cout << "1. Agregar Material" << std::endl;
-	std::cout << "2. Agregar Usuario" << std::endl;
-	std::cout << "5. Mostrar Materiales" << std::endl;
-	std::cout << "6. Mostrar Usuarios" << std::endl;
+	std::cout << "1. Menu Materiales" << std::endl;
+	std::cout << "2. Menu Usuarios" << std::endl;
+	// std::cout << "3. Menu Prestamos" << std::endl;
+	std::cout << "6. Reportes" << std::endl;
+	std::cout << "0. Salir" << std::endl;
+	std::cout << "Seleccione una opcion: ";
+	std::cin >> opcion;
+	return opcion;
+}
+
+int IntefazUsuario::mostrarSubMenuUsuario()
+{
+	system("cls");
+	int opcion;
+	std::cout << "Menu de Usuario" << std::endl;
+	std::cout << "1. Agregar Usuario" << std::endl;
+	std::cout << "2. Modificar Usuario" << std::endl;
+	std::cout << "3. Eliminar Usuario" << std::endl;
+	std::cout << "4. Buscar Usuario" << std::endl;
+	std::cout << "0. Salir" << std::endl;
+	std::cout << "Seleccione una opcion: ";
+	std::cin >> opcion;
+	return opcion;
+}
+
+int IntefazUsuario::mostrarSubMenuModificarUsuario()
+{
+	system("cls");
+	int opcion;
+	std::cout << "Menu de Modificacion de Usuario" << std::endl;
+	std::cout << "1. Modificar Nombre" << std::endl;
+	std::cout << "2. Modificar Apellido" << std::endl;
+	std::cout << "3. Modificar Estado" << std::endl;
+	std::cout << "4. Modificar Cedula" << std::endl;
 	std::cout << "0. Salir" << std::endl;
 	std::cout << "Seleccione una opcion: ";
 	std::cin >> opcion;
@@ -42,10 +72,6 @@ int IntefazUsuario::mostrarMenuPrincipal()
 Usuario* IntefazUsuario::crearUsuario()
 {
 	system("cls");
-	//	std::string cedula;
-	//std::string nombre;
-	//std::string apellido;
-	//bool estado;
 
 	std::string cedula;
 	std::string nombre;
@@ -145,6 +171,40 @@ bool IntefazUsuario::ConfirmarSalida()
 	std::cin >> opcion;
 	return (opcion == "s" || opcion == "S") ? true : false;
 	system("cls");
+}
+
+std::string IntefazUsuario::pedirDatos(std::string dato, bool modificar)
+{
+	system("cls");
+	std::string datoIngresado;
+	if (modificar) {
+		std::cout << "Ingrese " << dato << " a modificar: ";
+	}
+	else {
+		std::cout << "Ingrese " << dato << ": ";
+	}
+	std::cin >> datoIngresado;
+	return datoIngresado;
+
+}
+
+
+bool IntefazUsuario::pedirDatosBool(std::string dato)
+{
+	system("cls");
+	std::string datoIngresado;
+	std::cout << "Ingrese el " << dato << " a modificar: ";
+	std::cout << "(true/false): ";
+	std::cin >> datoIngresado;
+	if (datoIngresado == "true" || datoIngresado == "True" || datoIngresado == "TRUE") {
+		return true;
+	}
+	else if (datoIngresado == "false" || datoIngresado == "False" || datoIngresado == "FALSE") {
+		return false;
+	}
+	else {
+		return false;
+	}
 }
 
 void IntefazUsuario::msj(std::string mensaje)

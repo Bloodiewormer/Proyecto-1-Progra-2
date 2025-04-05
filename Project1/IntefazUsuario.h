@@ -17,6 +17,8 @@ public:
 	static void bannerBienvenida();
 	static void DatosPrueba();
 	static int mostrarMenuPrincipal();
+	static int mostrarSubMenuUsuario();
+	static int mostrarSubMenuModificarUsuario();
 	static Usuario* crearUsuario();
 	static int tipoMaterial();
 	static int tipoMaterialDigital();
@@ -28,6 +30,8 @@ public:
 	static VideoDigital* crearVideoDigital();
 	static Revista* crearRevista();
 	static bool ConfirmarSalida();
+	static std::string pedirDatos(std::string dato, bool modificar);
+	static bool pedirDatosBool(std::string dato);
 	static void msj(std::string mensaje);
 	static void opcionInvalida();
 

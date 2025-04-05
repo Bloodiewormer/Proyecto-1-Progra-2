@@ -16,6 +16,7 @@ public:
 	void iniciar();
 	void datosPrueba();
 	void MenuPrincipal();
+	void MenusubMenuUsuario();
 	void MenuAgregarMaterial();
 };
 

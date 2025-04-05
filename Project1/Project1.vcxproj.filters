@@ -28,11 +28,11 @@
     <Filter Include="Source Files\Control">
       <UniqueIdentifier>{ad57c149-e24f-4aa3-978e-965bc326354e}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\otros">
+      <UniqueIdentifier>{67f6dd65-589b-46be-8915-cfb7876dd422}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Prestamo.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Revista.h">
       <Filter>Header Files\Materiales</Filter>
     </ClInclude>
@@ -72,9 +72,6 @@
     <ClInclude Include="CustomExeception.h">
       <Filter>Header Files\Control</Filter>
     </ClInclude>
-    <ClInclude Include="GestorPrestamo.h">
-      <Filter>Header Files\otros</Filter>
-    </ClInclude>
     <ClInclude Include="Material.h">
       <Filter>Header Files\Materiales</Filter>
     </ClInclude>
@@ -84,14 +81,14 @@
     <ClInclude Include="MaterialFisico.h">
       <Filter>Header Files\Materiales</Filter>
     </ClInclude>
+    <ClInclude Include="Prestamo.h">
+      <Filter>Header Files\otros</Filter>
+    </ClInclude>
+    <ClInclude Include="GestorPrestamo.h">
+      <Filter>Header Files\otros</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Usuario.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Prestamo.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Libro.cpp">
       <Filter>Source Files\Materiales</Filter>
     </ClCompile>
@@ -131,9 +128,6 @@
     <ClCompile Include="IntefazUsuario.cpp">
       <Filter>Source Files\Control</Filter>
     </ClCompile>
-    <ClCompile Include="GestorPrestamo.cpp">
-      <Filter>Source Files\Control</Filter>
-    </ClCompile>
     <ClCompile Include="GestorArchivos.cpp">
       <Filter>Source Files\Control</Filter>
     </ClCompile>
@@ -142,6 +136,15 @@
     </ClCompile>
     <ClCompile Include="Controladora.cpp">
       <Filter>Source Files\Control</Filter>
+    </ClCompile>
+    <ClCompile Include="Prestamo.cpp">
+      <Filter>Source Files\otros</Filter>
+    </ClCompile>
+    <ClCompile Include="Usuario.cpp">
+      <Filter>Source Files\otros</Filter>
+    </ClCompile>
+    <ClCompile Include="GestorPrestamo.cpp">
+      <Filter>Source Files\otros</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

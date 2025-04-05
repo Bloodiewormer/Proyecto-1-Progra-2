@@ -88,6 +88,30 @@ public:
 		}
 	}
 
+	void remove(unsigned int index) {
+		if (first == nullptr) {
+			return;
+		}
+		if (index >= length) {
+			throw IndexOutOfBoundsException("Index out of bounds");
+		}
+		if (index == 0) {
+			Nodo<T>* aux = first;
+			first = first->getNext();
+			delete aux;
+			length--;
+			return;
+		}
+		Nodo<T>* aux = first;
+		for (unsigned int idx = 0; idx < index - 1; idx++) {
+			aux = aux->getNext();
+		}
+		Nodo<T>* aux2 = aux->getNext();
+		aux->setNext(aux2->getNext());
+		delete aux2;
+		length--;
+	}
+
 	int getLength() {
 		return length;
 	}
