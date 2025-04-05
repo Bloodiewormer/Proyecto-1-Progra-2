@@ -7,13 +7,15 @@
 class Biblioteca{
 private:
 	Lista<Material*> listaMateriales;
-	Lista<Usuario*> listaUsuarios;
+	Lista<Usuario> listaUsuarios;
 	GestorPrestamo gestorPrestamos;
 public:
 	Biblioteca();
 	~Biblioteca();
 	void agregarMaterial(Material* material);
+	bool comprobarExistenciaUsuario(std::string ID);
 	void agregarUsuario(Usuario* usuario);
+	void mostrarUsuarios();
 
 
 

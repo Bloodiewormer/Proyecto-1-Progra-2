@@ -15,5 +15,8 @@ public:
 	bool getEstado() const;
 	void setEstado(bool estado);
 	std::string toString() const;
+
+	//sobrecarga de operador
+	friend std::ostream& operator<<(std::ostream& os, const Usuario& usuario);	
 };
 

@@ -32,21 +32,19 @@ public:
 	}
 
 	void addBegin(T* data) {
+		Nodo<T>* aux = new Nodo<T>(data);
 		if (data == nullptr) {
 			throw InvalidInputException("Data cannot be null");
 		}
-		if (isEmpty()) {
-			first = new Nodo<T>(data);
+		if (!isEmpty()) {
+			aux->setNext(first);
 			length++;
-		
 		}
-		else if (contains(data)) {
-			throw InvalidInputException("Data already exists in the list");
+		else
+		{
+			first = aux;
+			length++;
 		}
-		Nodo<T>* aux = new Nodo<T>(data);
-		aux->setNext(first);
-		first = aux;
-		length++;
 	}
 
 
@@ -56,12 +54,12 @@ public:
 			throw IndexOutOfBoundsException("Index out of bounds");
 		}
 		if (index == 0) {
-			return first->getData();
+			return aux->getData(); 
 		}
-		for (unsigned int idx = 0; idx < index; ++idx) {
+		for (unsigned int idx = 0; idx < index; idx++) {
 			aux = aux->getNext();
 		}
-		return aux->getNext()->getData();
+		return aux->getData();
 	}
 
 
@@ -104,15 +102,5 @@ public:
 		return false;
 	}
 
-
-	void show() const {
-		Nodo<T>* aux = first;
-		while (aux != nullptr) {
-			if (aux->getData()) {
-				std::cout << aux->getData()->toString() << std::endl; // aqui se asume que el objeto tiene un metodo toString()
-		}
-		aux = aux->getNext();
-		}
-	}
 };
 

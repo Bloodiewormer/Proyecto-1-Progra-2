@@ -14,60 +14,55 @@ Controladora::~Controladora(){
 }
 
 void Controladora::iniciar(){
-	try {
+
+
 		interfaz->bannerBienvenida();
 		system("pause");
+		interfaz->DatosPrueba();
 		MenuPrincipal();
-	}
-	catch (const std::exception& e) {
-		std::cerr << "Error: " << e.what() << std::endl;
-	}
-	catch (...) {
-		std::cerr << "Error desconocido" << std::endl;
-	}
 
 }
 
 void Controladora::datosPrueba()
 {
-	interfaz->DatosPrueba();
-	// Agregar materiales de prueba
-	Libro* libro = interfaz->crearLibro();
-	biblioteca->agregarMaterial(libro);
-	ArticuloDigital* articuloDigital = interfaz->crearArticuloDigital();
-	biblioteca->agregarMaterial(articuloDigital);
-	ArticuloFisico* articuloFisico = interfaz->crearArticuloFisico();
-	biblioteca->agregarMaterial(articuloFisico);
-	VideoFisico* videoFisico = interfaz->crearVideoFisico();
-	biblioteca->agregarMaterial(videoFisico);
-	VideoDigital* videoDigital = interfaz->crearVideoDigital();
-	biblioteca->agregarMaterial(videoDigital);
-	Revista* revista = interfaz->crearRevista();
-	biblioteca->agregarMaterial(revista);
 	system("pause");
 }
 
 void Controladora::MenuPrincipal(){
 	int opcion;
 	do {
+		try{
 		system("cls");
 		opcion = interfaz->mostrarMenuPrincipal();
 		switch (opcion) {
+		case 0:
+			if (interfaz->ConfirmarSalida() == true) {
+				opcion = -1;
+				interfaz->msj("Saliendo del programa...");
+			}
+			else {
+				interfaz->msj("Regresando al menu principal...");
+				system("pause");
+			}
+			break;
 		case 1:
 			// Agregar material
 			MenuAgregarMaterial();
 			break;
 		case 2:
 			// Agregar usuario
-			interfaz->crearUsuario();
 			biblioteca->agregarUsuario(interfaz->crearUsuario());
 			interfaz->msj("Usuario agregado correctamente");
 			break;
 		case 5:
 			// Mostrar materiales
+
 			break;
 		case 6:
 			// Mostrar usuarios
+			biblioteca->mostrarUsuarios();
+			system("pause");
+
 			break;
 		case 7:
 			if (interfaz->ConfirmarSalida()) {
@@ -84,7 +79,15 @@ void Controladora::MenuPrincipal(){
 			break;
 		}
 		system("cls");
-	} while (opcion != 7);
+		}
+		catch (const std::exception& e) {
+			std::cerr << "Error: " << e.what() << std::endl;
+			system("pause");
+		}
+		catch (...) {
+			std::cerr << "Error desconocido" << std::endl;
+		}
+	} while (opcion != -1);
 
 
 }

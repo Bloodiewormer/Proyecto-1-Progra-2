@@ -33,7 +33,7 @@ int IntefazUsuario::mostrarMenuPrincipal()
 	std::cout << "2. Agregar Usuario" << std::endl;
 	std::cout << "5. Mostrar Materiales" << std::endl;
 	std::cout << "6. Mostrar Usuarios" << std::endl;
-	std::cout << "7. Salir" << std::endl;
+	std::cout << "0. Salir" << std::endl;
 	std::cout << "Seleccione una opcion: ";
 	std::cin >> opcion;
 	return opcion;
@@ -50,7 +50,6 @@ Usuario* IntefazUsuario::crearUsuario()
 	std::string cedula;
 	std::string nombre;
 	std::string apellido;
-	bool estado;
 	std::cout << "Ingrese la cedula del usuario: ";
 	std::cin >> cedula;
 	std::cout << "Ingrese el nombre del usuario: ";
@@ -151,7 +150,7 @@ bool IntefazUsuario::ConfirmarSalida()
 void IntefazUsuario::msj(std::string mensaje)
 {
 	system("cls");
-	size_t mensajeSize = mensaje.size();
+	size_t mensajeSize = mensaje.size(); //size_t es un tipo de dato que representa el tamaño de un objeto en bytes
 	//need to ajust the size of the message to fit the box
 	std::cout << "=====================================\n";
 	if (mensajeSize < 30) {

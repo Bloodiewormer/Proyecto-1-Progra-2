@@ -1,6 +1,12 @@
 #include "Biblioteca.h"
 
-Biblioteca::Biblioteca() : listaMateriales(), listaUsuarios(), gestorPrestamos() {
+Biblioteca::Biblioteca()
+{
+
+	listaMateriales = Lista<Material*>();
+	listaUsuarios = Lista<Usuario>();
+	gestorPrestamos = GestorPrestamo();
+
 
 }
 
@@ -28,21 +34,49 @@ void Biblioteca::agregarMaterial(Material* material)
 	}
 }
 
-void Biblioteca::agregarUsuario(Usuario* usuario)
-{
+bool Biblioteca::comprobarExistenciaUsuario(std::string ID) {
 	try {
-		if (usuario == nullptr) {
-			throw InvalidInputException("Usuario cannot be null");
+		if (ID.empty()) {
+			throw InvalidInputException("ID cannot be empty");
 		}
-		if (listaUsuarios.contains(&usuario)) {
-			throw InvalidInputException("Usuario already exists in the list");
+		for (int i = 0; i < listaUsuarios.getLength(); i++) {
+			if (listaUsuarios.get(i)->getCedula() == ID) {
+				return true;
+			}
 		}
-		listaUsuarios.addBegin(&usuario); // Pass the address of the usuario pointer
+		return false;
 	}
 	catch (const std::exception& e) {
 		std::cerr << "Error: " << e.what() << std::endl;
+		return false;
 	}
 	catch (...) {
 		std::cerr << "Unknown error" << std::endl;
+		return false;
+	}
+}
+
+void Biblioteca::agregarUsuario(Usuario* usuario)
+{
+		if (usuario == nullptr) {
+			throw InvalidInputException("Usuario cannot be null");
+		}
+		if (comprobarExistenciaUsuario(usuario->getCedula())) {
+			throw InvalidInputException("Usuario already exists in the list");
+		}
+		listaUsuarios.addBegin(usuario); // Pass the address of the usuario pointer
+}
+
+void Biblioteca::mostrarUsuarios()
+{
+	if (listaUsuarios.isEmpty()) {
+		std::cout << "No hay usuarios registrados." << std::endl;
+	}
+	else {
+		std::cout << "Lista de Usuarios:" << std::endl;
+		for (int i = 0; i < listaUsuarios.getLength(); i++) {
+			Usuario* usuario = listaUsuarios.get(i);
+			std::cout << usuario->toString() << std::endl;
+		}
 	}
 }

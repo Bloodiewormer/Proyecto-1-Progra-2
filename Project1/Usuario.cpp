@@ -34,3 +34,16 @@ std::string Usuario::toString() const{
 	oss << "====================" << std::endl;
 	return oss.str();
 }
+
+std::ostream& operator<<(std::ostream& os, const Usuario& usuario)
+{
+	os << "====================" << std::endl;
+	os << "Usuario: " << std::endl;
+	os << "Cedula: " << usuario.getCedula() << std::endl;
+	os << "Nombre: " << usuario.nombre << std::endl;
+	os << "Apellido: " << usuario.apellido << std::endl;
+	os << "Estado: " << (usuario.estado ? "Activo" : "Inactivo") << std::endl;
+	os << "====================" << std::endl;
+	return os;
+	
+}
