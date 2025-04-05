@@ -38,6 +38,7 @@ public:
 		}
 		if (!isEmpty()) {
 			aux->setNext(first);
+			first = aux;
 			length++;
 		}
 		else
