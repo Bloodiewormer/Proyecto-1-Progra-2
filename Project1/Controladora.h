@@ -2,17 +2,20 @@
 #include "IntefazUsuario.h"
 #include "Biblioteca.h"
 #include "GestorArchivos.h"
+#include "CustomExeception.h"
 
 class Controladora{
 private:
 	Biblioteca* biblioteca;
 	GestorArchivos* gestorArchivos;
 	IntefazUsuario* interfaz;
-	// maybe need a exeption handler here
+
 public:
 	Controladora();
-	~Controladora();
+	virtual ~Controladora();
 	void iniciar();
-	void mostrarMenuPrincipal();
+	void datosPrueba();
+	void MenuPrincipal();
+	void MenuAgregarMaterial();
 };
 

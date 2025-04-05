@@ -32,27 +32,23 @@ public:
 	}
 
 	void addBegin(T* data) {
+		if (data == nullptr) {
+			throw InvalidInputException("Data cannot be null");
+		}
+		if (isEmpty()) {
+			first = new Nodo<T>(data);
+			length++;
+		
+		}
+		else if (contains(data)) {
+			throw InvalidInputException("Data already exists in the list");
+		}
 		Nodo<T>* aux = new Nodo<T>(data);
 		aux->setNext(first);
 		first = aux;
 		length++;
 	}
 
-	void addEnd(T* data) {
-		if (isEmpty()) {
-			first = new Nodo<T>(data);
-			length++;
-			return;
-		}
-		else {
-			Nodo<T>* aux = first;
-			while (aux->getNext() != nullptr) {
-				aux = aux->getNext();
-			}
-			aux->setNext(new Nodo<T>(data));
-			length++;
-		}
-	}
 
 	T* get(unsigned int index) const {
 		Nodo<T>* aux = first;
@@ -97,7 +93,7 @@ public:
 		return length;
 	}
 
-	bool contains(T data) {
+	bool contains(T* data) {
 		Nodo<T>* aux = first;
 		while (aux != nullptr) {
 			if (aux->getData() == data) {
@@ -109,14 +105,14 @@ public:
 	}
 
 
-	//void show() const {
-	//	Nodo<T>* aux = first;
-	//	while (aux != nullptr) {
-	//		if (aux->getData()) {
-	//			std::cout << aux->getData()->toString() << std::endl; // aqui se asume que el objeto tiene un metodo toString()
-	//		}
-	//		aux = aux->getNext();
-	//	}
-	//}
+	void show() const {
+		Nodo<T>* aux = first;
+		while (aux != nullptr) {
+			if (aux->getData()) {
+				std::cout << aux->getData()->toString() << std::endl; // aqui se asume que el objeto tiene un metodo toString()
+		}
+		aux = aux->getNext();
+		}
+	}
 };
 

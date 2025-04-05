@@ -12,6 +12,9 @@ private:
 public:
 	Biblioteca();
 	~Biblioteca();
+	void agregarMaterial(Material* material);
+	void agregarUsuario(Usuario* usuario);
+
 
 
 	//void guardarDatos(); // Guardar datos en un archivo

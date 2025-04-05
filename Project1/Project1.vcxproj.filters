@@ -13,114 +13,135 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
-    <Filter Include="Source Files\MaterialesConcretos">
+    <Filter Include="Header Files\Control">
+      <UniqueIdentifier>{ef137219-6c81-4c83-a272-bf5ba34c0f3c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\otros">
+      <UniqueIdentifier>{567363e6-e834-48c7-9461-321d74754a09}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Materiales">
+      <UniqueIdentifier>{17ef7fcd-6e77-4898-9957-969b8bc2759d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Materiales">
       <UniqueIdentifier>{16c11be2-1a5f-458b-8b41-c76844e07428}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Header Files\MaterialesConcretos">
-      <UniqueIdentifier>{17ef7fcd-6e77-4898-9957-969b8bc2759d}</UniqueIdentifier>
+    <Filter Include="Source Files\Control">
+      <UniqueIdentifier>{ad57c149-e24f-4aa3-978e-965bc326354e}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Controladora.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Usuario.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Prestamo.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="GestorPrestamo.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Nodo.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Biblioteca.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="IntefazUsuario.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Material.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="GestorArchivos.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="MaterialDigital.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="MaterialFisico.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="CustomExeception.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Revista.h">
-      <Filter>Header Files\MaterialesConcretos</Filter>
+      <Filter>Header Files\Materiales</Filter>
     </ClInclude>
     <ClInclude Include="Libro.h">
-      <Filter>Header Files\MaterialesConcretos</Filter>
+      <Filter>Header Files\Materiales</Filter>
     </ClInclude>
     <ClInclude Include="VideoDigital.h">
-      <Filter>Header Files\MaterialesConcretos</Filter>
+      <Filter>Header Files\Materiales</Filter>
     </ClInclude>
     <ClInclude Include="VideoFisico.h">
-      <Filter>Header Files\MaterialesConcretos</Filter>
+      <Filter>Header Files\Materiales</Filter>
+    </ClInclude>
+    <ClInclude Include="ArticuloDigital.h">
+      <Filter>Header Files\Materiales</Filter>
+    </ClInclude>
+    <ClInclude Include="ArticuloFisico.h">
+      <Filter>Header Files\Materiales</Filter>
+    </ClInclude>
+    <ClInclude Include="Nodo.h">
+      <Filter>Header Files\Control</Filter>
+    </ClInclude>
+    <ClInclude Include="IntefazUsuario.h">
+      <Filter>Header Files\Control</Filter>
+    </ClInclude>
+    <ClInclude Include="Controladora.h">
+      <Filter>Header Files\Control</Filter>
+    </ClInclude>
+    <ClInclude Include="GestorArchivos.h">
+      <Filter>Header Files\Control</Filter>
+    </ClInclude>
+    <ClInclude Include="Usuario.h">
+      <Filter>Header Files\otros</Filter>
+    </ClInclude>
+    <ClInclude Include="Biblioteca.h">
+      <Filter>Header Files\otros</Filter>
+    </ClInclude>
+    <ClInclude Include="CustomExeception.h">
+      <Filter>Header Files\Control</Filter>
+    </ClInclude>
+    <ClInclude Include="GestorPrestamo.h">
+      <Filter>Header Files\otros</Filter>
+    </ClInclude>
+    <ClInclude Include="Material.h">
+      <Filter>Header Files\Materiales</Filter>
+    </ClInclude>
+    <ClInclude Include="MaterialDigital.h">
+      <Filter>Header Files\Materiales</Filter>
+    </ClInclude>
+    <ClInclude Include="MaterialFisico.h">
+      <Filter>Header Files\Materiales</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Controladora.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Usuario.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Prestamo.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="GestorPrestamo.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Lista.h">
-      <Filter>Header Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Biblioteca.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="IntefazUsuario.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Material.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="main.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="GestorArchivos.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="MaterialDigital.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="MaterialFisico.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="CustomExeception.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Libro.cpp">
-      <Filter>Source Files\MaterialesConcretos</Filter>
+      <Filter>Source Files\Materiales</Filter>
     </ClCompile>
     <ClCompile Include="VideoFisico.cpp">
-      <Filter>Source Files\MaterialesConcretos</Filter>
+      <Filter>Source Files\Materiales</Filter>
     </ClCompile>
     <ClCompile Include="VideoDigital.cpp">
-      <Filter>Source Files\MaterialesConcretos</Filter>
+      <Filter>Source Files\Materiales</Filter>
     </ClCompile>
     <ClCompile Include="Revista.cpp">
-      <Filter>Source Files\MaterialesConcretos</Filter>
+      <Filter>Source Files\Materiales</Filter>
+    </ClCompile>
+    <ClCompile Include="ArticuloDigital.cpp">
+      <Filter>Source Files\Materiales</Filter>
+    </ClCompile>
+    <ClCompile Include="ArticuloFisico.cpp">
+      <Filter>Source Files\Materiales</Filter>
+    </ClCompile>
+    <ClCompile Include="Lista.h">
+      <Filter>Header Files\Control</Filter>
+    </ClCompile>
+    <ClCompile Include="MaterialDigital.cpp">
+      <Filter>Source Files\Materiales</Filter>
+    </ClCompile>
+    <ClCompile Include="MaterialFisico.cpp">
+      <Filter>Source Files\Materiales</Filter>
+    </ClCompile>
+    <ClCompile Include="Material.cpp">
+      <Filter>Source Files\Materiales</Filter>
+    </ClCompile>
+    <ClCompile Include="Biblioteca.cpp">
+      <Filter>Source Files\Control</Filter>
+    </ClCompile>
+    <ClCompile Include="main.cpp">
+      <Filter>Source Files\Control</Filter>
+    </ClCompile>
+    <ClCompile Include="IntefazUsuario.cpp">
+      <Filter>Source Files\Control</Filter>
+    </ClCompile>
+    <ClCompile Include="GestorPrestamo.cpp">
+      <Filter>Source Files\Control</Filter>
+    </ClCompile>
+    <ClCompile Include="GestorArchivos.cpp">
+      <Filter>Source Files\Control</Filter>
+    </ClCompile>
+    <ClCompile Include="CustomExeception.cpp">
+      <Filter>Source Files\Control</Filter>
+    </ClCompile>
+    <ClCompile Include="Controladora.cpp">
+      <Filter>Source Files\Control</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

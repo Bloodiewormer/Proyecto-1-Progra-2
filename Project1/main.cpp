@@ -1,9 +1,16 @@
 #include <iostream>
+#include "Controladora.h"
+
+
 
 int main(){
 	system("color F0");
+	Controladora controladora;
+	controladora.iniciar();
 
-	std::cout << "Hello, World!" << std::endl;
+
+
+
 
 	return 0;
 }

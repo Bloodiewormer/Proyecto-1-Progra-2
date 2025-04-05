@@ -24,4 +24,8 @@ public:
 	}
 private:
 	std::string msg_;
+
 };
+
+// Custom exception 
+
