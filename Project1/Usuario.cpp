@@ -35,6 +35,13 @@ std::string Usuario::toString() const{
 	return oss.str();
 }
 
+std::string Usuario::toStringCSV() const
+{
+	std::ostringstream oss;
+	oss << cedula << ";" << nombre << ";" << apellido << ";" << (estado ? "Activo" : "Inactivo") << std::endl;
+	return oss.str();
+}
+
 void Usuario::setCedula(std::string cedula)
 {
 	this->cedula = cedula;

@@ -8,18 +8,21 @@
 #include "VideoFisico.h"
 #include "videoDigital.h"
 #include "revista.h"
+#include "CustomExeception.h"
 
 
 
 class IntefazUsuario{
 public:
-
+	//menu principal
 	static void bannerBienvenida();
 	static void DatosPrueba();
 	static int mostrarMenuPrincipal();
+	//submenus de usuarios
 	static int mostrarSubMenuUsuario();
 	static int mostrarSubMenuModificarUsuario();
 	static Usuario* crearUsuario();
+	//submenus de materiales
 	static int tipoMaterial();
 	static int tipoMaterialDigital();
 	static int tipoMaterialFisico();
@@ -29,7 +32,11 @@ public:
 	static VideoFisico* crearVideoFisico();
 	static VideoDigital* crearVideoDigital();
 	static Revista* crearRevista();
+
+	//metodos de utilidad
+	static int inputInt();
 	static bool ConfirmarSalida();
+	static bool agregarOtro();
 	static std::string pedirDatos(std::string dato, bool modificar);
 	static bool pedirDatosBool(std::string dato);
 	static void msj(std::string mensaje);

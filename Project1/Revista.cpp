@@ -3,10 +3,14 @@
 
 
 
-Revista::Revista(std::string identificador, std::string titulo, Lista<std::string> palabrasClave, Lista<std::string> autores, std::string cantidad, std::string tipoMaterial, std::string estado, std::string volumen, std::string numero)
-	:MaterialFisico(identificador, titulo, palabrasClave, autores, cantidad, tipoMaterial, estado), volumen(volumen), numero(numero)
-{
+
+
+
+Revista::Revista(std::string identificador, std::string titulo, Lista<std::string> palabrasClave, Lista<std::string> autores, std::string tipoMaterial, std::string estado, int dias, std::string volumen, std::string numero)
+	:MaterialFisico(identificador, titulo, palabrasClave, autores, tipoMaterial, estado, dias), volumen(volumen), numero(numero) {
 	// Constructor
+	this->volumen = volumen;
+	this->numero = numero;
 }
 
 Revista::~Revista(){
@@ -18,7 +22,6 @@ std::string Revista::toString() const{
 	oss << "====================" << std::endl;
 	oss << "Revista: " << std::endl;
 	oss << "Identificador: " << identificador << std::endl;
-	oss << "Cantidad: " << cantidad << std::endl;
 	oss << "Titulo: " << titulo << std::endl;
 	for (int i = 0; i < autores.getLength(); i++)
 	{
@@ -29,7 +32,7 @@ std::string Revista::toString() const{
 	{
 		oss << "Palabra Clave: " << palabrasClave.get(i) << std::endl;
 	}
-	oss << "Tipo de Material: " << tipoMaterial << std::endl;
+	oss << "Tipo de Material: " << tipo << std::endl;
 	oss << "Estado: " << estado << std::endl;
 	oss << "Volumen: " << volumen << std::endl;
 	oss << "Numero: " << numero << std::endl;

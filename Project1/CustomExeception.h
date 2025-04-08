@@ -27,5 +27,17 @@ private:
 
 };
 
+// Custom exception class for error in file operations
+class FileOperationException : public std::exception {
+public:
+	FileOperationException(const std::string& message) : msg_(message) {}
+	virtual const char* what() const noexcept override {
+		return msg_.c_str();
+	}
+private:
+	std::string msg_;
+};
+
+
 // Custom exception 
 

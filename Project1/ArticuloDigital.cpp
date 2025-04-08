@@ -1,9 +1,14 @@
 #include "ArticuloDigital.h"
 
-ArticuloDigital::ArticuloDigital(std::string identificador, std::string titulo, Lista<std::string> palabrasClave, Lista<std::string> autores, std::string tipoArchivo, std::string tamano, std::string tipoArticulo)
-	: MaterialDigital(identificador, titulo, palabrasClave, autores, tipoArchivo, tamano), TipoArticulo(tipoArticulo)
+
+
+
+
+ArticuloDigital::ArticuloDigital(std::string identificador, std::string titulo, Lista<std::string> palabrasClave, Lista<std::string> autores, std::string tipoArchivo, double tamano, int dias, std::string TipoArticulo)
+	:MaterialDigital(identificador, titulo, palabrasClave, autores, tipoArchivo, tamano, dias), TipoArticulo(TipoArticulo) 
 {
 	// Constructor
+	this->TipoArticulo = TipoArticulo;
 }
 
 ArticuloDigital::~ArticuloDigital()
@@ -28,7 +33,7 @@ std::string ArticuloDigital::toString() const
 	{
 		oss << "Palabra Clave: " << palabrasClave.get(i) << std::endl;
 	}
-	oss << "Tipo Archivo: " << tipoArchivo << std::endl;
+	oss << "Tipo Archivo: " << tipo << std::endl;
 	oss << "Tamano: " << tamano << std::endl;
 	oss << "====================" << std::endl;
 	return oss.str();

@@ -1,9 +1,15 @@
 #include "VideoDigital.h"
 
-VideoDigital::VideoDigital(std::string identificador, std::string titulo, Lista<std::string> palabrasClave, Lista<std::string> autores, std::string tipoArchivo, std::string tamano, std::string duracion, std::string resolucion)
-	: MaterialDigital(identificador, titulo, palabrasClave, autores, tipoArchivo, tamano), duracion(duracion), resolucion(resolucion)
+
+
+
+
+VideoDigital::VideoDigital(std::string identificador, std::string titulo, Lista<std::string> palabrasClave, Lista<std::string> autores, std::string tipoArchivo, double tamano, int dias, std::string duracion, std::string resolucion)
+	:MaterialDigital(identificador, titulo, palabrasClave, autores, tipoArchivo, tamano, dias), duracion(duracion), resolucion(resolucion)
 {
 	// Constructor
+	this->duracion = duracion;
+	this->resolucion = resolucion;
 }
 
 VideoDigital::~VideoDigital()
@@ -28,7 +34,7 @@ std::string VideoDigital::toString() const
 	{
 		oss << "Palabra Clave: " << palabrasClave.get(i) << std::endl;
 	}
-	oss << "Tipo de Archivo: " << tipoArchivo << std::endl;
+	oss << "Tipo de Archivo: " << tipo << std::endl;
 	oss << "Tamano: " << tamano << std::endl;
 	oss << "Duracion: " << duracion << std::endl;
 	oss << "Resolucion: " << resolucion << std::endl;

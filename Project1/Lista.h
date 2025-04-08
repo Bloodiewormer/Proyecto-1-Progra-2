@@ -19,7 +19,8 @@ public:
 		while (first != nullptr) {
 			Nodo<T>* aux = first;
 			first = first->getNext();
-			delete aux;
+			delete aux; 
+			aux = nullptr;
 		}
 	}
 
@@ -49,7 +50,7 @@ public:
 	}
 
 
-	T* get(unsigned int index) const {
+	T* get(int index) const {
 		Nodo<T>* aux = first;
 		if (index >= length) {
 			throw IndexOutOfBoundsException("Index out of bounds");
@@ -127,5 +128,35 @@ public:
 		return false;
 	}
 
+
+	std::string CSV() {
+		std::string csv = "";
+		Nodo<T>* aux = first;
+		while (aux != nullptr) {
+			csv += aux->getData()->toStringCSV() + "\n";
+			aux = aux->getNext();
+		}
+		return csv;
+	}
+	
+
+
+
+
+
+
 };
+
+//funny
+// with this  you can acces a tostring method in string XD
+
+//class string :public std::string {
+//public:
+//	string(std::string str) : std::string(str) {}
+//	string() : std::string() {}
+//	~string() {}
+//	std::string toString() {
+//		return *this;
+//	}
+//};
 

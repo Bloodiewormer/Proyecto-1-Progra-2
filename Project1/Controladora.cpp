@@ -28,6 +28,16 @@ void Controladora::datosPrueba()
 	system("pause");
 }
 
+void Controladora::GuardarDatos()
+{
+	
+	//Lista<Usuario> usuarios = biblioteca->getListaUsuarios();
+	//gestorArchivos->guardarUsuarios(usuarios, "usuarios.csv");
+	//gestorArchivos->cargarDatos(biblioteca);
+	//interfaz->msj("Datos cargados correctamente");
+	//system("pause");
+}
+
 void Controladora::MenuPrincipal(){
 	int opcion;
 	do {
@@ -54,7 +64,7 @@ void Controladora::MenuPrincipal(){
 			break;
 		case 5:
 			// Mostrar materiales
-
+			GuardarDatos();
 			break;
 		case 6:
 			// Mostrar usuarios

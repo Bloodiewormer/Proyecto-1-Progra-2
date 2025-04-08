@@ -1,9 +1,14 @@
 #include "ArticuloFisico.h"
 
-ArticuloFisico::ArticuloFisico(std::string identificador, std::string titulo, Lista<std::string> palabrasClave, Lista<std::string> autores, std::string cantidad, std::string tipoMaterial, std::string estado, std::string tipoArticulo)
-	:MaterialFisico(identificador, titulo, palabrasClave, autores, cantidad, tipoMaterial, estado), tipoArticulo(tipoArticulo)
+
+
+
+
+ArticuloFisico::ArticuloFisico(std::string identificador, std::string titulo, Lista<std::string> palabrasClave, Lista<std::string> autores, std::string tipoMaterial, std::string estado, int dias, std::string tipoArticulo)
+	:MaterialFisico(identificador, titulo, palabrasClave, autores, tipoMaterial, estado, dias), tipoArticulo(tipoArticulo)
 {
 	// Constructor
+	this->tipoArticulo = tipoArticulo;
 }
 
 ArticuloFisico::~ArticuloFisico()
@@ -18,7 +23,6 @@ std::string ArticuloFisico::toString() const
 	oss << "Articulo Fisico: " << std::endl;
 	oss << "Tipo Articulo: " << tipoArticulo << std::endl;
 	oss << "Identificador: " << identificador << std::endl;
-	oss << "Cantidad: " << cantidad << std::endl;
 	oss << "Titulo: " << titulo << std::endl;
 	for (int i = 0; i < autores.getLength(); i++)
 	{
@@ -29,7 +33,7 @@ std::string ArticuloFisico::toString() const
 	{
 		oss << "Palabra Clave: " << palabrasClave.get(i) << std::endl;
 	}
-	oss << "Tipo de Material: " << tipoMaterial << std::endl;
+	oss << "Tipo de Material: " << tipo << std::endl;
 	oss << "Estado: " << estado << std::endl;
 	oss << "====================" << std::endl;
 	return oss.str();

@@ -15,8 +15,13 @@ public:
 	virtual ~Controladora();
 	void iniciar();
 	void datosPrueba();
+	void GuardarDatos();
+	//void CargarDatos();
 	void MenuPrincipal();
 	void MenusubMenuUsuario();
 	void MenuAgregarMaterial();
+
+
+
 };
 

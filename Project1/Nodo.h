@@ -19,6 +19,7 @@ public:
 	~Nodo() {
 		if (data != nullptr) {
 			delete data;
+			data = nullptr;
 		}
 	}
 	T* getData() {

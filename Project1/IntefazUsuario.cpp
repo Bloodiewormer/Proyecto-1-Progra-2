@@ -32,6 +32,7 @@ int IntefazUsuario::mostrarMenuPrincipal()
 	std::cout << "1. Menu Materiales" << std::endl;
 	std::cout << "2. Menu Usuarios" << std::endl;
 	// std::cout << "3. Menu Prestamos" << std::endl;
+	std::cout << "5. Guardar" << std::endl;
 	std::cout << "6. Reportes" << std::endl;
 	std::cout << "0. Salir" << std::endl;
 	std::cout << "Seleccione una opcion: ";
@@ -127,37 +128,354 @@ int IntefazUsuario::tipoMaterialFisico()
 
 Libro* IntefazUsuario::crearLibro()
 {
+	//Libro(std::string identificador, std::string titulo, Lista<std::string> palabrasClave, Lista<std::string> autores, std::string tipoMaterial, std::string estado, int dias, std::string isbn, std::string editorial);
+	//ask for the data
+
 	system("cls");
-	return nullptr;
+	std::string identificador;
+	std::string titulo;
+	Lista<std::string> palabrasClave;
+	Lista<std::string> autores;
+	std::string tipoMaterial;
+	std::string estado;
+	std::string isbn;
+	std::string editorial;
+	std::cout << "Ingrese el identificador del libro: ";
+	std::cin >> identificador;
+	std::cout << "Ingrese el titulo del libro: ";
+	std::cin >> titulo;
+	//lista de palabras clave
+	std::cout << "Ingrese las palabras clave del libro: ";
+	std::string palabra;
+	while (true) {
+		std::cout << "Ingrese una palabra clave: ";
+		std::cin >> palabra;
+		palabrasClave.addBegin(new std::string(palabra));
+		std::cout << "Desea agregar otra palabra clave? (s/n): ";
+		std::string opcion;
+		std::cin >> opcion;
+		if (opcion == "n" || opcion == "N") {
+			break;
+		}
+	}
+
+	std::cout << "Ingrese los autores del libro: ";
+	std::string autor;
+	while (true) {
+		std::cout << "Ingrese un autor: ";
+		std::cin >> autor;
+		autores.addBegin(new std::string(autor));
+		std::cout << "Desea agregar otro autor? (s/n): ";
+		std::string opcion;
+		std::cin >> opcion;
+		if (opcion == "n" || opcion == "N") {
+			break;
+		}
+	}
+	std::cout << "Ingrese el tipo de material del libro: ";
+	std::cin >> tipoMaterial;
+	std::cout << "Ingrese el estado del libro: ";
+	std::cin >> estado;
+	std::cout << "Ingrese el isbn del libro: ";
+	std::cin >> isbn;
+	std::cout << "Ingrese la editorial del libro: ";
+	std::cin >> editorial;
+	Libro* libro = new Libro(identificador, titulo, palabrasClave, autores, tipoMaterial, estado, 0, isbn, editorial);
+	return libro;
 }
 ArticuloDigital* IntefazUsuario::crearArticuloDigital()
 {
+//ArticuloDigital(std::string identificador, std::string titulo, Lista<std::string> palabrasClave, Lista<std::string> autores, std::string tipoArchivo, double tamano, int dias, std::string TipoArticulo);
+	
 	system("cls");
-	return nullptr;
+	std::string identificador;
+	std::string titulo;
+	Lista<std::string> palabrasClave;
+	Lista<std::string> autores;
+	std::string tipoArchivo;
+	double tamano;
+	int dias;
+	std::string TipoArticulo;
+	std::cout << "Ingrese el identificador del articulo: ";
+	std::cin >> identificador;
+	std::cout << "Ingrese el titulo del articulo: ";
+	std::cin >> titulo;
+	//lista de palabras clave
+	std::cout << "Ingrese las palabras clave del articulo: ";
+	std::string palabra;
+	while (true) {
+		std::cout << "Ingrese una palabra clave: ";
+		std::cin >> palabra;
+		palabrasClave.addBegin(new std::string(palabra));
+		std::cout << "Desea agregar otra palabra clave? (s/n): ";
+		std::string opcion;
+		std::cin >> opcion;
+		if (opcion == "n" || opcion == "N") {
+			break;
+		}
+	}
+	std::cout << "Ingrese los autores del articulo: ";
+	std::string autor;
+	while (true) {
+		std::cout << "Ingrese un autor: ";
+		std::cin >> autor;
+		autores.addBegin(new std::string(autor));
+		std::cout << "Desea agregar otro autor? (s/n): ";
+		std::string opcion;
+		std::cin >> opcion;
+		if (opcion == "n" || opcion == "N") {
+			break;
+		}
+	}
+
+	std::cout << "Ingrese el tipo de archivo del articulo: ";
+	std::cin >> tipoArchivo;
+	std::cout << "Ingrese el tamano del articulo: ";
+	std::cin >> tamano;
+	std::cout << "Ingrese los dias de prestamo del articulo: ";
+	std::cin >> dias;
+	std::cout << "Ingrese el tipo de articulo: ";
+	std::cin >> TipoArticulo;
+	return new ArticuloDigital(identificador, titulo, palabrasClave, autores, tipoArchivo, tamano, dias, TipoArticulo);
 }
 
 ArticuloFisico* IntefazUsuario::crearArticuloFisico()
 {
+	//ArticuloFisico(std::string identificador, std::string titulo, Lista<std::string> palabrasClave, Lista<std::string> autores, std::string tipoMaterial, std::string estado, int dias, std::string tipoArticulo);
+
 	system("cls");
-	return nullptr;
+	std::string identificador;
+	std::string titulo;
+	Lista<std::string> palabrasClave;
+	Lista<std::string> autores;
+	std::string tipoMaterial;
+	std::string estado;
+	std::string tipoArticulo;
+	std::cout << "Ingrese el identificador del articulo: ";
+	std::cin >> identificador;
+	std::cout << "Ingrese el titulo del articulo: ";
+	std::cin >> titulo;
+	//lista de palabras clave
+	std::cout << "Ingrese las palabras clave del articulo: ";
+	std::string palabra;
+	while (true) {
+		std::cout << "Ingrese una palabra clave: ";
+		std::cin >> palabra;
+		palabrasClave.addBegin(new std::string(palabra));
+		std::cout << "Desea agregar otra palabra clave? (s/n): ";
+		std::string opcion;
+		std::cin >> opcion;
+		if (opcion == "n" || opcion == "N") {
+			break;
+		}
+	}
+	std::cout << "Ingrese los autores del articulo: ";
+	std::string autor;
+	while (true) {
+		std::cout << "Ingrese un autor: ";
+		std::cin >> autor;
+		autores.addBegin(new std::string(autor));
+		std::cout << "Desea agregar otro autor? (s/n): ";
+		std::string opcion;
+		std::cin >> opcion;
+		if (opcion == "n" || opcion == "N") {
+			break;
+		}
+	}
+	std::cout << "Ingrese el tipo de material del articulo: ";
+	std::cin >> tipoMaterial;
+	std::cout << "Ingrese el estado del articulo: ";
+	std::cin >> estado;
+	std::cout << "Ingrese el tipo de articulo: ";
+	std::cin >> tipoArticulo;
+	return new ArticuloFisico(identificador, titulo, palabrasClave, autores, tipoMaterial, estado, 0, tipoArticulo);
+
 }
 
 VideoFisico* IntefazUsuario::crearVideoFisico()
 {
+	//VideoFisico(std::string identificador, std::string titulo, Lista<std::string> palabrasClave, Lista<std::string> autores, std::string tipoMaterial, std::string estado, int dias, std::string formato, int duracion, std::string resolucion);
 	system("cls");
-	return nullptr;
+	std::string identificador;
+	std::string titulo;
+	Lista<std::string> palabrasClave;
+	Lista<std::string> autores;
+	std::string tipoMaterial;
+	std::string estado;
+	std::string formato;
+	int duracion;
+	std::string resolucion;
+	std::cout << "Ingrese el identificador del video: ";
+	std::cin >> identificador;
+	std::cout << "Ingrese el titulo del video: ";
+	std::cin >> titulo;
+	//lista de palabras clave
+	std::cout << "Ingrese las palabras clave del video: ";
+	std::string palabra;
+	while (true) {
+		std::cout << "Ingrese una palabra clave: ";
+		std::cin >> palabra;
+		palabrasClave.addBegin(new std::string(palabra));
+		std::cout << "Desea agregar otra palabra clave? (s/n): ";
+		std::string opcion;
+		std::cin >> opcion;
+		if (opcion == "n" || opcion == "N") {
+			break;
+		}
+	}
+	std::cout << "Ingrese los autores del video: ";
+	std::string autor;
+	while (true) {
+		std::cout << "Ingrese un autor: ";
+		std::cin >> autor;
+		autores.addBegin(new std::string(autor));
+		std::cout << "Desea agregar otro autor? (s/n): ";
+		std::string opcion;
+		std::cin >> opcion;
+		if (opcion == "n" || opcion == "N") {
+			break;
+		}
+	}
+	std::cout << "Ingrese el tipo de material del video: ";
+	std::cin >> tipoMaterial;
+	std::cout << "Ingrese el estado del video: ";
+	std::cin >> estado;
+	std::cout << "Ingrese el formato del video: ";
+	std::cin >> formato;
+	std::cout << "Ingrese la duracion del video: ";
+	duracion = inputInt();
+	std::cout << "Ingrese la resolucion del video: ";
+	std::cin >> resolucion;
+	return new VideoFisico(identificador, titulo, palabrasClave, autores, tipoMaterial, estado, 0, formato, duracion, resolucion);
+
+
 }
 
 VideoDigital* IntefazUsuario::crearVideoDigital()
 {
+	//VideoDigital(std::string identificador, std::string titulo, Lista<std::string> palabrasClave, Lista<std::string> autores, std::string tipoArchivo, double tamano, int dias, std::string duracion, std::string resolucion);
+
 	system("cls");
-	return nullptr;
+	std::string identificador;
+	std::string titulo;
+	Lista<std::string> palabrasClave;
+	Lista<std::string> autores;
+	std::string tipoArchivo;
+	double tamano;
+	int dias;
+	std::string duracion;
+	std::string resolucion;
+	std::cout << "Ingrese el identificador del video: ";
+	std::cin >> identificador;
+	std::cout << "Ingrese el titulo del video: ";
+	std::cin >> titulo;
+	//lista de palabras clave
+	std::cout << "Ingrese las palabras clave del video: ";
+	std::string palabra;
+	while (true) {
+		std::cout << "Ingrese una palabra clave: ";
+		std::cin >> palabra;
+		palabrasClave.addBegin(new std::string(palabra));
+		std::cout << "Desea agregar otra palabra clave? (s/n): ";
+		std::string opcion;
+		std::cin >> opcion;
+		if (opcion == "n" || opcion == "N") {
+			break;
+		}
+	}
+	std::cout << "Ingrese los autores del video: ";
+	std::string autor;
+	while (true) {
+		std::cout << "Ingrese un autor: ";
+		std::cin >> autor;
+		autores.addBegin(new std::string(autor));
+		std::cout << "Desea agregar otro autor? (s/n): ";
+		std::string opcion;
+		std::cin >> opcion;
+		if (opcion == "n" || opcion == "N") {
+			break;
+		}
+	}
+	std::cout << "Ingrese el tipo de archivo del video: ";
+	std::cin >> tipoArchivo;
+	std::cout << "Ingrese el tamano del video: ";
+	tamano = inputInt();
+	std::cout << "Ingrese los dias de prestamo del video: ";
+	dias = inputInt();
+	std::cout << "Ingrese la duracion del video: ";
+	std::cin >> duracion;
+	std::cout << "Ingrese la resolucion del video: ";
+	std::cin >> resolucion;
+	return new VideoDigital(identificador, titulo, palabrasClave, autores, tipoArchivo, tamano, dias, duracion, resolucion);
+
 }
 
 Revista* IntefazUsuario::crearRevista()
 {
+	//Revista(std::string identificador, std::string titulo, Lista<std::string> palabrasClave, Lista<std::string> autores, std::string tipoMaterial, std::string estado, int dias, std::string volumen, std::string numero);
+
 	system("cls");
-	return nullptr;
+	std::string identificador;
+	std::string titulo;
+	Lista<std::string> palabrasClave;
+	Lista<std::string> autores;
+	std::string tipoMaterial;
+	std::string estado;
+	std::string volumen;
+	std::string numero;
+	std::cout << "Ingrese el identificador de la revista: ";
+	std::cin >> identificador;
+	std::cout << "Ingrese el titulo de la revista: ";
+	std::cin >> titulo;
+	//lista de palabras clave
+	std::cout << "Ingrese las palabras clave de la revista: ";
+	std::string palabra;
+	while (true) {
+		std::cout << "Ingrese una palabra clave: ";
+		std::cin >> palabra;
+		palabrasClave.addBegin(new std::string(palabra));
+		std::cout << "Desea agregar otra palabra clave? (s/n): ";
+		std::string opcion;
+		std::cin >> opcion;
+		if (opcion == "n" || opcion == "N") {
+			break;
+		}
+	}
+	std::cout << "Ingrese los autores de la revista: ";
+	std::string autor;
+	while (true) {
+		std::cout << "Ingrese un autor: ";
+		std::cin >> autor;
+		autores.addBegin(new std::string(autor));
+		std::cout << "Desea agregar otro autor? (s/n): ";
+		std::string opcion;
+		std::cin >> opcion;
+		if (opcion == "n" || opcion == "N") {
+			break;
+		}
+	}
+	std::cout << "Ingrese el tipo de material de la revista: ";
+	std::cin >> tipoMaterial;
+	std::cout << "Ingrese el estado de la revista: ";
+	std::cin >> estado;
+	std::cout << "Ingrese el volumen de la revista: ";
+	std::cin >> volumen;
+	std::cout << "Ingrese el numero de la revista: ";
+	std::cin >> numero;
+	return new Revista(identificador, titulo, palabrasClave, autores, tipoMaterial, estado, 0, volumen, numero);
+
+	
+}
+
+int IntefazUsuario::inputInt()
+{	int input;
+	std::cin >> input;
+	if (std::cin.fail()) {
+		std::cin.clear(); // clear the error flag
+		std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); // ignore the invalid input,
+		throw new InvalidInputException("Invalid input, please enter a number");
+	}
+	return input;
 }
 
 bool IntefazUsuario::ConfirmarSalida()
@@ -167,6 +485,18 @@ bool IntefazUsuario::ConfirmarSalida()
 	std::cout << "====================================================\n";
 	std::cout << "||  Recuerde Guardar los Archivos antes de Salir  ||\n";
 	std::cout << "||        Desea Salir del Programa? (s/n)         ||\n";
+	std::cout << "====================================================\n";
+	std::cin >> opcion;
+	return (opcion == "s" || opcion == "S") ? true : false;
+	system("cls");
+}
+
+bool IntefazUsuario::agregarOtro()
+{
+	system("cls");
+	std::string opcion;
+	std::cout << "====================================================\n";
+	std::cout << "||  Desea agregar otro material? (s/n)            ||\n";
 	std::cout << "====================================================\n";
 	std::cin >> opcion;
 	return (opcion == "s" || opcion == "S") ? true : false;
