@@ -36,7 +36,7 @@ int IntefazUsuario::mostrarMenuPrincipal()
 	std::cout << "6. Reportes" << std::endl;
 	std::cout << "0. Salir" << std::endl;
 	std::cout << "Seleccione una opcion: ";
-	std::cin >> opcion;
+	opcion = inputInt();
 	return opcion;
 }
 
@@ -51,7 +51,7 @@ int IntefazUsuario::mostrarSubMenuUsuario()
 	std::cout << "4. Buscar Usuario" << std::endl;
 	std::cout << "0. Salir" << std::endl;
 	std::cout << "Seleccione una opcion: ";
-	std::cin >> opcion;
+	opcion = inputInt();
 	return opcion;
 }
 
@@ -66,7 +66,7 @@ int IntefazUsuario::mostrarSubMenuModificarUsuario()
 	std::cout << "4. Modificar Cedula" << std::endl;
 	std::cout << "0. Salir" << std::endl;
 	std::cout << "Seleccione una opcion: ";
-	std::cin >> opcion;
+	opcion = inputInt();
 	return opcion;
 }
 
@@ -96,7 +96,7 @@ int IntefazUsuario::tipoMaterial()
 	std::cout << "1. Fisico" << std::endl;
 	std::cout << "2. Digital" << std::endl;
 	std::cout << "Seleccione una opcion: ";
-	std::cin >> opcion;
+	opcion = inputInt();
 	return opcion;
 }
 
@@ -108,7 +108,7 @@ int IntefazUsuario::tipoMaterialDigital()
 	std::cout << "1. Video Digital" << std::endl;
 	std::cout << "2. Otro" << std::endl;
 	std::cout << "Seleccione una opcion: ";
-	std::cin >> opcion;
+	opcion = inputInt();
 	return opcion;
 }
 
@@ -122,7 +122,7 @@ int IntefazUsuario::tipoMaterialFisico()
 	std::cout << "3. Video Fisico" << std::endl;
 	std::cout << "4. Otro" << std::endl;
 	std::cout << "Seleccione una opcion: ";
-	std::cin >> opcion;
+	opcion = inputInt();
 	return opcion;
 }
 
@@ -473,7 +473,7 @@ int IntefazUsuario::inputInt()
 	if (std::cin.fail()) {
 		std::cin.clear(); // clear the error flag
 		std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); // ignore the invalid input,
-		throw new InvalidInputException("Invalid input, please enter a number");
+		throw InvalidInputException("Invalid input, please enter a number");
 	}
 	return input;
 }

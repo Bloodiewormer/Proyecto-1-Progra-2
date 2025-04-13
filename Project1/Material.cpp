@@ -22,3 +22,5 @@ std::string Material::getIdentificador() const
 {
 	return identificador;
 }
+
+
