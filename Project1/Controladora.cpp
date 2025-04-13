@@ -31,15 +31,15 @@ void Controladora::datosPrueba()
 void Controladora::GuardarDatos()
 {
 	
-	//Lista<Usuario> usuarios = biblioteca->getListaUsuarios();
-	//gestorArchivos->guardarUsuarios(usuarios, "usuarios.csv");
+	Lista<Usuario> usuarios = biblioteca->getListaUsuarios();
+	gestorArchivos->guardarUsuarios(usuarios, "usuarios.csv");
 	//gestorArchivos->cargarDatos(biblioteca);
 	//interfaz->msj("Datos cargados correctamente");
 	//system("pause");
 }
 
 void Controladora::MenuPrincipal(){
-	int opcion;
+	int opcion = 20;
 	do {
 		try{
 		system("cls");
@@ -89,6 +89,10 @@ void Controladora::MenuPrincipal(){
 		system("cls");
 		}
 		catch (const std::exception& e) {
+			std::cerr << "Error: " << e.what() << std::endl;
+			system("pause");
+		}
+		catch (const InvalidInputException& e) {
 			std::cerr << "Error: " << e.what() << std::endl;
 			system("pause");
 		}
