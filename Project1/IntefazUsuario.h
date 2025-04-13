@@ -8,10 +8,7 @@
 #include "VideoFisico.h"
 #include "videoDigital.h"
 #include "revista.h"
-#include "CustomExeception.h"
-
-
-
+#include "CustomException.h"
 class IntefazUsuario{
 public:
 	//menu principal
@@ -33,7 +30,6 @@ public:
 	static VideoFisico* crearVideoFisico();
 	static VideoDigital* crearVideoDigital();
 	static Revista* crearRevista();
-
 	//metodos de utilidad
 	static int inputInt();
 	static bool ConfirmarSalida();
@@ -42,6 +38,5 @@ public:
 	static bool pedirDatosBool(std::string dato);
 	static void msj(std::string mensaje);
 	static void opcionInvalida();
-
 };
 

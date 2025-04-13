@@ -92,10 +92,10 @@ void Controladora::MenuPrincipal(){
 			std::cerr << "Error: " << e.what() << std::endl;
 			system("pause");
 		}
-		catch (const InvalidInputException& e) {
+		/*catch (const InvalidInputException& e) {
 			std::cerr << "Error: " << e.what() << std::endl;
 			system("pause");
-		}
+		}*/
 		catch (...) {
 			std::cerr << "Error desconocido" << std::endl;
 		}

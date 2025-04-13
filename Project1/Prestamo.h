@@ -8,7 +8,7 @@ class Prestamo{
 private:
 	std::string fechaPrestamo;
 	std::string fechaDevolucion;
-	std::string estado; // (prestado, devuelto)
+	//std::string estado; // (prestado, devuelto) 
 	Usuario* usuario;
 	Material* material;
 public:

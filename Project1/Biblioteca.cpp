@@ -25,10 +25,10 @@ bool Biblioteca::comprobarExistenciaMaterial(std::string ID){
 void Biblioteca::agregarMaterial(Material* material)
 {
 	if (material == nullptr) {
-		throw InvalidInputException("Material cannot be null");	
+		throw ObjectCreationException("Material cannot be null");
 	}
 	if (comprobarExistenciaMaterial(material->getIdentificador())) {
-		throw InvalidInputException("Material already exists in the list");
+		throw ObjectCreationException("Material already exists in the list");
 	}
 	listaMateriales.addBegin(material); 
 }
@@ -40,17 +40,18 @@ void Biblioteca::mostrarMateriales()
 	}
 	else {
 		std::cout << "Lista de Materiales:" << std::endl;
-		for (int i = 0; i < listaMateriales.getLength(); i++) {
+		/*for (int i = 0; i < listaMateriales.getLength(); i++) {
 			Material* material = listaMateriales.get(i);
 			std::cout << material->toString() << std::endl;
-		}
+		}*/
+		std::cout << listaMateriales.toString();
 	}
 }
 
 void Biblioteca::eliminarMaterial(std::string ID)
 {
 	if (ID.empty()) {
-		throw InvalidInputException("ID cannot be empty");
+		throw ObjectCreationException("ID cannot be empty");
 	}
 
 	for (int i = 0; i < listaMateriales.getLength(); i++) {
@@ -79,7 +80,7 @@ void Biblioteca::eliminarMaterial(std::string ID)
 
 bool Biblioteca::comprobarExistenciaUsuario(std::string ID) {
 		if (ID.empty()) {
-			throw InvalidInputException("ID cannot be empty");
+			throw ObjectCreationException("ID cannot be empty");
 		}
 		for (int i = 0; i < listaUsuarios.getLength(); i++) {
 			if (listaUsuarios.get(i)->getCedula() == ID) {
@@ -92,10 +93,10 @@ bool Biblioteca::comprobarExistenciaUsuario(std::string ID) {
 void Biblioteca::agregarUsuario(Usuario* usuario)
 {
 		if (usuario == nullptr) {
-			throw InvalidInputException("Usuario cannot be null");
+			throw ObjectCreationException("Usuario cannot be null");
 		}
 		if (comprobarExistenciaUsuario(usuario->getCedula())) {
-			throw InvalidInputException("Usuario already exists in the list");
+			throw ObjectCreationException("Usuario already exists in the list");
 		}
 		listaUsuarios.addBegin(usuario); // Pass the address of the usuario pointer
 }
@@ -114,11 +115,11 @@ void Biblioteca::mostrarUsuarios()
 void Biblioteca::modificarUsuario(std::string ID, std::string change, int opcion)
 {
 	if (ID.empty()) {
-		throw InvalidInputException("ID cannot be empty");
+		throw ObjectCreationException("ID cannot be empty");
 	}
 	Usuario* usuario = buscarUsuario(ID);
 	if (usuario == nullptr) {
-		throw InvalidInputException("Usuario cannot be null");
+		throw ObjectCreationException("Usuario cannot be null");
 	}
 	if (comprobarExistenciaUsuario(usuario->getCedula())) {
 		switch (opcion) {
@@ -164,7 +165,7 @@ void Biblioteca::modificarUsuario(std::string ID, std::string change, int opcion
 void Biblioteca::eliminarUsuario(std::string ID)
 {
 	if (ID.empty()) {
-		throw InvalidInputException("ID cannot be empty");
+		throw ObjectCreationException("ID cannot be empty");
 	}
 	for (int i = 0; i < listaUsuarios.getLength(); i++) {
 		if (listaUsuarios.get(i)->getCedula() == ID) {
@@ -179,14 +180,14 @@ void Biblioteca::eliminarUsuario(std::string ID)
 Usuario* Biblioteca::buscarUsuario(std::string ID)
 {
 	if (ID.empty()) {
-		throw InvalidInputException("ID cannot be empty");
+		throw ObjectCreationException("ID cannot be empty");
 	}
 	for (int i = 0; i < listaUsuarios.getLength(); i++) {
 		if (listaUsuarios.get(i)->getCedula() == ID) {
 			return listaUsuarios.get(i);
 		}
 	}
-	throw InvalidInputException("Usuario no encontrado");
+	throw ObjectCreationException("Usuario no encontrado");
 }
 
 Lista<Usuario> Biblioteca::getListaUsuarios()  

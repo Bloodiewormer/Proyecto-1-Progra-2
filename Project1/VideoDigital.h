@@ -19,4 +19,3 @@ public:
 	~VideoDigital();
 	std::string toString() const override;
 };
-

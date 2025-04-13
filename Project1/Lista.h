@@ -2,21 +2,20 @@
 #include <iostream>
 #include "Nodo.h"
 #include <sstream>
-#include "CustomExeception.h"
-
+#include "CustomException.h"
 template <class T>
 class Lista {
 private:
 	Nodo<T>* first;
 	int length;
 public:
-
 	Lista() {
 		first = nullptr;
 		length = 0;
 	}
 
 	~Lista() {
+
 	}
 
 	int getLength() const {
@@ -37,13 +36,11 @@ public:
 			first = aux;
 			length++;
 		}
-		else
-		{
+		else{
 			first = aux;
 			length++;
 		}
 	}
-
 
 	T* get(int index) const {
 		Nodo<T>* aux = first;
@@ -58,7 +55,6 @@ public:
 		}
 		return aux->getData();
 	}
-
 
 	void remove(T* data) {
 		if (first == nullptr) {
@@ -99,7 +95,7 @@ public:
 			return;
 		}
 		Nodo<T>* aux = first;
-		for (unsigned int idx = 0; idx < index - 1; idx++) {
+		for (int idx = 0; idx < index - 1; idx++) {
 			aux = aux->getNext();
 		}
 		Nodo<T>* aux2 = aux->getNext();
@@ -123,7 +119,7 @@ public:
 		return false;
 	}
 
-	std::string toString() {
+	std::string toString() const {
 		std::ostringstream s;
 		Nodo<T>* aux = first;
 		while (aux != nullptr) {

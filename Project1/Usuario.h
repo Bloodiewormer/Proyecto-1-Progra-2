@@ -16,13 +16,10 @@ public:
 	void setEstado(bool estado);
 	std::string toString() const;
 	std::string toStringCSV() const;
-
 	//setters
 	void setCedula(std::string cedula);
 	void setNombre(std::string nombre);
 	void setApellido(std::string apellido);
-	
-
 	//sobrecarga de operador
 	friend std::ostream& operator<<(std::ostream& os, const Usuario& usuario);	
 };

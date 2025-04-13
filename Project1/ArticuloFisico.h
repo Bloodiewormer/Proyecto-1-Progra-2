@@ -14,4 +14,3 @@ public:
     ~ArticuloFisico();
 	std::string toString() const override;
 };
-

@@ -17,4 +17,8 @@ std::string Material::getIdentificador() const
 	return identificador;
 }
 
-
+std::ostream& operator<<(std::ostream& os, const Material& Material)
+{
+	os << Material.toString();
+	return os;
+}

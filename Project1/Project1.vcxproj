@@ -131,7 +131,7 @@
     <ClInclude Include="ArticuloFisico.h" />
     <ClInclude Include="Biblioteca.h" />
     <ClInclude Include="Controladora.h" />
-    <ClInclude Include="CustomExeception.h" />
+    <ClInclude Include="CustomException.h" />
     <ClInclude Include="GestorArchivos.h" />
     <ClInclude Include="GestorPrestamo.h" />
     <ClInclude Include="IntefazUsuario.h" />
@@ -151,7 +151,7 @@
     <ClCompile Include="ArticuloFisico.cpp" />
     <ClCompile Include="Biblioteca.cpp" />
     <ClCompile Include="Controladora.cpp" />
-    <ClCompile Include="CustomExeception.cpp" />
+    <ClCompile Include="CustomException.cpp" />
     <ClCompile Include="GestorArchivos.cpp" />
     <ClCompile Include="GestorPrestamo.cpp" />
     <ClCompile Include="IntefazUsuario.cpp" />

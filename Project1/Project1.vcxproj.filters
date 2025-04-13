@@ -69,7 +69,7 @@
     <ClInclude Include="Biblioteca.h">
       <Filter>Header Files\otros</Filter>
     </ClInclude>
-    <ClInclude Include="CustomExeception.h">
+    <ClInclude Include="CustomException.h">
       <Filter>Header Files\Control</Filter>
     </ClInclude>
     <ClInclude Include="Material.h">
@@ -131,9 +131,6 @@
     <ClCompile Include="GestorArchivos.cpp">
       <Filter>Source Files\Control</Filter>
     </ClCompile>
-    <ClCompile Include="CustomExeception.cpp">
-      <Filter>Source Files\Control</Filter>
-    </ClCompile>
     <ClCompile Include="Controladora.cpp">
       <Filter>Source Files\Control</Filter>
     </ClCompile>
@@ -145,6 +142,9 @@
     </ClCompile>
     <ClCompile Include="GestorPrestamo.cpp">
       <Filter>Source Files\otros</Filter>
+    </ClCompile>
+    <ClCompile Include="CustomException.cpp">
+      <Filter>Source Files\Control</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

@@ -1,6 +1,5 @@
 #pragma once 
 #include "MaterialDigital.h"
-
 class ArticuloDigital : public MaterialDigital {
 private:
 	std::string TipoArticulo;
@@ -14,9 +13,4 @@ public:
         const std::string& tipoArt);
 	~ArticuloDigital();
 	std::string toString() const override;
-
-
-	
-
 };
-

@@ -1,6 +1,5 @@
 #pragma once
 #include "MaterialFisico.h"
-
 class Revista : public MaterialFisico{
 private:
 	std::string volumen;
@@ -17,4 +16,3 @@ public:
     ~Revista();
 	std::string toString() const override;
 };
-
