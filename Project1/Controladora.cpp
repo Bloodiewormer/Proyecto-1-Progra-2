@@ -68,7 +68,7 @@ void Controladora::MenuPrincipal(){
 			break;
 		case 6:
 			// Mostrar usuarios
-			biblioteca->mostrarUsuarios();
+			MenuReportes();
 			system("pause");
 
 			break;
@@ -107,56 +107,45 @@ void Controladora::MenuPrincipal(){
 void Controladora::MenusubMenuUsuario()
 {
 	int opcion;
-	do {
-		system("cls");
-		opcion = interfaz->mostrarSubMenuUsuario();
-		switch (opcion) {
-		case 0:
-				opcion = -2;
-			break;
-		case 1:
-			biblioteca->agregarUsuario(interfaz->crearUsuario());
-			interfaz->msj("Usuario agregado correctamente");
-			break;
-		case 2:
-			// Modificar usuario
-			switch (interfaz->mostrarSubMenuModificarUsuario()) {
-			case 1:
-				biblioteca->modificarUsuario(interfaz->pedirDatos("cedula",false), interfaz->pedirDatos("nombre", true), 1);
-				break;	
-			case 2:
-				biblioteca->modificarUsuario(interfaz->pedirDatos("cedula", false), interfaz->pedirDatos("apellido", true), 2);
-				break;
-			case 3:
-				biblioteca->modificarUsuario(interfaz->pedirDatos("cedula", false), interfaz->pedirDatosBool("estado") ? "true" : "false", 3);
-				break;
-			case 4:
-				biblioteca->modificarUsuario(interfaz->pedirDatos("cedula", false), interfaz->pedirDatos("cedula",true), 4);
-
-				break;
-			default:
-				interfaz->opcionInvalida();
-				break;
-			}
+	std::string dato;
+	system("cls");
+	opcion = interfaz->mostrarSubMenuUsuario();
+	switch (opcion) {
+	case 0:
+		opcion = -2;
+		break;
+	case 1:
+		biblioteca->agregarUsuario(interfaz->crearUsuario());
+		interfaz->msj("Usuario agregado correctamente");
+		break;
+	case 2:
+		// Modificar usuario
+		MenuModificarUsuario();
+		break;
+	case 3:
+		// Eliminar usuario
+		dato = interfaz->pedirDatos("cedula", false);
+		if (biblioteca->comprobarExistenciaUsuario(dato) == false) {
+			interfaz->msj("El usuario no existe");
 			system("pause");
-			break;
-		case 3:
-			// Eliminar usuario
-			biblioteca->eliminarUsuario(interfaz->pedirDatos("cedula", false));
-			interfaz->msj("Usuario eliminado correctamente");
-			system("pause");
-			break;
-		case 4:
-			// Buscar usuario
-			std::cout<<biblioteca->buscarUsuario(interfaz->pedirDatos("cedula", false))->toString();
-			system("pause");
-			break;
-		default:
-			interfaz->opcionInvalida();
 			break;
 		}
-	
-	} while (opcion != -2);
+		else
+		{
+		biblioteca->eliminarUsuario(dato);
+		interfaz->msj("Usuario eliminado correctamente");
+		}
+		system("pause");
+	break;
+	case 4:
+		// Buscar usuario
+		std::cout<<biblioteca->buscarUsuario(interfaz->pedirDatos("cedula", false))->toString();
+		system("pause");
+		break;
+	default:
+		interfaz->opcionInvalida();
+		break;
+	}
 }
 
 void Controladora::MenuAgregarMaterial()
@@ -169,16 +158,16 @@ void Controladora::MenuAgregarMaterial()
 		// Agregar material fisico
 		switch (interfaz->tipoMaterialFisico()) {
 		case 1:
-			//biblioteca->agregarMaterial(interfaz->crearLibro());
+			biblioteca->agregarMaterial(interfaz->crearLibro());
 			break;
 		case 2:
-			//biblioteca->agregarMaterial(interfaz->crearRevista());
+			biblioteca->agregarMaterial(interfaz->crearRevista());
 			break;
 		case 3:
-			//biblioteca->agregarMaterial(interfaz->crearVideoFisico());
+			biblioteca->agregarMaterial(interfaz->crearVideoFisico());
 			break;
 		case 4:
-			//biblioteca->agregarMaterial(interfaz->crearArticuloFisico());
+			biblioteca->agregarMaterial(interfaz->crearArticuloFisico());
 			break;
 		default:
 			interfaz->opcionInvalida();
@@ -189,10 +178,10 @@ void Controladora::MenuAgregarMaterial()
 		// Agregar material digital
 		switch (interfaz->tipoMaterialDigital()) {
 		case 1:
-			//biblioteca->agregarMaterial(interfaz->crearVideoDigital());
+			biblioteca->agregarMaterial(interfaz->crearVideoDigital());
 			break;
 		case 2:
-			//biblioteca->agregarMaterial(interfaz->crearArticuloDigital());
+			biblioteca->agregarMaterial(interfaz->crearArticuloDigital());
 			break;
 		default:
 			interfaz->opcionInvalida();
@@ -204,5 +193,50 @@ void Controladora::MenuAgregarMaterial()
 	break;
 	}
 	interfaz->msj("Material agregado correctamente");
+	system("pause");
+}
+
+void Controladora::MenuReportes()
+{
+	system("cls");
+	int opcion = interfaz->subMenuReportes();
+	switch (opcion) {
+	case 1:
+		biblioteca->mostrarMateriales();
+		break;
+	case 2:
+		biblioteca->mostrarUsuarios();
+		break;
+	case 3:
+		//biblioteca->gestorPrestamos.mostrarPrestamos();
+		break;
+	case 4:
+		//biblioteca->gestorPrestamos.mostrarHistorialPrestamos();
+		break;
+	default:
+		interfaz->opcionInvalida();
+		break;
+	}
+}
+
+void Controladora::MenuModificarUsuario()
+{
+	switch (interfaz->mostrarSubMenuModificarUsuario()) {
+	case 1:
+		biblioteca->modificarUsuario(interfaz->pedirDatos("cedula", false), interfaz->pedirDatos("nombre", true), 1);
+		break;
+	case 2:
+		biblioteca->modificarUsuario(interfaz->pedirDatos("cedula", false), interfaz->pedirDatos("apellido", true), 2);
+		break;
+	case 3:
+		biblioteca->modificarUsuario(interfaz->pedirDatos("cedula", false), interfaz->pedirDatosBool("estado") ? "true" : "false", 3);
+		break;
+	case 4:
+		biblioteca->modificarUsuario(interfaz->pedirDatos("cedula", false), interfaz->pedirDatos("cedula", true), 4);
+		break;
+	default:
+		interfaz->opcionInvalida();
+		break;
+	}
 	system("pause");
 }

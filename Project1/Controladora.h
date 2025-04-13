@@ -20,6 +20,8 @@ public:
 	void MenuPrincipal();
 	void MenusubMenuUsuario();
 	void MenuAgregarMaterial();
+	void MenuReportes();
+	void MenuModificarUsuario();
 
 
 

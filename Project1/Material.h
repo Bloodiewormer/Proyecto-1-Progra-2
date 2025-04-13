@@ -19,7 +19,7 @@ protected:
 	int diasPrestamo; //Dias de prestamo
 	std::string tipo; // en Fisico se refiere en tipo de material (Cuero, plastico, etc), en digital se refiere a tipo de archivo (pdf, mp3, mp4, etc)
 public:
-	Material(std::string identificador, std::string titulo, Lista<std::string> palabrasClave, Lista<std::string> autores, int diasPrestamo, std::string tipo);
+	Material(const std::string& id, const std::string& tit, const Lista<std::string>& palabras, const Lista<std::string>& auts, const std::string tip);
 	~Material();
 
 	std::string getIdentificador() const;

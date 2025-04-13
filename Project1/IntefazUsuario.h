@@ -18,6 +18,7 @@ public:
 	static void bannerBienvenida();
 	static void DatosPrueba();
 	static int mostrarMenuPrincipal();
+	static int subMenuReportes();
 	//submenus de usuarios
 	static int mostrarSubMenuUsuario();
 	static int mostrarSubMenuModificarUsuario();

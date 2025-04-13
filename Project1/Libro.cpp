@@ -1,15 +1,9 @@
 #include "Libro.h"
 
-
-
-
-
-
-Libro::Libro(std::string identificador, std::string titulo, Lista<std::string> palabrasClave, Lista<std::string> autores, std::string tipoMaterial, std::string estado, int dias, std::string isbn, std::string editorial)
-	:MaterialFisico(identificador, titulo, palabrasClave, autores, tipoMaterial, estado, dias), isbn(isbn), editorial(editorial) {
-	// Constructor
-	this->isbn = isbn;
-	this->editorial = editorial;
+Libro::Libro(const std::string& id, const std::string& tit, const Lista<std::string>& palabras, const Lista<std::string>& auts, const std::string& tipoMaterial, const std::string& est, const std::string& isbn_, const std::string& edit)
+	: MaterialFisico(id, tit, palabras, auts, tipoMaterial, est),
+	isbn(isbn_), editorial(edit) {
+	diasPrestamo = DIAS_PRESTAMO_LIBRO;
 }
 
 Libro::~Libro() {

@@ -2,16 +2,10 @@
 
 
 
-Material::Material(std::string identificador, std::string titulo, Lista<std::string> palabrasClave, Lista<std::string> autores, int diasPrestamo, std::string tipo)
-	:identificador(identificador), titulo(titulo), palabrasClave(palabrasClave), autores(autores), diasPrestamo(diasPrestamo), tipo(tipo)
-{
-	// Constructor
-	this->identificador = identificador;
-	this->titulo = titulo;
-	this->palabrasClave = palabrasClave;
-	this->autores = autores;
-	this->diasPrestamo = diasPrestamo;
-	this->tipo = tipo;
+
+Material::Material(const std::string& id, const std::string& tit, const Lista<std::string>& palabras, const Lista<std::string>& auts, const std::string tip)
+	: identificador(id), titulo(tit), palabrasClave(palabras),
+	autores(auts), tipo(tip), diasPrestamo(0) {
 }
 
 Material::~Material()

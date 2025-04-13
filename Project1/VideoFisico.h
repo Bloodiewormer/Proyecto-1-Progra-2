@@ -9,7 +9,15 @@ private:
 	int duracion;
 	std::string resolucion;
 public:
-	VideoFisico(std::string identificador, std::string titulo, Lista<std::string> palabrasClave, Lista<std::string> autores, std::string tipoMaterial, std::string estado, int dias, std::string formato, int duracion, std::string resolucion);
+    VideoFisico(const std::string& id,
+        const std::string& tit,
+        const Lista<std::string>& palabras,
+        const Lista<std::string>& auts,
+        const std::string& tipoMaterial,
+        const std::string& est,
+        const std::string& form,
+        int dur,
+        const std::string& res);
 	~VideoFisico();
 	std::string toString() const override;
 

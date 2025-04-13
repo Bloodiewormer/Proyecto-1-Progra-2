@@ -17,12 +17,6 @@ public:
 	}
 
 	~Lista() {
-		while (first != nullptr) {
-			Nodo<T>* aux = first;
-			first = first->getNext();
-			delete aux; 
-			aux = nullptr;
-		}
 	}
 
 	int getLength() const {
@@ -59,7 +53,7 @@ public:
 		if (index == 0) {
 			return aux->getData(); 
 		}
-		for (unsigned int idx = 0; idx < index; idx++) {
+		for (int idx = 0; idx < index; idx++) {
 			aux = aux->getNext();
 		}
 		return aux->getData();
@@ -90,7 +84,7 @@ public:
 		}
 	}
 
-	void remove(unsigned int index) {
+	void remove(int index) {
 		if (first == nullptr) {
 			return;
 		}

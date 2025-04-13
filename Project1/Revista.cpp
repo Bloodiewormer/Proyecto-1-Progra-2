@@ -1,16 +1,9 @@
 #include "Revista.h"
 
-
-
-
-
-
-
-Revista::Revista(std::string identificador, std::string titulo, Lista<std::string> palabrasClave, Lista<std::string> autores, std::string tipoMaterial, std::string estado, int dias, std::string volumen, std::string numero)
-	:MaterialFisico(identificador, titulo, palabrasClave, autores, tipoMaterial, estado, dias), volumen(volumen), numero(numero) {
-	// Constructor
-	this->volumen = volumen;
-	this->numero = numero;
+Revista::Revista(const std::string& id, const std::string& tit, const Lista<std::string>& palabras, const Lista<std::string>& auts, const std::string& tipoMaterial, const std::string& est, const std::string& vol, const std::string& num)
+	: MaterialFisico(id, tit, palabras, auts, tipoMaterial, est),
+	volumen(vol), numero(num) {
+	diasPrestamo = DIAS_PRESTAMO_REVISTA;
 }
 
 Revista::~Revista(){

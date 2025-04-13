@@ -6,8 +6,15 @@ private:
 	std::string volumen;
 	std::string numero;
 public:
-	Revista(std::string identificador, std::string titulo, Lista<std::string> palabrasClave, Lista<std::string> autores, std::string tipoMaterial, std::string estado, int dias, std::string volumen, std::string numero);
-	~Revista();
+    Revista(const std::string& id,
+        const std::string& tit,
+        const Lista<std::string>& palabras,
+        const Lista<std::string>& auts,
+        const std::string& tipoMaterial,
+        const std::string& est,
+        const std::string& vol,
+        const std::string& num);
+    ~Revista();
 	std::string toString() const override;
 };
 

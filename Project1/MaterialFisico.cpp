@@ -1,16 +1,7 @@
 #include "MaterialFisico.h"
 
-
-
-
-MaterialFisico::MaterialFisico(std::string identificador, std::string titulo, Lista<std::string> palabrasClave, Lista<std::string> autores, std::string tipoMaterial, std::string estado, int dias)
-	:Material(identificador, titulo, palabrasClave, autores, dias, tipoMaterial), estado(estado)
-{
-	// Constructor
-	this->estado = estado;
-}
-
-
+MaterialFisico::MaterialFisico(const std::string& id, const std::string& tit, const Lista<std::string>& palabras, const Lista<std::string>& auts, const std::string& tipoMaterial, const std::string& est)
+	: Material(id, tit, palabras, auts, tipoMaterial),estado(est) {}
 
 MaterialFisico::~MaterialFisico()
 {

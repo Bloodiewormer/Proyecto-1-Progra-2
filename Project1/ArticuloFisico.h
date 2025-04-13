@@ -4,8 +4,14 @@ class ArticuloFisico : public MaterialFisico {
 private:
 	std::string tipoArticulo; // (Juego, heramienta, cualquier otro que no sea una clase creada)
 public:
-	ArticuloFisico(std::string identificador, std::string titulo, Lista<std::string> palabrasClave, Lista<std::string> autores, std::string tipoMaterial, std::string estado, int dias, std::string tipoArticulo);
-	~ArticuloFisico();
+    ArticuloFisico(const std::string& id,
+        const std::string& tit,
+        const Lista<std::string>& palabras,
+        const Lista<std::string>& auts,
+        const std::string& tipoMaterial,
+        const std::string& est,
+        const std::string& tipoArt);
+    ~ArticuloFisico();
 	std::string toString() const override;
 };
 

@@ -1,74 +1,68 @@
 #include "Biblioteca.h"
 
-Biblioteca::Biblioteca()
-{
-
+Biblioteca::Biblioteca(){
 	listaMateriales = Lista<Material>();
 	listaUsuarios = Lista<Usuario>();
 	gestorPrestamos = GestorPrestamo();
-
-
 }
 
 Biblioteca::~Biblioteca() {
 
 }
 
+bool Biblioteca::comprobarExistenciaMaterial(std::string ID){
+	if (ID.empty()) {
+		throw InvalidInputException("ID cannot be empty");
+	}
+	for (int i = 0; i < listaMateriales.getLength(); i++) {
+		if (listaMateriales.get(i)->getIdentificador() == ID) {
+			return true;
+		}
+	}
+	return false;
+}
 
-//bool Biblioteca::comprobarExistenciaMaterial(std::string ID)
-//{
-//		if (ID.empty()) {
-//			throw InvalidInputException("ID cannot be empty");
-//		}
-	//	for (int i = 0; i < listaMateriales.getLength(); i++) {
-	//		if (listaMateriales.get(i)->getIdentificador() == ID) {
-	//			return true;
-	//		}
-	//	}
-//		return false;
+void Biblioteca::agregarMaterial(Material* material)
+{
+	if (material == nullptr) {
+		throw InvalidInputException("Material cannot be null");	
+	}
+	if (comprobarExistenciaMaterial(material->getIdentificador())) {
+		throw InvalidInputException("Material already exists in the list");
+	}
+	listaMateriales.addBegin(material); 
+}
 
-//}
+void Biblioteca::mostrarMateriales()
+{
+	if (listaMateriales.isEmpty()) {
+		std::cout << "No hay materiales registrados." << std::endl;
+	}
+	else {
+		std::cout << "Lista de Materiales:" << std::endl;
+		for (int i = 0; i < listaMateriales.getLength(); i++) {
+			Material* material = listaMateriales.get(i);
+			std::cout << material->toString() << std::endl;
+		}
+	}
+}
 
-//void Biblioteca::agregarMaterial(Material* material)
-//{
-//	if (material == nullptr) {
-//		throw InvalidInputException("Material cannot be null");	
-//	}
-//	if (listaMateriales.contains(material)) {
-//		throw InvalidInputException("Material already exists in the list");
-//	}
-//	listaMateriales.addBegin(material); // Pass the address of the material pointer
-//}
+void Biblioteca::eliminarMaterial(std::string ID)
+{
+	if (ID.empty()) {
+		throw InvalidInputException("ID cannot be empty");
+	}
 
-//void Biblioteca::mostrarMateriales()
-//{
-//	if (listaMateriales.isEmpty()) {
-//		std::cout << "No hay materiales registrados." << std::endl;
-//	}
-//	else {
-//		std::cout << "Lista de Materiales:" << std::endl;
-//		for (int i = 0; i < listaMateriales.getLength(); i++) {
-//			Material* material = listaMateriales.get(i);
-//			std::cout << material->toString() << std::endl;
-//		}
-//	}
-//}
-//
-//void Biblioteca::eliminarMaterial(std::string ID)
-//{
-//	if (ID.empty()) {
-//		throw InvalidInputException("ID cannot be empty");
-//	}
-//	for (int i = 0; i < listaMateriales.getLength(); i++) {
-//		if (listaMateriales.get(i)->getIdentificador() == ID) {
-//			listaMateriales.remove(i);
-//			std::cout << "Material eliminado correctamente." << std::endl;
-//			return;
-//		}
-//	}
-//	std::cout << "Material no encontrado." << std::endl;
-//}
-//
+	for (int i = 0; i < listaMateriales.getLength(); i++) {
+		if (listaMateriales.get(i)->getIdentificador() == ID) {
+			listaMateriales.remove(i);
+			std::cout << "Material eliminado correctamente." << std::endl;
+			return;
+		}
+	}
+	std::cout << "Material no encontrado." << std::endl;
+}
+
 //Material* Biblioteca::buscarMaterial(std::string ID)
 //{
 //	if (ID.empty()) {

@@ -4,12 +4,13 @@
 
 
 
-ArticuloDigital::ArticuloDigital(std::string identificador, std::string titulo, Lista<std::string> palabrasClave, Lista<std::string> autores, std::string tipoArchivo, double tamano, int dias, std::string TipoArticulo)
-	:MaterialDigital(identificador, titulo, palabrasClave, autores, tipoArchivo, tamano, dias), TipoArticulo(TipoArticulo) 
-{
-	// Constructor
-	this->TipoArticulo = TipoArticulo;
+
+
+ArticuloDigital::ArticuloDigital(const std::string& id, const std::string& tit, const Lista<std::string>& palabras, const Lista<std::string>& auts, const std::string& tipoArchivo, double sizeMB, const std::string& tipoArt)
+	: MaterialDigital(id, tit, palabras, auts, tipoArchivo, sizeMB), TipoArticulo(tipoArt) {
+	diasPrestamo = DIAS_PRESTAMO_ARTICULO;
 }
+
 
 ArticuloDigital::~ArticuloDigital()
 {
