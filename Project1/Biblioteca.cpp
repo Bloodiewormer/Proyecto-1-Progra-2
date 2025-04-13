@@ -15,72 +15,72 @@ Biblioteca::~Biblioteca() {
 }
 
 
-bool Biblioteca::comprobarExistenciaMaterial(std::string ID)
-{
-		if (ID.empty()) {
-			throw InvalidInputException("ID cannot be empty");
-		}
-		for (int i = 0; i < listaMateriales.getLength(); i++) {
-			if (listaMateriales.get(i)->getIdentificador() == ID) {
-				return true;
-			}
-		}
-		return false;
+//bool Biblioteca::comprobarExistenciaMaterial(std::string ID)
+//{
+//		if (ID.empty()) {
+//			throw InvalidInputException("ID cannot be empty");
+//		}
+	//	for (int i = 0; i < listaMateriales.getLength(); i++) {
+	//		if (listaMateriales.get(i)->getIdentificador() == ID) {
+	//			return true;
+	//		}
+	//	}
+//		return false;
 
-}
+//}
 
-void Biblioteca::agregarMaterial(Material* material)
-{
-	if (material == nullptr) {
-		throw InvalidInputException("Material cannot be null");	
-	}
-	if (listaMateriales.contains(material)) {
-		throw InvalidInputException("Material already exists in the list");
-	}
-	listaMateriales.addBegin(material); // Pass the address of the material pointer
-}
+//void Biblioteca::agregarMaterial(Material* material)
+//{
+//	if (material == nullptr) {
+//		throw InvalidInputException("Material cannot be null");	
+//	}
+//	if (listaMateriales.contains(material)) {
+//		throw InvalidInputException("Material already exists in the list");
+//	}
+//	listaMateriales.addBegin(material); // Pass the address of the material pointer
+//}
 
-void Biblioteca::mostrarMateriales()
-{
-	if (listaMateriales.isEmpty()) {
-		std::cout << "No hay materiales registrados." << std::endl;
-	}
-	else {
-		std::cout << "Lista de Materiales:" << std::endl;
-		for (int i = 0; i < listaMateriales.getLength(); i++) {
-			Material* material = listaMateriales.get(i);
-			std::cout << material->toString() << std::endl;
-		}
-	}
-}
-
-void Biblioteca::eliminarMaterial(std::string ID)
-{
-	if (ID.empty()) {
-		throw InvalidInputException("ID cannot be empty");
-	}
-	for (int i = 0; i < listaMateriales.getLength(); i++) {
-		if (listaMateriales.get(i)->getIdentificador() == ID) {
-			listaMateriales.remove(i);
-			std::cout << "Material eliminado correctamente." << std::endl;
-			return;
-		}
-	}
-	std::cout << "Material no encontrado." << std::endl;
-}
-
-Material* Biblioteca::buscarMaterial(std::string ID)
-{
-	if (ID.empty()) {
-		throw InvalidInputException("ID cannot be empty");
-	}
-	for (int i = 0; i < listaMateriales.getLength(); i++) {
-		if (listaMateriales.get(i)->getIdentificador() == ID) {
-			return listaMateriales.get(i);
-		}
-	}
-	throw InvalidInputException("Material no encontrado");
-}
+//void Biblioteca::mostrarMateriales()
+//{
+//	if (listaMateriales.isEmpty()) {
+//		std::cout << "No hay materiales registrados." << std::endl;
+//	}
+//	else {
+//		std::cout << "Lista de Materiales:" << std::endl;
+//		for (int i = 0; i < listaMateriales.getLength(); i++) {
+//			Material* material = listaMateriales.get(i);
+//			std::cout << material->toString() << std::endl;
+//		}
+//	}
+//}
+//
+//void Biblioteca::eliminarMaterial(std::string ID)
+//{
+//	if (ID.empty()) {
+//		throw InvalidInputException("ID cannot be empty");
+//	}
+//	for (int i = 0; i < listaMateriales.getLength(); i++) {
+//		if (listaMateriales.get(i)->getIdentificador() == ID) {
+//			listaMateriales.remove(i);
+//			std::cout << "Material eliminado correctamente." << std::endl;
+//			return;
+//		}
+//	}
+//	std::cout << "Material no encontrado." << std::endl;
+//}
+//
+//Material* Biblioteca::buscarMaterial(std::string ID)
+//{
+//	if (ID.empty()) {
+//		throw InvalidInputException("ID cannot be empty");
+//	}
+//	for (int i = 0; i < listaMateriales.getLength(); i++) {
+//		if (listaMateriales.get(i)->getIdentificador() == ID) {
+//			return listaMateriales.get(i);
+//		}
+//	}
+//	throw InvalidInputException("Material no encontrado");
+//}
 
 
 bool Biblioteca::comprobarExistenciaUsuario(std::string ID) {
@@ -113,10 +113,7 @@ void Biblioteca::mostrarUsuarios()
 	}
 	else {
 		std::cout << "Lista de Usuarios:" << std::endl;
-		for (int i = 0; i < listaUsuarios.getLength(); i++) {
-			Usuario* usuario = listaUsuarios.get(i);
-			std::cout << usuario->toString() << std::endl;
-		}
+		std::cout<<listaUsuarios.toString();
 	}
 }
 

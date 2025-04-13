@@ -165,16 +165,16 @@ void Controladora::MenuAgregarMaterial()
 		// Agregar material fisico
 		switch (interfaz->tipoMaterialFisico()) {
 		case 1:
-			biblioteca->agregarMaterial(interfaz->crearLibro());
+			//biblioteca->agregarMaterial(interfaz->crearLibro());
 			break;
 		case 2:
-			biblioteca->agregarMaterial(interfaz->crearRevista());
+			//biblioteca->agregarMaterial(interfaz->crearRevista());
 			break;
 		case 3:
-			biblioteca->agregarMaterial(interfaz->crearVideoFisico());
+			//biblioteca->agregarMaterial(interfaz->crearVideoFisico());
 			break;
 		case 4:
-			biblioteca->agregarMaterial(interfaz->crearArticuloFisico());
+			//biblioteca->agregarMaterial(interfaz->crearArticuloFisico());
 			break;
 		default:
 			interfaz->opcionInvalida();
@@ -185,10 +185,10 @@ void Controladora::MenuAgregarMaterial()
 		// Agregar material digital
 		switch (interfaz->tipoMaterialDigital()) {
 		case 1:
-			biblioteca->agregarMaterial(interfaz->crearVideoDigital());
+			//biblioteca->agregarMaterial(interfaz->crearVideoDigital());
 			break;
 		case 2:
-			biblioteca->agregarMaterial(interfaz->crearArticuloDigital());
+			//biblioteca->agregarMaterial(interfaz->crearArticuloDigital());
 			break;
 		default:
 			interfaz->opcionInvalida();

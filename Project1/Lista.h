@@ -1,6 +1,7 @@
 #pragma once
 #include <iostream>
 #include "Nodo.h"
+#include <sstream>
 #include "CustomExeception.h"
 
 template <class T>
@@ -128,23 +129,15 @@ public:
 		return false;
 	}
 
-
-	std::string CSV() {
-		std::string csv = "";
+	std::string toString() {
+		std::ostringstream s;
 		Nodo<T>* aux = first;
 		while (aux != nullptr) {
-			csv += aux->getData()->toStringCSV() + "\n";
+			s << *aux->getData() << std::endl; //aqui se usa la sobrecarga de operador << si la clase no tiene la sobrecarga de operador << se mostra el puntero
 			aux = aux->getNext();
 		}
-		return csv;
+		return s.str();
 	}
-	
-
-
-
-
-
-
 };
 
 //funny

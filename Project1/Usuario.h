@@ -24,6 +24,6 @@ public:
 	
 
 	//sobrecarga de operador
-	//friend std::ostream& operator<<(std::ostream& os, const Usuario& usuario);	
+	friend std::ostream& operator<<(std::ostream& os, const Usuario& usuario);	
 };
 

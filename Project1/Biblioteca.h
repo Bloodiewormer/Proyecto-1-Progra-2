@@ -14,11 +14,11 @@ public:
 	~Biblioteca();
 
 	//Metodos para gestionar materiales
-	bool comprobarExistenciaMaterial(std::string ID);
+	/*bool comprobarExistenciaMaterial(std::string ID);
 	void agregarMaterial(Material* material);
 	void mostrarMateriales();
 	void eliminarMaterial(std::string ID);
-	Material* buscarMaterial(std::string ID);
+	Material* buscarMaterial(std::string ID);*/
 
 	//Metodos para gestionar usuarios
 	bool comprobarExistenciaUsuario(std::string ID);

@@ -56,3 +56,15 @@ void Usuario::setApellido(std::string apellido)
 {
 	this->apellido = apellido;
 }
+
+std::ostream& operator<<(std::ostream& os, const Usuario& usuario)
+{
+	os << "====================" << std::endl;
+	os << "Usuario: " << std::endl;
+	os << "Cedula: " << usuario.cedula << std::endl;
+	os << "Nombre: " << usuario.nombre << std::endl;
+	os << "Apellido: " << usuario.apellido << std::endl;
+	os << "Estado: " << (usuario.estado ? "Activo" : "Inactivo") << std::endl;
+	os << "====================" << std::endl;
+	return os;
+}

@@ -13,7 +13,7 @@ void GestorArchivos::guardarUsuarios(Lista<Usuario> listaUsuarios, const std::st
 		throw  InvalidInputException("No hay usuarios para guardar.");
 	}
 	else {
-		archivo << listaUsuarios.CSV();
+		//archivo << listaUsuarios.CSV();
 		archivo.close();
 	}
 	archivo.close();
