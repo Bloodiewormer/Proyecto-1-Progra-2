@@ -191,6 +191,39 @@ Usuario* Biblioteca::buscarUsuario(std::string ID)
 	throw ObjectCreationException("Usuario no encontrado");
 }
 
+/*void Biblioteca::registrarPrestamo(std::string idUsuario, std::string idMaterial, std::string fechaActual)
+{
+	Usuario* u = buscarUsuario(idUsuario);
+	Material* m = buscarMaterial(idMaterial); //falta implementacion de buscarMaterial
+	if (u != nullptr && m != nullptr) {
+		gestorPrestamos.registrarPrestamo(fechaActual, u, m);
+		std::cout << "Prestamo registrado correctamente.\n";
+	}
+	else {
+		std::cout << "Usuario o material no encontrado.\n";
+	}
+}*/
+
+void Biblioteca::devolverMaterial(std::string idUsuario, std::string idMaterial, std::string fechaActual)
+{
+	gestorPrestamos.devolverMaterial(idUsuario, idMaterial, fechaActual);
+}
+
+void Biblioteca::mostrarPrestamos()
+{
+	gestorPrestamos.mostrarPrestamos();
+}
+
+void Biblioteca::mostrarPrestamosPorUsuario(std::string idUsuario)
+{
+	gestorPrestamos.mostrarPrestamosPorUsuario(idUsuario);
+}
+
+void Biblioteca::mostrarPrestamosPorMaterial(std::string idMaterial)
+{
+	gestorPrestamos.mostrarPrestamosPorMaterial(idMaterial);
+}
+
 Time Biblioteca::getCurrentTime()
 {
 	return currentTime;
@@ -246,8 +279,6 @@ void Biblioteca::setTime(int dia, int mes)
 	diasTotales += dia-1;
 	currentTime.irAlDia(diasTotales);
 }
-
-
 
 Lista<Usuario> Biblioteca::getListaUsuarios()  
 {  

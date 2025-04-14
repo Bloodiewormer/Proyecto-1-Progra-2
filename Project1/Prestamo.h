@@ -8,10 +8,23 @@
 class Prestamo{
 private:
 
-	bool estado;//Devuelto, EnPrestamo
+	std::string estado;//Devuelto, EnPrestamo
 	Usuario* usuario;
 	Material* material;
-public:
+	std::string fechaPrestamo;
+	std::string fechaDevolucion;
 
+public:
+	Prestamo(std::string, Usuario*, Material*);
+	std::string getFechaPrestamo();
+	std::string getFechaDevolucion();
+	std::string getEstado();
+	Usuario* getUsuario();
+	Material* getMaterial();
+
+	void devolver(std::string);
+
+	std::string toString();
+	std::string toStringCSV();
 };
 

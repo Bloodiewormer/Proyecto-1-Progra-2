@@ -20,4 +20,6 @@ public:
         const std::string& res);
 	~VideoFisico();
 	std::string toString() const override;
+    std::string getTipo();
 };
+

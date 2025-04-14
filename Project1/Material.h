@@ -23,6 +23,7 @@ public:
 	~Material();
 	std::string getIdentificador() const;
 	virtual std::string toString() const = 0;
-
-	friend std::ostream& operator<<(std::ostream& os, const Material& Material);
+	virtual std::string getTipo() = 0;
 };
+	
+

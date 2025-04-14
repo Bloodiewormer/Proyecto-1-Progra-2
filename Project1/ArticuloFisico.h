@@ -13,4 +13,6 @@ public:
         const std::string& tipoArt);
     ~ArticuloFisico();
 	std::string toString() const override;
+    std::string getTipo();
 };
+

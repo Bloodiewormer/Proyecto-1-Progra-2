@@ -34,3 +34,5 @@ std::string ArticuloDigital::toString() const
 	oss << "====================" << std::endl;
 	return oss.str();
 }
+
+std::string ArticuloDigital::getTipo(){ return "Articulo"; }

@@ -15,4 +15,6 @@ public:
 		const std::string& est);
 	virtual ~MaterialFisico();
 	virtual std::string toString() const = 0;
+	virtual std::string getTipo() = 0;
 };
+

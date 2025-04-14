@@ -30,8 +30,7 @@ int IntefazUsuario::mostrarMenuPrincipal()
 	std::cout << "Menu Principal" << std::endl;
 	std::cout << "1. Menu Materiales" << std::endl;
 	std::cout << "2. Menu Usuarios" << std::endl;
-	std::cout << "3. Menu Tiempo" << std::endl;
-	// std::cout << "4. Menu Prestamos" << std::endl;
+	// std::cout << "3. Menu Prestamos" << std::endl;
 	std::cout << "5. Guardar" << std::endl;
 	std::cout << "6. Reportes" << std::endl;
 	std::cout << "0. Salir" << std::endl;

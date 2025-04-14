@@ -11,4 +11,6 @@ public:
 		double sizeMB);
 	~MaterialDigital();
 	virtual std::string toString() const = 0;
+	virtual std::string getTipo() = 0;
 };
+

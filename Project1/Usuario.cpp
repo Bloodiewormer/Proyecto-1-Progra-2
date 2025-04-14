@@ -57,15 +57,14 @@ void Usuario::setApellido(std::string apellido)
 	this->apellido = apellido;
 }
 
-std::ostream& operator<<(std::ostream& os, const Usuario& usuario)
+void Usuario::agregarHistorial(const std::string& linea)
 {
-	os << "====================" << std::endl;
-	os << "Usuario: " << std::endl;
-	os << "Cedula: " << usuario.cedula << std::endl;
-	os << "Nombre: " << usuario.nombre << std::endl;
-	os << "Apellido: " << usuario.apellido << std::endl;
-	os << "Estado: " << (usuario.estado ? "Activo" : "Inactivo") << std::endl;
-	os << "====================" << std::endl;
-	return os;
+	historial.addBegin(new std::string(linea));
 }
 
+void Usuario::mostrarHistorial()
+{
+	for (int i = 0; i < historial.getLength(); i++) {
+		std::cout << *historial.get(i) << std::endl; 
+	}
+}
