@@ -24,6 +24,8 @@ public:
 	std::string getIdentificador() const;
 	virtual std::string toString() const = 0;
 	virtual std::string getTipo() = 0;
+
+	friend std::ostream& operator<<(std::ostream& os, const Material& Material);
 };
 	
 
