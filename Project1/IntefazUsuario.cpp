@@ -7,7 +7,7 @@ void IntefazUsuario::bannerBienvenida()
 	std::cout << "| (c) 2025                                            |" << std::endl;
 	std::cout << "| EIF204 - Programación 2                             |" << std::endl;
 	std::cout << "| 1er ciclo 2025                                      |" << std::endl;
-	std::cout << "| NRC 9999 – Grupo 00                                 |" << std::endl;
+	std::cout << "| NRC 41370 – Grupo 00                                 |" << std::endl;
 	std::cout << "| Proyecto 1                                          |" << std::endl;
 	std::cout << "|                                                     |" << std::endl;
 	std::cout << "| 2-0854-0087; David Alberto Gonzalez Cordoba         |" << std::endl;
@@ -45,7 +45,7 @@ int IntefazUsuario::subMenuReportes()
 	system("cls");
 	int opcion;
 	std::cout << "Menu de Reportes" << std::endl;
-	std::cout << "1. Reporte de Materiales" << std::endl;
+	std::cout << "1. Reportes de Materiales" << std::endl;
 	std::cout << "2. Reporte de Usuarios" << std::endl;
 //	std::cout << "3. Reporte de Prestamos" << std::endl;
 //	std::cout << "4. Reporte de Historial de Prestamos" << std::endl;

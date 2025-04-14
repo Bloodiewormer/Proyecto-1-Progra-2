@@ -10,6 +10,10 @@ class GestorArchivos {
 public:
 	static void guardarUsuarios(Biblioteca* biblioteca, const std::string& nombreArchivo);
 	static void guardarTiempo(Biblioteca* biblioteca, const std::string& nombreArchivo);
+	//static void cargarMateriales(Biblioteca* biblioteca, const std::string& nombreArchivo);
+	//static void cargarPrestamos(Biblioteca* biblioteca, const std::string& nombreArchivo);
 	static void cargarUsuarios(Biblioteca* biblioteca, const std::string& nombreArchivo);
 	static void cargarTiempo(Biblioteca* biblioteca, const std::string& nombreArchivo);
+	//static void cargarMateriales(Biblioteca* biblioteca, const std::string& nombreArchivo);
+	//static void cargarPrestamos(Biblioteca* biblioteca, const std::string& nombreArchivo);
 };
