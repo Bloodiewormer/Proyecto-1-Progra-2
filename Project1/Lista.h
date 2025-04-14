@@ -128,6 +128,16 @@ public:
 		}
 		return s.str();
 	}
+
+	std::string CSV() const {
+		std::ostringstream s;
+		Nodo<T>* aux = first;
+		while (aux != nullptr) {
+			s << aux->getData()->toCSV();
+			aux = aux->getNext();
+		}
+		return s.str();
+	}
 };
 
 //funny

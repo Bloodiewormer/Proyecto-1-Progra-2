@@ -15,13 +15,13 @@ public:
 	virtual ~Controladora();
 	void iniciar();
 	void datosPrueba();
-	void GuardarDatos();
-	//void CargarDatos();
 	void MenuPrincipal();
 	void MenusubMenuUsuario();
 	void MenuAgregarMaterial();
 	void MenuReportes();
 	void MenuModificarUsuario();
 	void MenuTiempo();
+	void GuardarDatos();
+	void CargarDatos();
 };
 

@@ -35,10 +35,10 @@ std::string Usuario::toString() const{
 	return oss.str();
 }
 
-std::string Usuario::toStringCSV() const
+std::string Usuario::toCSV() const
 {
 	std::ostringstream oss;
-	oss << cedula << ";" << nombre << ";" << apellido << ";" << (estado ? "Activo" : "Inactivo") << std::endl;
+	oss << cedula << "," << nombre << "," << apellido << "," << (estado ? "Activo" : "Inactivo") << std::endl;
 	return oss.str();
 }
 
@@ -68,3 +68,4 @@ std::ostream& operator<<(std::ostream& os, const Usuario& usuario)
 	os << "====================" << std::endl;
 	return os;
 }
+

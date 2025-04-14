@@ -1,3 +1,2 @@
-cedula ; nombre ; apellido ; estado
-1;dave;lope;Activo
-
+cedula , nombre , apellido , estado
+1,david,Gonzalez,Activo

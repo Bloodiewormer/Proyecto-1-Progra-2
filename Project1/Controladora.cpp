@@ -14,28 +14,28 @@ Controladora::~Controladora(){
 }
 
 void Controladora::iniciar(){
-
-
-		interfaz->bannerBienvenida();
+	try {
+		CargarDatos();
+	}
+	catch (const std::exception& e) {
+		std::cerr << "Error: " << e.what() << std::endl;
 		system("pause");
-		interfaz->DatosPrueba();
-		MenuPrincipal();
+	}
+	catch (...) {
+		std::cerr << "Error desconocido" << std::endl;
+		system("pause");
+	}
+	
+	interfaz->bannerBienvenida();
+	system("pause");
+	interfaz->DatosPrueba();
+	MenuPrincipal();
 
 }
 
 void Controladora::datosPrueba()
 {
 	system("pause");
-}
-
-void Controladora::GuardarDatos()
-{
-	
-	Lista<Usuario> usuarios = biblioteca->getListaUsuarios();
-	gestorArchivos->guardarUsuarios(usuarios, "usuarios.csv");
-	//gestorArchivos->cargarDatos(biblioteca);
-	//interfaz->msj("Datos cargados correctamente");
-	//system("pause");
 }
 
 void Controladora::MenuPrincipal(){
@@ -269,4 +269,22 @@ void Controladora::MenuTiempo()
 		break;
 	}
 	system("pause");
+}
+
+void Controladora::GuardarDatos()
+{
+	gestorArchivos->guardarUsuarios(biblioteca, "usuarios.csv");
+	gestorArchivos->guardarTiempo(biblioteca, "tiempo.csv");
+	//gestorArchivos->guardarMateriales(biblioteca, "materiales.csv");
+	//gestorArchivos->guardarPrestamos(biblioteca, "prestamos.csv");
+
+}
+
+void Controladora::CargarDatos()
+{
+	cout << "Cargando datos..." << endl;
+	gestorArchivos->cargarUsuarios(biblioteca, "usuarios.csv");
+	gestorArchivos->cargarTiempo(biblioteca, "tiempo.csv");
+	//interfaz->msj("Datos cargados correctamente");
+	//system("pause");
 }
