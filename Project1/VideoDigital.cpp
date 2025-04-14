@@ -41,3 +41,5 @@ std::string VideoDigital::toString() const
 	oss << "====================" << std::endl;
 	return oss.str();
 }
+
+std::string VideoDigital::getTipo(){ return "Video Digital"; }

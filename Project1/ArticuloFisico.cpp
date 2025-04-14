@@ -38,3 +38,5 @@ std::string ArticuloFisico::toString() const
 	oss << "====================" << std::endl;
 	return oss.str();
 }
+
+std::string ArticuloFisico::getTipo(){ return "Articulo Fisico"; }

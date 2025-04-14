@@ -39,3 +39,5 @@ std::string Libro::toString() const {
 	return oss.str();
 
 }
+
+std::string Libro::getTipo(){ return "Libro"; }

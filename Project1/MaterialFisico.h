@@ -11,5 +11,6 @@ public:
 	MaterialFisico(std::string identificador, std::string titulo, Lista<std::string> palabrasClave, Lista<std::string> autores, std::string tipoMaterial, std::string estado, int dias);
 	virtual ~MaterialFisico();
 	virtual std::string toString() const = 0;
+	virtual std::string getTipo() = 0;
 };
 

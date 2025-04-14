@@ -9,7 +9,7 @@ public:
 	
 	~ArticuloDigital();
 	std::string toString() const override;
-
+	std::string getTipo() override;
 
 	
 
