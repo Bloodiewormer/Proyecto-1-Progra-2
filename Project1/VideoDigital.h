@@ -18,5 +18,6 @@ public:
         const std::string& res);
 	~VideoDigital();
 	std::string toString() const override;
+    std::string getTipo();
 };
 

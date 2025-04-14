@@ -35,4 +35,4 @@ std::string ArticuloDigital::toString() const
 	return oss.str();
 }
 
-std::string ArticuloDigital::getTipo(){ return "Articulo Digital"; }
+std::string ArticuloDigital::getTipo(){ return "Articulo"; }

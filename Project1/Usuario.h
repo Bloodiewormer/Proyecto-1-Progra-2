@@ -23,6 +23,8 @@ public:
 	void setNombre(std::string nombre);
 	void setApellido(std::string apellido);
 	
+	void agregarHistorial(const std::string&);
+	void mostrarHistorial();
 
 	//sobrecarga de operador
 	friend std::ostream& operator<<(std::ostream& os, const Usuario& usuario);

@@ -8,9 +8,11 @@
 class Prestamo{
 private:
 
-	bool estado;//Devuelto, EnPrestamo
+	std::string estado;//Devuelto, EnPrestamo
 	Usuario* usuario;
 	Material* material;
+	std::string fechaPrestamo;
+	std::string fechaDevolucion;
 
 public:
 	Prestamo(std::string, Usuario*, Material*);

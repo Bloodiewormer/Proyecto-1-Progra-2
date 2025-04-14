@@ -13,7 +13,7 @@ public:
         const std::string& tipoArt);
 	~ArticuloDigital();
 	std::string toString() const override;
-
+    std::string getTipo();
 
 	
 

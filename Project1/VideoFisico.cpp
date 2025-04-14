@@ -33,4 +33,4 @@ std::string VideoFisico::toString() const
 	return oss.str();
 }
 
-std::string VideoFisico::getTipo(){ return "Video Fisico"; }
+std::string VideoFisico::getTipo(){ return "Video"; }
