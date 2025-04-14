@@ -26,12 +26,12 @@ void IntefazUsuario::DatosPrueba()
 
 int IntefazUsuario::mostrarMenuPrincipal()
 {
-	system("cls");
 	int opcion;
 	std::cout << "Menu Principal" << std::endl;
 	std::cout << "1. Menu Materiales" << std::endl;
 	std::cout << "2. Menu Usuarios" << std::endl;
-	// std::cout << "3. Menu Prestamos" << std::endl;
+	std::cout << "3. Menu Tiempo" << std::endl;
+	// std::cout << "4. Menu Prestamos" << std::endl;
 	std::cout << "5. Guardar" << std::endl;
 	std::cout << "6. Reportes" << std::endl;
 	std::cout << "0. Salir" << std::endl;
@@ -473,6 +473,42 @@ Revista* IntefazUsuario::crearRevista()
 	return new Revista(identificador, titulo, palabrasClave, autores, tipoMaterial, estado, volumen, numero);
 
 }
+
+int IntefazUsuario::subMenuTiempo()
+{
+	system("cls");
+	int opcion;
+	std::cout << "Menu de Tiempo" << std::endl;
+	std::cout << "1. Pasar Dias" << std::endl;
+	std::cout << "2. Volver Dias" << std::endl;
+	std::cout << "3. Ir al Dia" << std::endl;
+	std::cout << "4. Resetear Tiempo" << std::endl;
+	std::cout << "0. Salir" << std::endl;
+	std::cout << "Seleccione una opcion: ";
+	opcion = inputInt();
+	return opcion;
+}
+
+int IntefazUsuario::pedirDias()
+{
+	system("cls");
+	int dias;
+	std::cout << "Ingrese la cantidad de dias: ";
+	dias = inputInt();
+	return dias;
+}
+
+int* IntefazUsuario::pedirFecha()
+{
+	system("cls");
+	int* fecha = new int[2];
+	std::cout << "Ingrese la fecha (dd mm): ";
+	std::cin >> fecha[0] >> fecha[1];
+	return fecha;
+	
+
+}
+
 
 int IntefazUsuario::inputInt()
 {	int input;

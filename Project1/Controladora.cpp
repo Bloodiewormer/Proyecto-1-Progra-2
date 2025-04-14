@@ -43,6 +43,7 @@ void Controladora::MenuPrincipal(){
 	do {
 		try{
 		system("cls");
+		std::cout <<"Hoy es: " << biblioteca->getCurrentTime().toString() << std::endl;
 		opcion = interfaz->mostrarMenuPrincipal();
 		switch (opcion) {
 		case 0:
@@ -61,6 +62,10 @@ void Controladora::MenuPrincipal(){
 		case 2:
 			// Agregar usuario
 			MenusubMenuUsuario();
+			break;
+		case 3:
+			// menu de tiempo
+			MenuTiempo();
 			break;
 		case 5:
 			// Mostrar materiales
@@ -233,6 +238,31 @@ void Controladora::MenuModificarUsuario()
 		break;
 	case 4:
 		biblioteca->modificarUsuario(interfaz->pedirDatos("cedula", false), interfaz->pedirDatos("cedula", true), 4);
+		break;
+	default:
+		interfaz->opcionInvalida();
+		break;
+	}
+	system("pause");
+}
+
+void Controladora::MenuTiempo()
+{
+	int opcion = interfaz->subMenuTiempo();
+	int* fecha;
+	switch (opcion) {
+	case 1:
+		biblioteca->pasarDias(interfaz->pedirDias());
+		break;
+	case 2:
+		biblioteca->volverDias(interfaz->pedirDias());
+		break;
+	case 3:
+		fecha = interfaz->pedirFecha();
+		biblioteca->setTime(fecha[0], fecha[1]);
+		break;
+	case 4:
+		biblioteca->resetTime();
 		break;
 	default:
 		interfaz->opcionInvalida();

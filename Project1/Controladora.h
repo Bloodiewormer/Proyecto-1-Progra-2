@@ -4,6 +4,7 @@
 #include "GestorArchivos.h"
 #include "CustomException.h"
 
+
 class Controladora{
 private:
 	Biblioteca* biblioteca;
@@ -21,5 +22,6 @@ public:
 	void MenuAgregarMaterial();
 	void MenuReportes();
 	void MenuModificarUsuario();
+	void MenuTiempo();
 };
 

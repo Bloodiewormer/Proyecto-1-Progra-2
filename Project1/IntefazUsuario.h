@@ -30,6 +30,13 @@ public:
 	static VideoFisico* crearVideoFisico();
 	static VideoDigital* crearVideoDigital();
 	static Revista* crearRevista();
+	//submenus de tiempo
+
+	static int subMenuTiempo();
+	static int pedirDias();
+    static int* pedirFecha();
+
+
 	//metodos de utilidad
 	static int inputInt();
 	static bool ConfirmarSalida();

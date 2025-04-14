@@ -87,6 +87,12 @@
     <ClInclude Include="GestorPrestamo.h">
       <Filter>Header Files\otros</Filter>
     </ClInclude>
+    <ClInclude Include="Time.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Utility.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Libro.cpp">
@@ -145,6 +151,12 @@
     </ClCompile>
     <ClCompile Include="CustomException.cpp">
       <Filter>Source Files\Control</Filter>
+    </ClCompile>
+    <ClCompile Include="Time.cpp">
+      <Filter>Source Files\Control</Filter>
+    </ClCompile>
+    <ClCompile Include="Utility.cpp">
+      <Filter>Source Files\otros</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

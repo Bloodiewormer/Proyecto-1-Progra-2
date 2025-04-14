@@ -39,3 +39,13 @@ public:
 	virtual const char* what() const noexcept override;
 };
 
+// Custom exception class for invalid date
+class InvalidDateException : public std::exception {
+private:
+	std::string msg_;
+public:
+	InvalidDateException(const std::string& message);
+	virtual const char* what() const noexcept override;
+};
+
+

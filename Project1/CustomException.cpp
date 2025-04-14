@@ -26,3 +26,12 @@ const char* ObjectCreationException::what() const noexcept
 {
 	return msg_.c_str();
 }
+
+InvalidDateException::InvalidDateException(const std::string& message)
+{
+	msg_ = message;
+}
+const char* InvalidDateException::what() const noexcept
+{
+	return msg_.c_str();
+}

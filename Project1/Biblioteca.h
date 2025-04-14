@@ -1,15 +1,18 @@
 #pragma once
 #include <iostream>
+#include <ctime>
 #include "Lista.h"
 #include "Usuario.h"
 #include "Material.h"
 #include "GestorPrestamo.h"
 #include "CustomException.h"
+#include "Time.h"
 class Biblioteca{
 private:
 	Lista<Material> listaMateriales;
 	Lista<Usuario> listaUsuarios;
 	GestorPrestamo gestorPrestamos;
+	Time currentTime;
 public:
 	Biblioteca();
 	~Biblioteca();
@@ -29,6 +32,14 @@ public:
 	//Metodos para gestionar prestamos
 
 	
+
+	//Metodos tiempos
+	Time getCurrentTime();
+	void pasarDias(int dias);
+	void volverDias(int dias);
+	void resetTime();
+	void setTime(int dia, int mes);
+
 
 	//metodos para guardar y cargar datos
 	Lista<Usuario> getListaUsuarios();

@@ -142,7 +142,9 @@
     <ClInclude Include="Nodo.h" />
     <ClInclude Include="Prestamo.h" />
     <ClInclude Include="Revista.h" />
+    <ClInclude Include="Time.h" />
     <ClInclude Include="Usuario.h" />
+    <ClInclude Include="Utility.h" />
     <ClInclude Include="VideoDigital.h" />
     <ClInclude Include="VideoFisico.h" />
   </ItemGroup>
@@ -163,7 +165,9 @@
     <ClCompile Include="MaterialFisico.cpp" />
     <ClCompile Include="Prestamo.cpp" />
     <ClCompile Include="Revista.cpp" />
+    <ClCompile Include="Time.cpp" />
     <ClCompile Include="Usuario.cpp" />
+    <ClCompile Include="Utility.cpp" />
     <ClCompile Include="VideoDigital.cpp" />
     <ClCompile Include="VideoFisico.cpp" />
   </ItemGroup>

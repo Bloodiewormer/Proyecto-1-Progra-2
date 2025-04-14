@@ -4,6 +4,7 @@ Biblioteca::Biblioteca(){
 	listaMateriales = Lista<Material>();
 	listaUsuarios = Lista<Usuario>();
 	gestorPrestamos = GestorPrestamo();
+	currentTime = 0; //= 1/1 ; 1 enero
 }
 
 Biblioteca::~Biblioteca() {
@@ -189,6 +190,64 @@ Usuario* Biblioteca::buscarUsuario(std::string ID)
 	}
 	throw ObjectCreationException("Usuario no encontrado");
 }
+
+Time Biblioteca::getCurrentTime()
+{
+	return currentTime;
+}
+
+void Biblioteca::pasarDias(int dias)
+{
+	if (dias < 0) {
+		throw ObjectCreationException("Dias cannot be negative");
+	}
+	currentTime.pasarDia(dias);
+}
+
+void Biblioteca::volverDias(int dias)
+{
+	if (dias < 0) {
+		throw InvalidDateException("Dias cannot be negative");
+	}
+	currentTime.regresarDia(dias);
+}
+
+void Biblioteca::resetTime()
+{
+	currentTime.irAlDia(0);
+}
+
+void Biblioteca::setTime(int dia, int mes)
+{
+	if (dia < 1 || dia > 31) {
+		throw InvalidDateException("Dia no valido");
+	}
+	if (mes < 1 || mes > 12) {
+		throw InvalidDateException("Mes no valido");
+	}
+	if (mes == 2 && dia > 28) {
+		throw InvalidDateException("Febrero solo tiene 28 dias");
+	}
+	if ((mes == 4 || mes == 6 || mes == 9 || mes == 11) && dia > 30) {
+		throw InvalidDateException("Este mes solo tiene 30 dias");
+	}
+	int diasTotales = 0;
+	for (int i = 0; i < mes - 1; i++) {
+		if (i == 1) {
+			diasTotales += 28;
+		}
+		else if (i == 3 || i == 5 || i == 8 || i == 10) {
+			diasTotales += 30;
+		}
+		else {
+			diasTotales += 31;
+		}
+	}
+	diasTotales += dia-1;
+	currentTime.irAlDia(diasTotales);
+}
+
+
 
 Lista<Usuario> Biblioteca::getListaUsuarios()  
 {  
