@@ -35,10 +35,10 @@ std::string Usuario::toString() const{
 	return oss.str();
 }
 
-std::string Usuario::toStringCSV() const
+std::string Usuario::toCSV() const
 {
 	std::ostringstream oss;
-	oss << cedula << ";" << nombre << ";" << apellido << ";" << (estado ? "Activo" : "Inactivo") << std::endl;
+	oss << cedula << "," << nombre << "," << apellido << "," << (estado ? "Activo" : "Inactivo") << std::endl;
 	return oss.str();
 }
 
@@ -55,16 +55,4 @@ void Usuario::setNombre(std::string nombre)
 void Usuario::setApellido(std::string apellido)
 {
 	this->apellido = apellido;
-}
-
-void Usuario::agregarHistorial(const std::string& linea)
-{
-	historial.addBegin(new std::string(linea));
-}
-
-void Usuario::mostrarHistorial() const
-{
-	for (int i = 0; i < historial.getLength(); i++) {
-		std::cout << *historial.get(i) << std::endl; // desreferencia del puntero
-	}
 }

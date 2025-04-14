@@ -17,17 +17,14 @@ public:
 	bool getEstado() const;
 	void setEstado(bool estado);
 	std::string toString() const;
-	std::string toStringCSV() const;
-
+	std::string toCSV() const;
 	//setters
 	void setCedula(std::string cedula);
 	void setNombre(std::string nombre);
 	void setApellido(std::string apellido);
-
-	void agregarHistorial(const std::string&);
-	void mostrarHistorial() const;
+	
 
 	//sobrecarga de operador
-	//friend std::ostream& operator<<(std::ostream& os, const Usuario& usuario);	
+	friend std::ostream& operator<<(std::ostream& os, const Usuario& usuario);
 };
 

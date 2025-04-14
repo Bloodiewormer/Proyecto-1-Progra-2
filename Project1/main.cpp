@@ -3,13 +3,10 @@
 
 
 
-int main(){
-	system("color F0");
+int main() {
+	system("color F1");
 	Controladora controladora;
 	controladora.iniciar();
-
-
-
 
 
 	return 0;

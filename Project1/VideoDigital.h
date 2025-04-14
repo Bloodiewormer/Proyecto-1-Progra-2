@@ -8,9 +8,15 @@ private:
 	std::string duracion;
 	std::string resolucion;
 public:
-	VideoDigital(std::string identificador, std::string titulo, Lista<std::string> palabrasClave, Lista<std::string> autores, std::string tipoArchivo, double tamano, int dias, std::string duracion, std::string resolucion);
+    VideoDigital(const std::string& id,
+        const std::string& tit,
+        const Lista<std::string>& palabras,
+        const Lista<std::string>& auts,
+        const std::string& tipoArchivo,
+        double sizeMB,
+        const std::string& dur,
+        const std::string& res);
 	~VideoDigital();
 	std::string toString() const override;
-	std::string getTipo() override;
 };
 

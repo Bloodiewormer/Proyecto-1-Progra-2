@@ -5,12 +5,15 @@
 class MaterialFisico : public Material
 {
 protected:
-	//std::string tipoMaterial;
 	std::string estado;//(buen estado, regular, malo)
 public:
-	MaterialFisico(std::string identificador, std::string titulo, Lista<std::string> palabrasClave, Lista<std::string> autores, std::string tipoMaterial, std::string estado, int dias);
+	MaterialFisico(const std::string& id, 
+		const std::string& tit,
+		const Lista<std::string>& palabras,
+		const Lista<std::string>& auts,
+		const std::string& tipoMaterial,
+		const std::string& est);
 	virtual ~MaterialFisico();
 	virtual std::string toString() const = 0;
-	virtual std::string getTipo() = 0;
 };
 

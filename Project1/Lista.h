@@ -1,27 +1,21 @@
 #pragma once
 #include <iostream>
 #include "Nodo.h"
-#include "CustomExeception.h"
-
+#include <sstream>
+#include "CustomException.h"
 template <class T>
 class Lista {
 private:
 	Nodo<T>* first;
 	int length;
 public:
-
 	Lista() {
 		first = nullptr;
 		length = 0;
 	}
 
 	~Lista() {
-		while (first != nullptr) {
-			Nodo<T>* aux = first;
-			first = first->getNext();
-			delete aux; 
-			aux = nullptr;
-		}
+
 	}
 
 	int getLength() const {
@@ -42,13 +36,11 @@ public:
 			first = aux;
 			length++;
 		}
-		else
-		{
+		else{
 			first = aux;
 			length++;
 		}
 	}
-
 
 	T* get(int index) const {
 		Nodo<T>* aux = first;
@@ -58,12 +50,11 @@ public:
 		if (index == 0) {
 			return aux->getData(); 
 		}
-		for (unsigned int idx = 0; idx < index; idx++) {
+		for (int idx = 0; idx < index; idx++) {
 			aux = aux->getNext();
 		}
 		return aux->getData();
 	}
-
 
 	void remove(T* data) {
 		if (first == nullptr) {
@@ -89,7 +80,7 @@ public:
 		}
 	}
 
-	void remove(unsigned int index) {
+	void remove(int index) {
 		if (first == nullptr) {
 			return;
 		}
@@ -104,7 +95,7 @@ public:
 			return;
 		}
 		Nodo<T>* aux = first;
-		for (unsigned int idx = 0; idx < index - 1; idx++) {
+		for (int idx = 0; idx < index - 1; idx++) {
 			aux = aux->getNext();
 		}
 		Nodo<T>* aux2 = aux->getNext();
@@ -128,23 +119,25 @@ public:
 		return false;
 	}
 
-
-	std::string CSV() {
-		std::string csv = "";
+	std::string toString() const {
+		std::ostringstream s;
 		Nodo<T>* aux = first;
 		while (aux != nullptr) {
-			csv += aux->getData()->toStringCSV() + "\n";
+			s << *aux->getData() << std::endl; //aqui se usa la sobrecarga de operador << si la clase no tiene la sobrecarga de operador << se mostra el puntero
 			aux = aux->getNext();
 		}
-		return csv;
+		return s.str();
 	}
-	
 
-
-
-
-
-
+	std::string CSV() const {
+		std::ostringstream s;
+		Nodo<T>* aux = first;
+		while (aux != nullptr) {
+			s << aux->getData()->toCSV();
+			aux = aux->getNext();
+		}
+		return s.str();
+	}
 };
 
 //funny

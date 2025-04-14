@@ -4,11 +4,11 @@
 #include "Usuario.h"
 #include "Material.h"
 
+
 class Prestamo{
 private:
-	std::string fechaPrestamo;
-	std::string fechaDevolucion;
-	std::string estado; // (prestado, devuelto)
+
+	bool estado;//Devuelto, EnPrestamo
 	Usuario* usuario;
 	Material* material;
 

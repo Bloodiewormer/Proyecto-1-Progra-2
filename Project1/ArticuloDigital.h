@@ -1,15 +1,19 @@
 #pragma once 
 #include "MaterialDigital.h"
-
 class ArticuloDigital : public MaterialDigital {
 private:
 	std::string TipoArticulo;
 public:
-	ArticuloDigital(std::string identificador, std::string titulo, Lista<std::string> palabrasClave, Lista<std::string> autores, std::string tipoArchivo, double tamano, int dias, std::string TipoArticulo);
-	
+    ArticuloDigital(const std::string& id,
+        const std::string& tit,
+        const Lista<std::string>& palabras,
+        const Lista<std::string>& auts,
+        const std::string& tipoArchivo,
+        double sizeMB,
+        const std::string& tipoArt);
 	~ArticuloDigital();
 	std::string toString() const override;
-	std::string getTipo() override;
+
 
 	
 

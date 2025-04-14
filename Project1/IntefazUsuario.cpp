@@ -26,17 +26,31 @@ void IntefazUsuario::DatosPrueba()
 
 int IntefazUsuario::mostrarMenuPrincipal()
 {
-	system("cls");
 	int opcion;
 	std::cout << "Menu Principal" << std::endl;
 	std::cout << "1. Menu Materiales" << std::endl;
 	std::cout << "2. Menu Usuarios" << std::endl;
-	std::cout << "3. Menu Prestamos" << std::endl;
+	// std::cout << "3. Menu Prestamos" << std::endl;
 	std::cout << "5. Guardar" << std::endl;
 	std::cout << "6. Reportes" << std::endl;
 	std::cout << "0. Salir" << std::endl;
 	std::cout << "Seleccione una opcion: ";
-	std::cin >> opcion;
+	opcion = inputInt();
+	return opcion;
+}
+
+int IntefazUsuario::subMenuReportes()
+{
+	system("cls");
+	int opcion;
+	std::cout << "Menu de Reportes" << std::endl;
+	std::cout << "1. Reporte de Materiales" << std::endl;
+	std::cout << "2. Reporte de Usuarios" << std::endl;
+//	std::cout << "3. Reporte de Prestamos" << std::endl;
+//	std::cout << "4. Reporte de Historial de Prestamos" << std::endl;
+	std::cout << "0. Salir" << std::endl;
+	std::cout << "Seleccione una opcion: ";
+	opcion = inputInt();
 	return opcion;
 }
 
@@ -51,7 +65,7 @@ int IntefazUsuario::mostrarSubMenuUsuario()
 	std::cout << "4. Buscar Usuario" << std::endl;
 	std::cout << "0. Salir" << std::endl;
 	std::cout << "Seleccione una opcion: ";
-	std::cin >> opcion;
+	opcion = inputInt();
 	return opcion;
 }
 
@@ -66,7 +80,7 @@ int IntefazUsuario::mostrarSubMenuModificarUsuario()
 	std::cout << "4. Modificar Cedula" << std::endl;
 	std::cout << "0. Salir" << std::endl;
 	std::cout << "Seleccione una opcion: ";
-	std::cin >> opcion;
+	opcion = inputInt();
 	return opcion;
 }
 
@@ -96,7 +110,7 @@ int IntefazUsuario::tipoMaterial()
 	std::cout << "1. Fisico" << std::endl;
 	std::cout << "2. Digital" << std::endl;
 	std::cout << "Seleccione una opcion: ";
-	std::cin >> opcion;
+	opcion = inputInt();
 	return opcion;
 }
 
@@ -108,7 +122,7 @@ int IntefazUsuario::tipoMaterialDigital()
 	std::cout << "1. Video Digital" << std::endl;
 	std::cout << "2. Otro" << std::endl;
 	std::cout << "Seleccione una opcion: ";
-	std::cin >> opcion;
+	opcion = inputInt();
 	return opcion;
 }
 
@@ -122,7 +136,7 @@ int IntefazUsuario::tipoMaterialFisico()
 	std::cout << "3. Video Fisico" << std::endl;
 	std::cout << "4. Otro" << std::endl;
 	std::cout << "Seleccione una opcion: ";
-	std::cin >> opcion;
+	opcion = inputInt();
 	return opcion;
 }
 
@@ -180,7 +194,7 @@ Libro* IntefazUsuario::crearLibro()
 	std::cin >> isbn;
 	std::cout << "Ingrese la editorial del libro: ";
 	std::cin >> editorial;
-	Libro* libro = new Libro(identificador, titulo, palabrasClave, autores, tipoMaterial, estado, 0, isbn, editorial);
+	Libro* libro = new Libro(identificador, titulo, palabrasClave, autores, tipoMaterial, estado, isbn, editorial);
 	return libro;
 }
 ArticuloDigital* IntefazUsuario::crearArticuloDigital()
@@ -194,7 +208,6 @@ ArticuloDigital* IntefazUsuario::crearArticuloDigital()
 	Lista<std::string> autores;
 	std::string tipoArchivo;
 	double tamano;
-	int dias;
 	std::string TipoArticulo;
 	std::cout << "Ingrese el identificador del articulo: ";
 	std::cin >> identificador;
@@ -227,16 +240,13 @@ ArticuloDigital* IntefazUsuario::crearArticuloDigital()
 			break;
 		}
 	}
-
 	std::cout << "Ingrese el tipo de archivo del articulo: ";
 	std::cin >> tipoArchivo;
 	std::cout << "Ingrese el tamano del articulo: ";
 	std::cin >> tamano;
-	std::cout << "Ingrese los dias de prestamo del articulo: ";
-	std::cin >> dias;
 	std::cout << "Ingrese el tipo de articulo: ";
 	std::cin >> TipoArticulo;
-	return new ArticuloDigital(identificador, titulo, palabrasClave, autores, tipoArchivo, tamano, dias, TipoArticulo);
+	return new ArticuloDigital(identificador, titulo, palabrasClave, autores, tipoArchivo, tamano, TipoArticulo);
 }
 
 ArticuloFisico* IntefazUsuario::crearArticuloFisico()
@@ -288,7 +298,7 @@ ArticuloFisico* IntefazUsuario::crearArticuloFisico()
 	std::cin >> estado;
 	std::cout << "Ingrese el tipo de articulo: ";
 	std::cin >> tipoArticulo;
-	return new ArticuloFisico(identificador, titulo, palabrasClave, autores, tipoMaterial, estado, 0, tipoArticulo);
+	return new ArticuloFisico(identificador, titulo, palabrasClave, autores, tipoMaterial, estado, tipoArticulo);
 
 }
 
@@ -346,7 +356,7 @@ VideoFisico* IntefazUsuario::crearVideoFisico()
 	duracion = inputInt();
 	std::cout << "Ingrese la resolucion del video: ";
 	std::cin >> resolucion;
-	return new VideoFisico(identificador, titulo, palabrasClave, autores, tipoMaterial, estado, 0, formato, duracion, resolucion);
+	return new VideoFisico(identificador, titulo, palabrasClave, autores, tipoMaterial, estado, formato, duracion, resolucion);
 
 
 }
@@ -362,7 +372,6 @@ VideoDigital* IntefazUsuario::crearVideoDigital()
 	Lista<std::string> autores;
 	std::string tipoArchivo;
 	double tamano;
-	int dias;
 	std::string duracion;
 	std::string resolucion;
 	std::cout << "Ingrese el identificador del video: ";
@@ -400,13 +409,11 @@ VideoDigital* IntefazUsuario::crearVideoDigital()
 	std::cin >> tipoArchivo;
 	std::cout << "Ingrese el tamano del video: ";
 	tamano = inputInt();
-	std::cout << "Ingrese los dias de prestamo del video: ";
-	dias = inputInt();
 	std::cout << "Ingrese la duracion del video: ";
 	std::cin >> duracion;
 	std::cout << "Ingrese la resolucion del video: ";
 	std::cin >> resolucion;
-	return new VideoDigital(identificador, titulo, palabrasClave, autores, tipoArchivo, tamano, dias, duracion, resolucion);
+	return new VideoDigital(identificador, titulo, palabrasClave, autores, tipoArchivo, tamano, duracion, resolucion);
 
 }
 
@@ -462,10 +469,45 @@ Revista* IntefazUsuario::crearRevista()
 	std::cin >> volumen;
 	std::cout << "Ingrese el numero de la revista: ";
 	std::cin >> numero;
-	return new Revista(identificador, titulo, palabrasClave, autores, tipoMaterial, estado, 0, volumen, numero);
+	return new Revista(identificador, titulo, palabrasClave, autores, tipoMaterial, estado, volumen, numero);
 
-	
 }
+
+int IntefazUsuario::subMenuTiempo()
+{
+	system("cls");
+	int opcion;
+	std::cout << "Menu de Tiempo" << std::endl;
+	std::cout << "1. Pasar Dias" << std::endl;
+	std::cout << "2. Volver Dias" << std::endl;
+	std::cout << "3. Ir al Dia" << std::endl;
+	std::cout << "4. Resetear Tiempo" << std::endl;
+	std::cout << "0. Salir" << std::endl;
+	std::cout << "Seleccione una opcion: ";
+	opcion = inputInt();
+	return opcion;
+}
+
+int IntefazUsuario::pedirDias()
+{
+	system("cls");
+	int dias;
+	std::cout << "Ingrese la cantidad de dias: ";
+	dias = inputInt();
+	return dias;
+}
+
+int* IntefazUsuario::pedirFecha()
+{
+	system("cls");
+	int* fecha = new int[2];
+	std::cout << "Ingrese la fecha (dd mm): ";
+	std::cin >> fecha[0] >> fecha[1];
+	return fecha;
+	
+
+}
+
 
 int IntefazUsuario::inputInt()
 {	int input;
@@ -473,7 +515,7 @@ int IntefazUsuario::inputInt()
 	if (std::cin.fail()) {
 		std::cin.clear(); // clear the error flag
 		std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); // ignore the invalid input,
-		throw new InvalidInputException("Invalid input, please enter a number");
+		throw InvalidInputException("Invalid input, please enter a number");
 	}
 	return input;
 }

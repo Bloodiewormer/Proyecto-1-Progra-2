@@ -4,12 +4,13 @@
 
 
 
-ArticuloDigital::ArticuloDigital(std::string identificador, std::string titulo, Lista<std::string> palabrasClave, Lista<std::string> autores, std::string tipoArchivo, double tamano, int dias, std::string TipoArticulo)
-	:MaterialDigital(identificador, titulo, palabrasClave, autores, tipoArchivo, tamano, dias), TipoArticulo(TipoArticulo) 
-{
-	// Constructor
-	this->TipoArticulo = TipoArticulo;
+
+
+ArticuloDigital::ArticuloDigital(const std::string& id, const std::string& tit, const Lista<std::string>& palabras, const Lista<std::string>& auts, const std::string& tipoArchivo, double sizeMB, const std::string& tipoArt)
+	: MaterialDigital(id, tit, palabras, auts, tipoArchivo, sizeMB), TipoArticulo(tipoArt) {
+	diasPrestamo = DIAS_PRESTAMO_ARTICULO;
 }
+
 
 ArticuloDigital::~ArticuloDigital()
 {
@@ -24,15 +25,10 @@ std::string ArticuloDigital::toString() const
 	oss << "Articulo Digital: " << std::endl;
 	oss << "Identificador: " << identificador << std::endl;
 	oss << "Titulo: " << titulo << std::endl;
-	for (int i = 0; i < autores.getLength(); i++)
-	{
-		oss << "Autor: " << autores.get(i) << std::endl;
-	}
+	oss << "Autores: " << std::endl;
+	oss << autores.toString();
 	oss << "Palabras Clave: " << std::endl;
-	for (int i = 0; i < palabrasClave.getLength(); i++)
-	{
-		oss << "Palabra Clave: " << palabrasClave.get(i) << std::endl;
-	}
+	oss << palabrasClave.toString();
 	oss << "Tipo Archivo: " << tipo << std::endl;
 	oss << "Tamano: " << tamano << std::endl;
 	oss << "====================" << std::endl;
