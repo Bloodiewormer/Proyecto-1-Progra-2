@@ -1,4 +1,5 @@
 #pragma once
+#include"Lista.h"
 #include <iostream>
 #include <sstream>
 
@@ -8,6 +9,7 @@ private:
 	std::string nombre;
 	std::string apellido;
 	bool estado;
+	Lista<std::string> historial; // Lista de materiales prestados
 public:
 	Usuario(std::string cedula, std::string nombre, std::string apellido, bool estado);
 	~Usuario();
@@ -21,7 +23,9 @@ public:
 	void setCedula(std::string cedula);
 	void setNombre(std::string nombre);
 	void setApellido(std::string apellido);
-	
+
+	void agregarHistorial(const std::string&);
+	void mostrarHistorial() const;
 
 	//sobrecarga de operador
 	//friend std::ostream& operator<<(std::ostream& os, const Usuario& usuario);	

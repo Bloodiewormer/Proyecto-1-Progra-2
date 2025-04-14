@@ -30,7 +30,11 @@ public:
 
 
 	//Metodos para gestionar prestamos
-
+	void registrarPrestamo(std::string, std::string, std::string);
+	void devolverMaterial(std::string, std::string, std::string);
+	void mostrarPrestamos();
+	void mostrarPrestamosPorUsuario(std::string);
+	void mostrarPrestamosPorMaterial(std::string);
 	
 
 	//metodos para guardar y cargar datos

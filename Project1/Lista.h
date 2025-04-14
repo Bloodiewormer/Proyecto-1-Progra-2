@@ -113,9 +113,9 @@ public:
 		length--;
 	}
 
-	int getLength() {
+	/*int getLength() { // Este metodo esta repetido
 		return length;
-	}
+	}*/
 
 	bool contains(T* data) {
 		Nodo<T>* aux = first;

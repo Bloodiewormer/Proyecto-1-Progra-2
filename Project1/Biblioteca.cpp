@@ -198,6 +198,34 @@ Usuario* Biblioteca::buscarUsuario(std::string ID)
 	throw InvalidInputException("Usuario no encontrado");
 }
 
+void Biblioteca::registrarPrestamo(std::string idUsuario, std::string idMaterial, std::string fechaActual){
+	Usuario* u = buscarUsuario(idUsuario);
+	Material* m = buscarMaterial(idMaterial);
+	if (u != nullptr && m != nullptr) {
+		gestorPrestamos.registrarPrestamo(fechaActual, u, m);
+		std::cout << "Prestamo registrado correctamente.\n";
+	}
+	else {
+		std::cout << "Usuario o material no encontrado.\n";
+	}
+}
+
+void Biblioteca::devolverMaterial(std::string idUsuario, std::string idMaterial, std::string fechaActual){
+	gestorPrestamos.devolverMaterial(idUsuario, idMaterial, fechaActual);
+}
+
+void Biblioteca::mostrarPrestamos(){
+	gestorPrestamos.mostrarPrestamos();
+}
+
+void Biblioteca::mostrarPrestamosPorUsuario(std::string idUsuario){
+	gestorPrestamos.mostrarPrestamosPorUsuario(idUsuario);
+}
+
+void Biblioteca::mostrarPrestamosPorMaterial(std::string idMaterial){
+	gestorPrestamos.mostrarPrestamosPorMaterial(idMaterial);
+}
+
 Lista<Usuario> Biblioteca::getListaUsuarios()  
 {  
    return listaUsuarios;  

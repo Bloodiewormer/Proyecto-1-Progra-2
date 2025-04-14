@@ -11,7 +11,18 @@ private:
 	std::string estado; // (prestado, devuelto)
 	Usuario* usuario;
 	Material* material;
-public:
 
+public:
+	Prestamo(std::string, Usuario*, Material*);
+	std::string getFechaPrestamo();
+	std::string getFechaDevolucion();
+	std::string getEstado();
+	Usuario* getUsuario();
+	Material* getMaterial();
+
+	void devolver(std::string);
+
+	std::string toString();
+	std::string toStringCSV();
 };
 
