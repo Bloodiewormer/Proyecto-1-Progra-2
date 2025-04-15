@@ -210,7 +210,7 @@ void Controladora::MenuPrestamos(){
 	int opcion = interfaz->subMenuPrestamos();
 	switch (opcion) {
 	case 1:
-		//biblioteca->registrarPrestamo(interfaz->pedirDatos("fecha", false), biblioteca->buscarUsuario(interfaz->pedirDatos("cedula", false)), biblioteca->buscarMaterial(interfaz->pedirDatos("ID", false)));
+		biblioteca->registrarPrestamo(interfaz->pedirDatos("fecha", false), biblioteca->buscarUsuario(interfaz->pedirDatos("cedula", false))->getCedula(), biblioteca->buscarMaterial(interfaz->pedirDatos("ID", false))->getIdentificador());
 		break;
 	case 2:
 		biblioteca->devolverMaterial(interfaz->pedirDatos("cedula", false), interfaz->pedirDatos("ID", false), biblioteca->getCurrentTime().toString());

@@ -65,18 +65,18 @@ void Biblioteca::eliminarMaterial(std::string ID)
 	std::cout << "Material no encontrado." << std::endl;
 }
 
-//Material* Biblioteca::buscarMaterial(std::string ID)
-//{
-//	if (ID.empty()) {
-//		throw InvalidInputException("ID cannot be empty");
-//	}
-//	for (int i = 0; i < listaMateriales.getLength(); i++) {
-//		if (listaMateriales.get(i)->getIdentificador() == ID) {
-//			return listaMateriales.get(i);
-//		}
-//	}
-//	throw InvalidInputException("Material no encontrado");
-//}
+Material* Biblioteca::buscarMaterial(std::string ID)
+{
+	if (ID.empty()) {
+		throw InvalidInputException("ID cannot be empty");
+	}
+	for (int i = 0; i < listaMateriales.getLength(); i++) {
+		if (listaMateriales.get(i)->getIdentificador() == ID) {
+			return listaMateriales.get(i);
+		}
+	}
+	throw InvalidInputException("Material no encontrado");
+}
 
 
 bool Biblioteca::comprobarExistenciaUsuario(std::string ID) {
@@ -191,7 +191,7 @@ Usuario* Biblioteca::buscarUsuario(std::string ID)
 	throw ObjectCreationException("Usuario no encontrado");
 }
 
-/*void Biblioteca::registrarPrestamo(std::string idUsuario, std::string idMaterial, std::string fechaActual)
+void Biblioteca::registrarPrestamo(std::string idUsuario, std::string idMaterial, std::string fechaActual)
 {
 	Usuario* u = buscarUsuario(idUsuario);
 	Material* m = buscarMaterial(idMaterial); //falta implementacion de buscarMaterial
@@ -202,7 +202,7 @@ Usuario* Biblioteca::buscarUsuario(std::string ID)
 	else {
 		std::cout << "Usuario o material no encontrado.\n";
 	}
-}*/
+}
 
 void Biblioteca::devolverMaterial(std::string idUsuario, std::string idMaterial, std::string fechaActual)
 {
