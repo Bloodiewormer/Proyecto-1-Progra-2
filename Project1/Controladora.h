@@ -18,6 +18,7 @@ public:
 	void MenuPrincipal();
 	void MenusubMenuUsuario();
 	void MenuAgregarMaterial();
+	void MenuPrestamos();
 	void MenuReportes();
 	void MenuModificarUsuario();
 	void MenuTiempo();

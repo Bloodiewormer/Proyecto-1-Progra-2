@@ -30,7 +30,7 @@ int IntefazUsuario::mostrarMenuPrincipal()
 	std::cout << "Menu Principal" << std::endl;
 	std::cout << "1. Menu Materiales" << std::endl;
 	std::cout << "2. Menu Usuarios" << std::endl;
-	// std::cout << "3. Menu Prestamos" << std::endl;
+	std::cout << "4. Menu Prestamos" << std::endl;
 	std::cout << "5. Guardar" << std::endl;
 	std::cout << "6. Reportes" << std::endl;
 	std::cout << "0. Salir" << std::endl;
@@ -46,8 +46,9 @@ int IntefazUsuario::subMenuReportes()
 	std::cout << "Menu de Reportes" << std::endl;
 	std::cout << "1. Reportes de Materiales" << std::endl;
 	std::cout << "2. Reporte de Usuarios" << std::endl;
-//	std::cout << "3. Reporte de Prestamos" << std::endl;
-//	std::cout << "4. Reporte de Historial de Prestamos" << std::endl;
+	std::cout << "3. Reporte de Prestamos" << std::endl;
+	std::cout << "4. Reporte de Historial de Prestamos por Usuario" << std::endl;
+	std::cout << "5. Reporte de Historial de Prestamos por Material" << std::endl;
 	std::cout << "0. Salir" << std::endl;
 	std::cout << "Seleccione una opcion: ";
 	opcion = inputInt();
@@ -471,6 +472,19 @@ Revista* IntefazUsuario::crearRevista()
 	std::cin >> numero;
 	return new Revista(identificador, titulo, palabrasClave, autores, tipoMaterial, estado, volumen, numero);
 
+}
+
+int IntefazUsuario::subMenuPrestamos()
+{
+	system("cls");
+	int opcion;
+	std::cout << "Menu de Prestamos" << std::endl;
+	std::cout << "1. Registrar prestamo" << std::endl;
+	std::cout << "2. Devolver material" << std::endl;
+	std::cout << "0. Salir" << std::endl;
+	std::cout << "Seleccione una opcion: ";
+	opcion = inputInt();
+	return opcion;
 }
 
 int IntefazUsuario::subMenuTiempo()

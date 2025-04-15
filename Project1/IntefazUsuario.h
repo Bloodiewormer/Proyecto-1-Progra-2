@@ -30,6 +30,9 @@ public:
 	static VideoFisico* crearVideoFisico();
 	static VideoDigital* crearVideoDigital();
 	static Revista* crearRevista();
+
+	static int subMenuPrestamos();
+
 	//submenus de tiempo
 
 	static int subMenuTiempo();

@@ -67,6 +67,10 @@ void Controladora::MenuPrincipal(){
 			// menu de tiempo
 			MenuTiempo();
 			break;
+		case 4:
+			// menu de prestamos
+			MenuPrestamos();
+			break;
 		case 5:
 			// Mostrar materiales
 			GuardarDatos();
@@ -201,6 +205,22 @@ void Controladora::MenuAgregarMaterial()
 	system("pause");
 }
 
+void Controladora::MenuPrestamos(){
+	system("cls");
+	int opcion = interfaz->subMenuPrestamos();
+	switch (opcion) {
+	case 1:
+		//biblioteca->registrarPrestamo(interfaz->pedirDatos("fecha", false), biblioteca->buscarUsuario(interfaz->pedirDatos("cedula", false)), biblioteca->buscarMaterial(interfaz->pedirDatos("ID", false)));
+		break;
+	case 2:
+		biblioteca->devolverMaterial(interfaz->pedirDatos("cedula", false), interfaz->pedirDatos("ID", false), biblioteca->getCurrentTime().toString());
+		break;
+	default:
+		interfaz->opcionInvalida();
+		break;
+	}
+}
+
 void Controladora::MenuReportes()
 {
 	system("cls");
@@ -213,10 +233,13 @@ void Controladora::MenuReportes()
 		biblioteca->mostrarUsuarios();
 		break;
 	case 3:
-		//biblioteca->gestorPrestamos.mostrarPrestamos();
+		biblioteca->mostrarPrestamos();
 		break;
 	case 4:
-		//biblioteca->gestorPrestamos.mostrarHistorialPrestamos();
+		biblioteca->mostrarPrestamosPorUsuario(interfaz->pedirDatos("cedula", false));
+		break;
+	case 5:
+		biblioteca->mostrarPrestamosPorMaterial(interfaz->pedirDatos("ID", false));
 		break;
 	default:
 		interfaz->opcionInvalida();
