@@ -3,6 +3,7 @@
 #include <sstream>
 #include "Usuario.h"
 #include "Material.h"
+#include "Lista.h"
 
 
 class Prestamo{
@@ -25,6 +26,6 @@ public:
 	void devolver(std::string);
 
 	std::string toString();
-	std::string toStringCSV();
+	std::string toCSV() const;
 };
 

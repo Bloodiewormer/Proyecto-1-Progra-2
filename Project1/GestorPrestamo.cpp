@@ -1,5 +1,6 @@
 #include "GestorPrestamo.h"
 #include <cstdio>  
+#include <fstream>
 
 int convertirFechaADias(const std::string& fecha) {
 	int dia = 0, mes = 0, anio = 0;
@@ -86,3 +87,9 @@ void GestorPrestamo::mostrarPrestamosPorMaterial(std::string idMaterial){
 		}
 	}
 }
+
+Lista<Prestamo> GestorPrestamo::getListaPrestamos() {
+	return listaPrestamos;
+}
+
+

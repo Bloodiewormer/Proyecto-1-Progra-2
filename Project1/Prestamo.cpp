@@ -34,9 +34,10 @@ std::string Prestamo::toString(){
 	return ss.str();
 }
 
-std::string Prestamo::toStringCSV(){
+std::string Prestamo::toCSV() const {
 	std::stringstream ss;
 	ss << usuario->getCedula() << "," << material->getIdentificador() << "," << fechaPrestamo << ","
 		<< fechaDevolucion << "," << estado;
 	return ss.str();
 }
+
