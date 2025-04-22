@@ -51,18 +51,15 @@ std::string Prestamo::toString() const{
 	return ss.str();
 }
 
-std::string Prestamo::toCSV() const {
+std::string Prestamo::toStringCSV() const {
 	std::stringstream ss;
 	ss << usuario->getCedula() << "," << material->getIdentificador() << "," << fechaPrestamo.getDia() << ","
 		<< fechaDevolucion.getDia() << "," << estado;
 	return ss.str();
 }
 
-<<<<<<< HEAD
 std::ostream& operator<<(std::ostream& os, const Prestamo& prestamo)
 {
 	os << prestamo.toString();
 	return os;
 }
-=======
->>>>>>> e04f1133ef02369d47d20956f21d7f53ecfefe28

@@ -3,11 +3,7 @@
 #include <sstream>
 #include "Usuario.h"
 #include "Material.h"
-<<<<<<< HEAD
 #include "Time.h"
-=======
-#include "Lista.h"
->>>>>>> e04f1133ef02369d47d20956f21d7f53ecfefe28
 
 
 class Prestamo{
@@ -33,15 +29,10 @@ public:
 
 	void devolver(Time fecAct);
 
-<<<<<<< HEAD
 	std::string toString() const;
-	std::string toStringCSV();
+	std::string toStringCSV() const ;
 
 	//sobrecarga de operador
 	friend std::ostream& operator<<(std::ostream& os, const Prestamo& prestamo);
-=======
-	std::string toString();
-	std::string toCSV() const;
->>>>>>> e04f1133ef02369d47d20956f21d7f53ecfefe28
 };
 

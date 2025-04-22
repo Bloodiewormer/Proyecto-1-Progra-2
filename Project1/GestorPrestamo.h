@@ -13,8 +13,11 @@ public:
     void devolverMaterial(Time, std::string, std::string);
 
     void mostrarPrestamos();
-    void mostrarPrestamosPorUsuario(std::string);
-    void mostrarPrestamosPorMaterial(std::string);
+    //void mostrarPrestamosPorUsuario(std::string);
+    //void mostrarPrestamosPorMaterial(std::string);
+    void mostrarPrestamosPorUsuario(std::string idUsuario);
+    void mostrarPrestamosPorMaterial(std::string idMaterial);
+
     Lista<Prestamo> getListaPrestamos();
 };
 

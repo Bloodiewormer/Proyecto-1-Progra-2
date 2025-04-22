@@ -1,6 +1,6 @@
 #include "GestorPrestamo.h"
 #include <cstdio>  
-<<<<<<< HEAD
+
 //
 //int convertirFechaADias(const std::string& fecha) {
 //	int dia = 0, mes = 0, anio = 0;
@@ -9,9 +9,6 @@
 //	}
 //	return anio * 365 + mes * 30 + dia; // Aproximación simple
 //}
-=======
-#include <fstream>
->>>>>>> e04f1133ef02369d47d20956f21d7f53ecfefe28
 
 void GestorPrestamo::registrarPrestamo(Time fechaActual, Usuario* u, Material* m){
 	Prestamo* nuevo = new Prestamo(fechaActual, u, m);
