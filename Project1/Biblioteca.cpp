@@ -191,12 +191,12 @@ Usuario* Biblioteca::buscarUsuario(std::string ID)
 	throw ObjectCreationException("Usuario no encontrado");
 }
 
-void Biblioteca::registrarPrestamo(std::string idUsuario, std::string idMaterial, std::string fechaActual)
+void Biblioteca::registrarPrestamo(std::string idUsuario, std::string idMaterial)
 {
 	Usuario* u = buscarUsuario(idUsuario);
 	Material* m = buscarMaterial(idMaterial); //falta implementacion de buscarMaterial
 	if (u != nullptr && m != nullptr) {
-		gestorPrestamos.registrarPrestamo(fechaActual, u, m);
+		gestorPrestamos.registrarPrestamo(currentTime, u, m);
 		std::cout << "Prestamo registrado correctamente.\n";
 	}
 	else {
@@ -204,9 +204,9 @@ void Biblioteca::registrarPrestamo(std::string idUsuario, std::string idMaterial
 	}
 }
 
-void Biblioteca::devolverMaterial(std::string idUsuario, std::string idMaterial, std::string fechaActual)
+void Biblioteca::devolverMaterial(std::string idUsuario, std::string idMaterial)
 {
-	gestorPrestamos.devolverMaterial(idUsuario, idMaterial, fechaActual);
+	gestorPrestamos.devolverMaterial(currentTime,idUsuario, idMaterial);
 }
 
 void Biblioteca::mostrarPrestamos()

@@ -17,6 +17,23 @@ std::string Material::getIdentificador() const
 	return identificador;
 }
 
+int Material::getDiasPrestamo()
+{
+	return diasPrestamo;
+}
+
+void Material::agregarHistorial(const std::string& linea)
+{
+	historial.addBegin(new std::string(linea));
+}
+
+void Material::mostrarHistorial()
+{
+	for (int i = 0; i < historial.getLength(); i++) {
+		std::cout << *historial.get(i) << std::endl;
+	}
+}
+
 std::ostream& operator<<(std::ostream& os, const Material& Material)
 {
 	os << Material.toString();

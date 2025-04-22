@@ -29,4 +29,4 @@ std::string ArticuloFisico::toString() const
 	return oss.str();
 }
 
-std::string ArticuloFisico::getTipo(){ return "Articulo"; }
+

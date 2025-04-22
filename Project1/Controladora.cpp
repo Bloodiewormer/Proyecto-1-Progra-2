@@ -210,10 +210,10 @@ void Controladora::MenuPrestamos(){
 	int opcion = interfaz->subMenuPrestamos();
 	switch (opcion) {
 	case 1:
-		biblioteca->registrarPrestamo(interfaz->pedirDatos("fecha", false), biblioteca->buscarUsuario(interfaz->pedirDatos("cedula", false))->getCedula(), biblioteca->buscarMaterial(interfaz->pedirDatos("ID", false))->getIdentificador());
+		biblioteca->registrarPrestamo( biblioteca->buscarUsuario(interfaz->pedirDatos("cedula", false))->getCedula(), biblioteca->buscarMaterial(interfaz->pedirDatos("ID", false))->getIdentificador());
 		break;
 	case 2:
-		biblioteca->devolverMaterial(interfaz->pedirDatos("cedula", false), interfaz->pedirDatos("ID", false), biblioteca->getCurrentTime().toString());
+		biblioteca->devolverMaterial(interfaz->pedirDatos("cedula", false), interfaz->pedirDatos("ID", false));
 		break;
 	default:
 		interfaz->opcionInvalida();
@@ -236,10 +236,10 @@ void Controladora::MenuReportes()
 		biblioteca->mostrarPrestamos();
 		break;
 	case 4:
-		biblioteca->mostrarPrestamosPorUsuario(interfaz->pedirDatos("cedula", false));
+		biblioteca->mostrarPrestamosPorUsuario(interfaz->pedirDatos("cedula del usuario", false));
 		break;
 	case 5:
-		biblioteca->mostrarPrestamosPorMaterial(interfaz->pedirDatos("ID", false));
+		biblioteca->mostrarPrestamosPorMaterial(interfaz->pedirDatos("ID de Material", false));
 		break;
 	default:
 		interfaz->opcionInvalida();
@@ -291,7 +291,6 @@ void Controladora::MenuTiempo()
 		interfaz->opcionInvalida();
 		break;
 	}
-	system("pause");
 }
 
 void Controladora::GuardarDatos()

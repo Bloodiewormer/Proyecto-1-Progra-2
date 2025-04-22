@@ -32,4 +32,4 @@ std::string VideoDigital::toString() const
 	return oss.str();
 }
 
-std::string VideoDigital::getTipo(){ return "Video"; }
+

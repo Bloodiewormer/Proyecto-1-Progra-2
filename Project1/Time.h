@@ -19,6 +19,9 @@ public:
 	bool isSameDay(const Time& other) const;
 	std::string toString() const;
 
+	//operator + returns a string
+
+
 
 };
 

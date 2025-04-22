@@ -2,14 +2,15 @@
 #include <iostream>
 #include "Lista.h"
 #include "Prestamo.h"
+#include "CustomException.h"
 
 class GestorPrestamo{
 private:
 	Lista<Prestamo> listaPrestamos;
 
 public:
-    void registrarPrestamo(std::string, Usuario*, Material*);
-    void devolverMaterial(std::string, std::string, std::string);
+    void registrarPrestamo(Time, Usuario*, Material*);
+    void devolverMaterial(Time, std::string, std::string);
 
     void mostrarPrestamos();
     void mostrarPrestamosPorUsuario(std::string idUsuario);

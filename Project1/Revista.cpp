@@ -28,4 +28,4 @@ std::string Revista::toString() const{
 	return oss.str();
 }
 
-std::string Revista::getTipo(){ return "Revista"; }
+
