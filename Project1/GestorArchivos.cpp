@@ -36,6 +36,26 @@ void GestorArchivos::guardarTiempo(Biblioteca* biblioteca, const std::string& no
 	archivo.close();
 }
 
+void GestorArchivos::guardarPrestamos(const Lista<Prestamo>& listaPrestamos, const std::string& nombreArchivo){
+	if (listaPrestamos.getLength() == 0) {
+		throw InvalidInputException("No hay préstamos para guardar.");
+	}
+
+	std::ofstream archivo(nombreArchivo, std::ios::out);
+	if (!archivo.is_open()) {
+		throw FileOperationException("Error al abrir el archivo para guardar préstamos.");
+	}
+
+	archivo << "cedula,idMaterial,fechaPrestamo,fechaDevolucion,estado" << std::endl;
+
+	for (int i = 0; i < listaPrestamos.getLength(); i++) {
+		Prestamo* p = listaPrestamos.get(i);
+		archivo << p->toCSV() << std::endl;
+	}
+
+	archivo.close();
+}
+
 void GestorArchivos::cargarUsuarios(Biblioteca* biblioteca, const std::string& nombreArchivo)
 {
 	std::ifstream archivo(nombreArchivo, std::ios::in);

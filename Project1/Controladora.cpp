@@ -298,7 +298,7 @@ void Controladora::GuardarDatos()
 	gestorArchivos->guardarUsuarios(biblioteca, "usuarios.csv");
 	gestorArchivos->guardarTiempo(biblioteca, "tiempo.csv");
 	//gestorArchivos->guardarMateriales(biblioteca, "materiales.csv");
-	//gestorArchivos->guardarPrestamos(biblioteca, "prestamos.csv");
+	gestorArchivos->guardarPrestamos(gestorPrestamo->getListaPrestamos(), "prestamos.csv");
 
 }
 
