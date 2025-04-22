@@ -3,12 +3,13 @@
 #include "Biblioteca.h"
 #include "GestorArchivos.h"
 #include "CustomException.h"
-
+#include "GestorPrestamo.h"
 
 class Controladora{
 private:
 	Biblioteca* biblioteca;
 	GestorArchivos* gestorArchivos;
+	GestorPrestamo* gestorPrestamo;
 	IntefazUsuario* interfaz;
 public:
 	Controladora();

@@ -11,6 +11,7 @@ class Biblioteca{
 private:
 	Lista<Material> listaMateriales;
 	Lista<Usuario> listaUsuarios;
+	//Lista<Prestamo> listaPrestamos;
 	GestorPrestamo gestorPrestamos;
 	Time currentTime;
 public:
@@ -47,4 +48,5 @@ public:
 
 	//metodos para guardar y cargar datos
 	Lista<Usuario> getListaUsuarios();
+	
 };

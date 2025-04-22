@@ -1,5 +1,13 @@
 #include "GestorPrestamo.h"
 #include <cstdio>  
+//
+//int convertirFechaADias(const std::string& fecha) {
+//	int dia = 0, mes = 0, anio = 0;
+//	if (sscanf_s(fecha.c_str(), "%d/%d/%d", &dia, &mes, &anio) != 3) {
+//		throw std::invalid_argument("Formato de fecha inválido. Debe ser dd/mm/aaaa");
+//	}
+//	return anio * 365 + mes * 30 + dia; // Aproximación simple
+//}
 
 void GestorPrestamo::registrarPrestamo(Time fechaActual, Usuario* u, Material* m){
 	Prestamo* nuevo = new Prestamo(fechaActual, u, m);

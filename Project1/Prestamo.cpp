@@ -51,7 +51,7 @@ std::string Prestamo::toString() const{
 	return ss.str();
 }
 
-std::string Prestamo::toStringCSV() const {
+std::string Prestamo::toCSV() const {
 	std::stringstream ss;
 	ss << usuario->getCedula() << "," << material->getIdentificador() << "," << fechaPrestamo.getDia() << ","
 		<< fechaDevolucion.getDia() << "," << estado;
