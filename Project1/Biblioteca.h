@@ -11,7 +11,6 @@ class Biblioteca{
 private:
 	Lista<Material> listaMateriales;
 	Lista<Usuario> listaUsuarios;
-	//Lista<Prestamo> listaPrestamos;
 	GestorPrestamo gestorPrestamos;
 	Time currentTime;
 public:
@@ -32,7 +31,7 @@ public:
 	Usuario* buscarUsuario(std::string ID);
 	//Metodos para gestionar prestamos
 	void registrarPrestamo(std::string, std::string);
-	void devolverMaterial(std::string, std::string);
+	void devolverMaterial(int idPrestamo, std::string);
 	void mostrarPrestamos();
 	void mostrarPrestamosPorUsuario(std::string);
 	void mostrarPrestamosPorMaterial(std::string);
@@ -47,6 +46,7 @@ public:
 
 
 	//metodos para guardar y cargar datos
-	Lista<Usuario> getListaUsuarios();
-	
+	Lista<Usuario> getListaUsuarios();	
+	Lista<Material> getListaMateriales();
+	Lista<Prestamo> getListaPrestamos();
 };

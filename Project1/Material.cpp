@@ -5,7 +5,9 @@
 
 Material::Material(const std::string& id, const std::string& tit, const Lista<std::string>& palabras, const Lista<std::string>& auts, const std::string tip)
 	: identificador(id), titulo(tit), palabrasClave(palabras),
-	autores(auts), tipo(tip), diasPrestamo(0) {
+	autores(auts), tipo(tip), diasPrestamo(0), disponibilidad("disponible") {
+
+
 }
 
 Material::~Material()
@@ -22,13 +24,33 @@ int Material::getDiasPrestamo()
 	return diasPrestamo;
 }
 
+std::string Material::getTitulo()
+{
+	return titulo;
+}
+
+std::string Material::getDisponibilidad()
+{
+	return disponibilidad;
+}
+
+void Material::setDisponibilidad(std::string disponibilidad)
+{
+	this->disponibilidad = disponibilidad;
+}
+
+
 void Material::agregarHistorial(const std::string& linea)
 {
 	historial.addBegin(new std::string(linea));
 }
 
-void Material::mostrarHistorial()
+void Material::mostrarHistorial() // talvez convertiar a string
 {
+	if (historial.isEmpty()) {
+		std::cout << "No hay historial de prestamos." << std::endl;
+		return;
+	}
 	for (int i = 0; i < historial.getLength(); i++) {
 		std::cout << *historial.get(i) << std::endl;
 	}

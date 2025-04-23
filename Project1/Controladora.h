@@ -9,7 +9,6 @@ class Controladora{
 private:
 	Biblioteca* biblioteca;
 	GestorArchivos* gestorArchivos;
-	GestorPrestamo* gestorPrestamo;
 	IntefazUsuario* interfaz;
 public:
 	Controladora();

@@ -16,6 +16,8 @@ public:
 	std::string getCedula() const;
 	bool getEstado() const;
 	void setEstado(bool estado);
+	std::string getNombre() const;
+
 	std::string toString() const;
 	std::string toCSV() const;
 	//setters

@@ -15,5 +15,6 @@ public:
         const std::string& num);
     ~Revista();
 	std::string toString() const override;
+    std::string toStringCSV() const override;
 };
 

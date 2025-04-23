@@ -11,6 +11,7 @@ public:
 		double sizeMB);
 	~MaterialDigital();
 	virtual std::string toString() const = 0;
+	virtual std::string toStringCSV() const = 0;
 
 };
 

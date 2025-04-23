@@ -32,4 +32,35 @@ std::string VideoDigital::toString() const
 	return oss.str();
 }
 
+std::string VideoDigital::toStringCSV() const
+{
+	std::ostringstream oss;
+	oss << "2" << ",";//digital
+	oss << "1" << ","; //Video Digital
+	oss << identificador << ",";
+	oss << titulo << ",";
+	oss << autores.getLength() << ",";
+	for (int i = 0; i < autores.getLength(); i++) {
+		oss << *autores.get(i);
+		if (i != autores.getLength() - 1) {
+			oss << ",";
+		}
+	}
+	oss << "," << palabrasClave.getLength() << ",";
+	for (int i = 0; i < palabrasClave.getLength(); i++) {
+		oss << *palabrasClave.get(i);
+		if (i != palabrasClave.getLength() - 1) {
+			oss << ",";
+		}
+	}
+	oss << "," << tipo << ",";
+	oss << tamano << ",";
+	oss << duracion << ",";
+	oss << resolucion << ",";
+	oss << disponibilidad << ",";
+	return oss.str();
+
+
+}
+
 

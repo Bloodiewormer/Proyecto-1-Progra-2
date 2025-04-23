@@ -15,6 +15,6 @@ public:
         const std::string& edit);
 	~Libro();
 	std::string toString() const override;
-
+    std::string toStringCSV() const override;
 };
 

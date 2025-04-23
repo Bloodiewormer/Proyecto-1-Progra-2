@@ -194,8 +194,17 @@ Usuario* Biblioteca::buscarUsuario(std::string ID)
 void Biblioteca::registrarPrestamo(std::string idUsuario, std::string idMaterial)
 {
 	Usuario* u = buscarUsuario(idUsuario);
-	Material* m = buscarMaterial(idMaterial); //falta implementacion de buscarMaterial
+	Material* m = buscarMaterial(idMaterial);
 	if (u != nullptr && m != nullptr) {
+
+		if (u->getEstado() == false) {
+			std::cout << "El usuario no esta activo." << std::endl;
+			return;
+		}
+		if (m->getDiasPrestamo() == 0) {
+			std::cout << "El material no tiene dias de prestamo." << std::endl;
+			return;
+		}
 		gestorPrestamos.registrarPrestamo(currentTime, u, m);
 		std::cout << "Prestamo registrado correctamente.\n";
 	}
@@ -204,9 +213,10 @@ void Biblioteca::registrarPrestamo(std::string idUsuario, std::string idMaterial
 	}
 }
 
-void Biblioteca::devolverMaterial(std::string idUsuario, std::string idMaterial)
+void Biblioteca::devolverMaterial(int idPrestamo,std::string idUsuario)
 {
-	gestorPrestamos.devolverMaterial(currentTime,idUsuario, idMaterial);
+
+	gestorPrestamos.devolverMaterial(idPrestamo,currentTime,idUsuario);
 }
 
 void Biblioteca::mostrarPrestamos()
@@ -285,6 +295,12 @@ Lista<Usuario> Biblioteca::getListaUsuarios()
    return listaUsuarios;  
 }
 
+Lista<Material> Biblioteca::getListaMateriales()
+{
+	return listaMateriales;
+}
 
-
-
+Lista<Prestamo> Biblioteca::getListaPrestamos()
+{
+	return gestorPrestamos.getListaPrestamos();
+}

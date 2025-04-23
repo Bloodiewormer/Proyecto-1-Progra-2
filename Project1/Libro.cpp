@@ -28,3 +28,34 @@ std::string Libro::toString() const {
 	return oss.str();
 
 }
+
+std::string Libro::toStringCSV() const
+{
+	std::ostringstream oss;
+	oss << "1" << ",";//Fisico
+	oss << "1 " << ",";
+	oss << identificador << ",";
+	oss << titulo << ",";
+	oss << autores.getLength() << ",";
+	for (int i = 0; i < autores.getLength(); i++) {
+		oss << *autores.get(i);
+		if (i != autores.getLength() - 1) {
+			oss << ",";
+		}
+	}
+	oss << "," << palabrasClave.getLength() << ",";
+	for (int i = 0; i < palabrasClave.getLength(); i++) {
+		oss << *palabrasClave.get(i);
+		if (i != palabrasClave.getLength() - 1) {
+			oss << ",";
+		}
+	}
+	oss << "," << tipo << ",";
+	oss << estado << ",";
+	oss << isbn << ",";
+	oss << editorial << ",";
+	oss << disponibilidad << ",";
+	return oss.str();
+
+	
+}

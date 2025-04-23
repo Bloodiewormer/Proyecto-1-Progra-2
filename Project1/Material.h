@@ -14,21 +14,27 @@ protected:
 	Lista<std::string> autores; //Lista de autores 
 	int diasPrestamo; //Dias de prestamo
 	std::string tipo; // en Fisico se refiere en tipo de material (Cuero, plastico, etc), en digital se refiere a tipo de archivo (pdf, mp3, mp4, etc)
+	std::string disponibilidad; //Estado del material (prestado, disponible, etc)
 	Lista<std::string> historial; //Lista de historial de prestamos
 public:
 	Material(const std::string& id,
 		const std::string& tit, 
 		const Lista<std::string>& palabras, 
 		const Lista<std::string>& auts, 
-		const std::string tip);
+		const std::string tipo);
 	~Material();
 	std::string getIdentificador() const;
 	int getDiasPrestamo();
+	std::string getTitulo();
+	std::string getDisponibilidad();
+
+	void setDisponibilidad(std::string disponibilidad);
 	
 	void agregarHistorial(const std::string&);
 	void mostrarHistorial();
 
 	virtual std::string toString() const = 0;
+	virtual std::string toStringCSV() const = 0;
 
 
 	friend std::ostream& operator<<(std::ostream& os, const Material& Material);

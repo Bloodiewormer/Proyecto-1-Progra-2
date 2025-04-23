@@ -31,6 +31,7 @@ public:
 	static VideoDigital* crearVideoDigital();
 	static Revista* crearRevista();
 
+	//submenus de prestamos
 	static int subMenuPrestamos();
 
 	//submenus de tiempo

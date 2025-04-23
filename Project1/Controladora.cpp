@@ -208,12 +208,28 @@ void Controladora::MenuAgregarMaterial()
 void Controladora::MenuPrestamos(){
 	system("cls");
 	int opcion = interfaz->subMenuPrestamos();
+	Usuario* usuario;
+	string idPrestamo;
+	string idUsuario;
+	string idMaterial;
 	switch (opcion) {
 	case 1:
-		biblioteca->registrarPrestamo( biblioteca->buscarUsuario(interfaz->pedirDatos("cedula", false))->getCedula(), biblioteca->buscarMaterial(interfaz->pedirDatos("ID", false))->getIdentificador());
+		biblioteca->registrarPrestamo(biblioteca->buscarUsuario(interfaz->pedirDatos("cedula ", false))->getCedula(), biblioteca->buscarMaterial(interfaz->pedirDatos("ID", false))->getIdentificador());
 		break;
 	case 2:
-		biblioteca->devolverMaterial(interfaz->pedirDatos("cedula", false), interfaz->pedirDatos("ID", false));
+		// Devolver material
+		idUsuario = interfaz->pedirDatos("ID de Usuario", false);
+		system("cls");
+		usuario = biblioteca->buscarUsuario(idUsuario);
+		if (usuario == nullptr) {
+			interfaz->msj("Usuario no encontrado");
+			system("pause");
+			break;
+		}
+		interfaz->msj("Prestamos del usuario: " + usuario->getNombre());
+		biblioteca->mostrarPrestamosPorUsuario(idUsuario);
+		idPrestamo = interfaz->pedirDatos("ID del prestamo", false);
+		biblioteca->devolverMaterial(stoi(idPrestamo),idUsuario);
 		break;
 	default:
 		interfaz->opcionInvalida();
@@ -297,8 +313,8 @@ void Controladora::GuardarDatos()
 {
 	gestorArchivos->guardarUsuarios(biblioteca, "usuarios.csv");
 	gestorArchivos->guardarTiempo(biblioteca, "tiempo.csv");
-	//gestorArchivos->guardarMateriales(biblioteca, "materiales.csv");
-	gestorArchivos->guardarPrestamos(gestorPrestamo->getListaPrestamos(), "prestamos.csv");
+	gestorArchivos->guardarMateriales(biblioteca, "materiales.csv");
+	gestorArchivos->guardarPrestamos(biblioteca->getListaPrestamos(), "prestamos.csv");
 
 }
 
@@ -307,6 +323,7 @@ void Controladora::CargarDatos()
 	cout << "Cargando datos..." << endl;
 	gestorArchivos->cargarUsuarios(biblioteca, "usuarios.csv");
 	gestorArchivos->cargarTiempo(biblioteca, "tiempo.csv");
+	gestorArchivos->cargarMateriales(biblioteca, "materiales.csv");
 	//interfaz->msj("Datos cargados correctamente");
 	//system("pause");
 }

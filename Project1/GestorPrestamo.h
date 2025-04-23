@@ -10,14 +10,22 @@ private:
 
 public:
     void registrarPrestamo(Time, Usuario*, Material*);
-    void devolverMaterial(Time, std::string, std::string);
+    void devolverMaterial(int, Time, std::string);
+	Prestamo* buscarPrestamo(int idPrestamo);
 
     void mostrarPrestamos();
     void mostrarPrestamosPorUsuario(std::string idUsuario);
     void mostrarPrestamosPorMaterial(std::string idMaterial);
 
+	void mostrarHistorialUsuario(std::string idUsuario);
+	void mostrarHistorialMaterial(std::string idMaterial);
+
+
+
     //void guardarEnArchivo(std::string ruta);
     //void cargarDesdeArchivo(std::string ruta);
+
+    Lista<Prestamo> getListaPrestamos();
 
 };
 

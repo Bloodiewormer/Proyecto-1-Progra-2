@@ -28,4 +28,33 @@ std::string Revista::toString() const{
 	return oss.str();
 }
 
+std::string Revista::toStringCSV() const
+{
+	std::ostringstream oss;
+	oss << "1" << ","; // Indica que es material físico
+	oss << "2" << ","; // Tipo de material
+	oss << identificador << ","; // Identificador
+	oss << titulo << ","; // Título
+	oss << autores.getLength() << ","; // Número de autores
+	for (int i = 0; i < autores.getLength(); i++) {
+		oss << *autores.get(i);
+		if (i != autores.getLength() - 1) {
+			oss << ",";
+		}
+	}
+	oss << "," << palabrasClave.getLength() << ","; // Número de palabras clave
+	for (int i = 0; i < palabrasClave.getLength(); i++) {
+		oss << *palabrasClave.get(i);
+		if (i != palabrasClave.getLength() - 1) {
+			oss << ",";
+		}
+	}
+	oss << "," << tipo << ","; // Tipo de material
+	oss << estado << ","; // Estado
+	oss << volumen << ","; // Volumen
+	oss << numero << ","; // Número
+	oss << disponibilidad; // Disponibilidad
+	return oss.str();
+}
+
 

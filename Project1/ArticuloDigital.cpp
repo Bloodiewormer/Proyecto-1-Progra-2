@@ -35,4 +35,32 @@ std::string ArticuloDigital::toString() const
 	return oss.str();
 }
 
+std::string ArticuloDigital::toStringCSV() const
+{
+	std::ostringstream oss;
+	oss << "2" << ",";//digital
+	oss << "2" << ","; //Articulo Digital
+	oss << identificador << ",";
+	oss << titulo << ",";
+	oss << autores.getLength() << ",";
+	for (int i = 0; i < autores.getLength(); i++) {
+		oss << *autores.get(i);
+		if (i != autores.getLength() - 1) {
+			oss << ",";
+		}
+	}
+	oss << "," << palabrasClave.getLength() << ",";
+	for (int i = 0; i < palabrasClave.getLength(); i++) {
+		oss << *palabrasClave.get(i);
+		if (i != palabrasClave.getLength() - 1) {
+			oss << ",";
+		}
+	}
+	oss << "," << tipo << ",";
+	oss << tamano << ",";
+	oss << TipoArticulo << ",";
+	oss << disponibilidad << ",";
+	return oss.str();
+}
+
 

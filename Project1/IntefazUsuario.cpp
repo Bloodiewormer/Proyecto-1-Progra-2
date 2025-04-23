@@ -7,7 +7,7 @@ void IntefazUsuario::bannerBienvenida()
 	std::cout << "| (c) 2025                                            |" << std::endl;
 	std::cout << "| EIF204 - Programación 2                             |" << std::endl;
 	std::cout << "| 1er ciclo 2025                                      |" << std::endl;
-	std::cout << "| NRC 41370 – Grupo 00                                 |" << std::endl;
+	std::cout << "| NRC 41370 – Grupo 00                                |" << std::endl;
 	std::cout << "| Proyecto 1                                          |" << std::endl;
 	std::cout << "|                                                     |" << std::endl;
 	std::cout << "| 2-0854-0087; David Alberto Gonzalez Cordoba         |" << std::endl;
@@ -27,15 +27,19 @@ void IntefazUsuario::DatosPrueba()
 int IntefazUsuario::mostrarMenuPrincipal()
 {
 	int opcion;
-	std::cout << "Menu Principal" << std::endl;
-	std::cout << "1. Menu Materiales" << std::endl;
-	std::cout << "2. Menu Usuarios" << std::endl;
-	std::cout << "3. Menu Tiempo" << std::endl;
-	std::cout << "4. Menu Prestamos" << std::endl;
-	std::cout << "5. Guardar" << std::endl;
-	std::cout << "6. Reportes" << std::endl;
-	std::cout << "0. Salir" << std::endl;
+	std::cout << "+----------------------------------------------------+" << std::endl;
+	std::cout << "|                                                    |" << std::endl;
+	std::cout << "|	1. Menu Materiales                           |" << std::endl;
+	std::cout << "|	2. Menu Usuarios                             |" << std::endl;
+	std::cout << "|	3. Menu Tiempo                               |" << std::endl;
+	std::cout << "|	4. Menu Prestamos                            |" << std::endl;
+	std::cout << "|	5. Guardar                                   |" << std::endl;
+	std::cout << "|	6. Reportes                                  |" << std::endl;
+	std::cout << "|	0. Salir                                     |" << std::endl;
+	std::cout << "|                                                    |" << std::endl;
+	std::cout << "+----------------------------------------------------+" << std::endl;
 	std::cout << "Seleccione una opcion: ";
+
 	opcion = inputInt();
 	return opcion;
 }
@@ -44,14 +48,18 @@ int IntefazUsuario::subMenuReportes()
 {
 	system("cls");
 	int opcion;
-	std::cout << "Menu de Reportes" << std::endl;
-	std::cout << "1. Reportes de Materiales" << std::endl;
-	std::cout << "2. Reporte de Usuarios" << std::endl;
-	std::cout << "3. Reporte de Prestamos" << std::endl;
-	std::cout << "4. Reporte de Historial de Prestamos por Usuario" << std::endl;
-	std::cout << "5. Reporte de Historial de Prestamos por Material" << std::endl;
-	std::cout << "0. Salir" << std::endl;
+	std::cout << "+------------------------------------------------------+" << std::endl;
+	std::cout << "|                                                      |" << std::endl;
+	std::cout << "|		1. Reporte de Materiales                         |" << std::endl;
+	std::cout << "|		2. Reporte de Usuarios                           |" << std::endl;
+	std::cout << "|		3. Reporte de Prestamos                          |" << std::endl;
+	std::cout << "|		4. Reporte de Historial de Prestamos por Usuario |" << std::endl;
+	std::cout << "|		5. Reporte de Historial de Prestamos por Material|" << std::endl;
+	std::cout << "|		0. Salir                                         |" << std::endl;
+	std::cout << "|                                                      |" << std::endl;
+	std::cout << "+------------------------------------------------------+" << std::endl;
 	std::cout << "Seleccione una opcion: ";
+
 	opcion = inputInt();
 	return opcion;
 }
@@ -599,21 +607,33 @@ void IntefazUsuario::msj(std::string mensaje)
 	system("cls");
 	size_t mensajeSize = mensaje.size(); //size_t es un tipo de dato que representa el tamaño de un objeto en bytes
 	//need to ajust the size of the message to fit the box
-	std::cout << "=====================================\n";
-	if (mensajeSize < 30) {
-		std::cout << "||    " << mensaje;
-		for (int i = 0; i < 30 - mensajeSize; i++) {
-			std::cout << " ";
-		}
-		std::cout << "||\n";
-	}
-	else {
-		std::cout << "||    " << mensaje << "    ||\n";
-	}
-	std::cout << "||    Presione ENTER para continuar ||\n";
-	std::cout << "=====================================\n";
-	system("pause");
-	system("cls");
+
+	
+
+    if (mensajeSize < 30) {  
+       std::cout << "=====================================\n";  
+       std::cout << "||    " << mensaje;  
+       for (int i = 0; i < 30 - mensajeSize; i++) {  
+           std::cout << " ";  
+       }  
+       std::cout << "||\n";  
+    } else {  
+       size_t lineWidth = 30;  
+       std::cout << "=====================================\n";  
+       for (size_t i = 0; i < mensajeSize; i += lineWidth) {  
+           std::cout << "|| ";  
+           std::cout << mensaje.substr(i, lineWidth);  
+           size_t remaining = lineWidth - mensaje.substr(i, lineWidth).size();  
+           for (size_t j = 0; j < remaining; j++) {  
+               std::cout << " ";  
+           }  
+           std::cout << " ||\n";  
+       }  
+    }  
+    std::cout << "||    Presione ENTER para continuar ||\n";  
+    std::cout << "=====================================\n";  
+    system("pause");  
+    system("cls");
 
 }
 

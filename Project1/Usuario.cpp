@@ -23,6 +23,11 @@ void Usuario::setEstado(bool estado){
 	this->estado = estado;
 }
 
+std::string Usuario::getNombre() const
+{
+	return nombre;
+}
+
 std::string Usuario::toString() const{
 	std::ostringstream oss;
 	oss << "====================" << std::endl;
@@ -64,6 +69,10 @@ void Usuario::agregarHistorial(const std::string& linea)
 
 void Usuario::mostrarHistorial()
 {
+	if (historial.isEmpty()) {
+		std::cout << "No hay historial de prestamos." << std::endl;
+		return;
+	}
 	for (int i = 0; i < historial.getLength(); i++) {
 		std::cout << *historial.get(i) << std::endl; 
 	}
