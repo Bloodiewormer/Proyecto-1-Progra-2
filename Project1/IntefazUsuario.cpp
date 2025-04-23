@@ -28,18 +28,17 @@ int IntefazUsuario::mostrarMenuPrincipal()
 {
 	int opcion;
 	std::cout << "+----------------------------------------------------+" << std::endl;
-	std::cout << "|                                                    |" << std::endl;
-	std::cout << "|	1. Menu Materiales                           |" << std::endl;
-	std::cout << "|	2. Menu Usuarios                             |" << std::endl;
-	std::cout << "|	3. Menu Tiempo                               |" << std::endl;
-	std::cout << "|	4. Menu Prestamos                            |" << std::endl;
-	std::cout << "|	5. Guardar                                   |" << std::endl;
-	std::cout << "|	6. Reportes                                  |" << std::endl;
-	std::cout << "|	0. Salir                                     |" << std::endl;
-	std::cout << "|                                                    |" << std::endl;
+	std::cout << "|                    MENU PRINCIPAL                  |" << std::endl;
+	std::cout << "+----------------------------------------------------+" << std::endl;
+	std::cout << "|  1. Menu Materiales                                |" << std::endl;
+	std::cout << "|  2. Menu Usuarios                                  |" << std::endl;
+	std::cout << "|  3. Menu Tiempo                                    |" << std::endl;
+	std::cout << "|  4. Menu Prestamos                                 |" << std::endl;
+	std::cout << "|  5. Guardar                                        |" << std::endl;
+	std::cout << "|  6. Reportes                                       |" << std::endl;
+	std::cout << "|  0. Salir                                          |" << std::endl;
 	std::cout << "+----------------------------------------------------+" << std::endl;
 	std::cout << "Seleccione una opcion: ";
-
 	opcion = inputInt();
 	return opcion;
 }
@@ -49,17 +48,16 @@ int IntefazUsuario::subMenuReportes()
 	system("cls");
 	int opcion;
 	std::cout << "+------------------------------------------------------+" << std::endl;
-	std::cout << "|                                                      |" << std::endl;
-	std::cout << "|		1. Reporte de Materiales                         |" << std::endl;
-	std::cout << "|		2. Reporte de Usuarios                           |" << std::endl;
-	std::cout << "|		3. Reporte de Prestamos                          |" << std::endl;
-	std::cout << "|		4. Reporte de Historial de Prestamos por Usuario |" << std::endl;
-	std::cout << "|		5. Reporte de Historial de Prestamos por Material|" << std::endl;
-	std::cout << "|		0. Salir                                         |" << std::endl;
-	std::cout << "|                                                      |" << std::endl;
+	std::cout << "|                    MENU REPORTES                     |" << std::endl;
+	std::cout << "+------------------------------------------------------+" << std::endl;
+	std::cout << "|  1. Reporte de Materiales                            |" << std::endl;
+	std::cout << "|  2. Reporte de Usuarios                              |" << std::endl;
+	std::cout << "|  3. Reporte de Prestamos                             |" << std::endl;
+	std::cout << "|  4. Historial de Prestamos por Usuario               |" << std::endl;
+	std::cout << "|  5. Historial de Prestamos por Material              |" << std::endl;
+	std::cout << "|  0. Salir                                            |" << std::endl;
 	std::cout << "+------------------------------------------------------+" << std::endl;
 	std::cout << "Seleccione una opcion: ";
-
 	opcion = inputInt();
 	return opcion;
 }
@@ -68,12 +66,15 @@ int IntefazUsuario::mostrarSubMenuUsuario()
 {
 	system("cls");
 	int opcion;
-	std::cout << "Menu de Usuario" << std::endl;
-	std::cout << "1. Agregar Usuario" << std::endl;
-	std::cout << "2. Modificar Usuario" << std::endl;
-	std::cout << "3. Eliminar Usuario" << std::endl;
-	std::cout << "4. Buscar Usuario" << std::endl;
-	std::cout << "0. Salir" << std::endl;
+	std::cout << "+----------------------------------------------------+" << std::endl;
+	std::cout << "|                  MENU DE USUARIOS                  |" << std::endl;
+	std::cout << "+----------------------------------------------------+" << std::endl;
+	std::cout << "|  1. Agregar Usuario                                |" << std::endl;
+	std::cout << "|  2. Modificar Usuario                              |" << std::endl;
+	std::cout << "|  3. Eliminar Usuario                               |" << std::endl;
+	std::cout << "|  4. Buscar Usuario                                 |" << std::endl;
+	std::cout << "|  0. Salir                                          |" << std::endl;
+	std::cout << "+----------------------------------------------------+" << std::endl;
 	std::cout << "Seleccione una opcion: ";
 	opcion = inputInt();
 	return opcion;
@@ -83,12 +84,15 @@ int IntefazUsuario::mostrarSubMenuModificarUsuario()
 {
 	system("cls");
 	int opcion;
-	std::cout << "Menu de Modificacion de Usuario" << std::endl;
-	std::cout << "1. Modificar Nombre" << std::endl;
-	std::cout << "2. Modificar Apellido" << std::endl;
-	std::cout << "3. Modificar Estado" << std::endl;
-	std::cout << "4. Modificar Cedula" << std::endl;
-	std::cout << "0. Salir" << std::endl;
+	std::cout << "+----------------------------------------------------+" << std::endl;
+	std::cout << "|          MENU DE MODIFICACION DE USUARIO           |" << std::endl;
+	std::cout << "+----------------------------------------------------+" << std::endl;
+	std::cout << "|  1. Modificar Nombre                               |" << std::endl;
+	std::cout << "|  2. Modificar Apellido                             |" << std::endl;
+	std::cout << "|  3. Modificar Estado                               |" << std::endl;
+	std::cout << "|  4. Modificar Cedula                               |" << std::endl;
+	std::cout << "|  0. Salir                                          |" << std::endl;
+	std::cout << "+----------------------------------------------------+" << std::endl;
 	std::cout << "Seleccione una opcion: ";
 	opcion = inputInt();
 	return opcion;
@@ -97,19 +101,19 @@ int IntefazUsuario::mostrarSubMenuModificarUsuario()
 Usuario* IntefazUsuario::crearUsuario()
 {
 	system("cls");
+	std::string cedula, nombre, apellido;
 
-	std::string cedula;
-	std::string nombre;
-	std::string apellido;
+	std::cout << "+---------------------------------------------+" << std::endl;
+	std::cout << "|            CREAR NUEVO USUARIO              |" << std::endl;
+	std::cout << "+---------------------------------------------+" << std::endl;
+
 	std::cout << "Ingrese la cedula del usuario: ";
 	std::cin >> cedula;
 	std::cout << "Ingrese el nombre del usuario: ";
 	std::cin >> nombre;
 	std::cout << "Ingrese el apellido del usuario: ";
 	std::cin >> apellido;
-
-	Usuario* usuario = new Usuario(cedula, nombre, apellido, true);
-	return usuario;
+	return new Usuario(cedula, nombre, apellido, true);
 }
 
 int IntefazUsuario::tipoMaterial()
@@ -487,10 +491,14 @@ int IntefazUsuario::subMenuPrestamos()
 {
 	system("cls");
 	int opcion;
-	std::cout << "Menu de Prestamos" << std::endl;
-	std::cout << "1. Registrar prestamo" << std::endl;
-	std::cout << "2. Devolver material" << std::endl;
-	std::cout << "0. Salir" << std::endl;
+
+	std::cout << "+---------------------------------------------+" << std::endl;
+	std::cout << "|              MENU DE PRESTAMOS              |" << std::endl;
+	std::cout << "+---------------------------------------------+" << std::endl;
+	std::cout << "|  1. Registrar prestamo                      |" << std::endl;
+	std::cout << "|  2. Devolver material                       |" << std::endl;
+	std::cout << "|  0. Salir                                   |" << std::endl;
+	std::cout << "+---------------------------------------------+" << std::endl;
 	std::cout << "Seleccione una opcion: ";
 	opcion = inputInt();
 	return opcion;
@@ -500,12 +508,16 @@ int IntefazUsuario::subMenuTiempo()
 {
 	system("cls");
 	int opcion;
-	std::cout << "Menu de Tiempo" << std::endl;
-	std::cout << "1. Pasar Dias" << std::endl;
-	std::cout << "2. Volver Dias" << std::endl;
-	std::cout << "3. Ir al Dia" << std::endl;
-	std::cout << "4. Resetear Tiempo" << std::endl;
-	std::cout << "0. Salir" << std::endl;
+
+	std::cout << "+---------------------------------------------+" << std::endl;
+	std::cout << "|               MENU DE TIEMPO                |" << std::endl;
+	std::cout << "+---------------------------------------------+" << std::endl;
+	std::cout << "|  1. Pasar Dias                              |" << std::endl;
+	std::cout << "|  2. Volver Dias                             |" << std::endl;
+	std::cout << "|  3. Ir al Dia                               |" << std::endl;
+	std::cout << "|  4. Resetear Tiempo                         |" << std::endl;
+	std::cout << "|  0. Salir                                   |" << std::endl;
+	std::cout << "+---------------------------------------------+" << std::endl;
 	std::cout << "Seleccione una opcion: ";
 	opcion = inputInt();
 	return opcion;
@@ -513,22 +525,28 @@ int IntefazUsuario::subMenuTiempo()
 
 int IntefazUsuario::pedirDias()
 {
-	system("cls");
-	int dias;
-	std::cout << "Ingrese la cantidad de dias: ";
-	dias = inputInt();
-	return dias;
+    system("cls");
+    int dias;
+
+    std::cout << "+---------------------------------------------+" << std::endl;
+    std::cout << "|            INGRESAR CANTIDAD DE DIAS        |" << std::endl;
+    std::cout << "+---------------------------------------------+" << std::endl;
+    std::cout << "Ingrese la cantidad de dias: ";
+    dias = inputInt();
+    return dias;
 }
 
 int* IntefazUsuario::pedirFecha()
 {
 	system("cls");
 	int* fecha = new int[2];
+
+	std::cout << "+---------------------------------------------+" << std::endl;
+	std::cout << "|              INGRESAR FECHA (DD MM)         |" << std::endl;
+	std::cout << "+---------------------------------------------+" << std::endl;
 	std::cout << "Ingrese la fecha (dd mm): ";
 	std::cin >> fecha[0] >> fecha[1];
 	return fecha;
-	
-
 }
 
 
@@ -570,27 +588,37 @@ bool IntefazUsuario::agregarOtro()
 
 std::string IntefazUsuario::pedirDatos(std::string dato, bool modificar)
 {
-	system("cls");
-	std::string datoIngresado;
-	if (modificar) {
-		std::cout << "Ingrese " << dato << " a modificar: ";
-	}
-	else {
-		std::cout << "Ingrese " << dato << ": ";
-	}
-	std::cin >> datoIngresado;
-	return datoIngresado;
+		system("cls");
+		std::string datoIngresado;
 
+		std::cout << "+---------------------------------------------+" << std::endl;
+		if (modificar) {
+			std::cout << "|         MODIFICAR " << dato << "                |" << std::endl;
+		}
+		else {
+			std::cout << "|         INGRESAR " << dato << "                 |" << std::endl;
+		}
+		std::cout << "+---------------------------------------------+" << std::endl;
+
+		std::cout << "Ingrese " << dato << ": ";
+		std::cin >> datoIngresado;
+
+		return datoIngresado; 
 }
 
 
-bool IntefazUsuario::pedirDatosBool(std::string dato)
+bool IntefazUsuario::pedirDatosBool(std::string dato) //se puede pasar a utilidades
 {
 	system("cls");
 	std::string datoIngresado;
-	std::cout << "Ingrese el " << dato << " a modificar: ";
-	std::cout << "(true/false): ";
+
+	std::cout << "+---------------------------------------------+" << std::endl;
+	std::cout << "|         INGRESAR " << dato << " (true/false)         |" << std::endl;
+	std::cout << "+---------------------------------------------+" << std::endl;
+
+	std::cout << "Ingrese el valor para " << dato << " (true/false): ";
 	std::cin >> datoIngresado;
+
 	if (datoIngresado == "true" || datoIngresado == "True" || datoIngresado == "TRUE") {
 		return true;
 	}
@@ -598,6 +626,7 @@ bool IntefazUsuario::pedirDatosBool(std::string dato)
 		return false;
 	}
 	else {
+		std::cout << "Entrada invalida. Se asumirá 'false'." << std::endl;
 		return false;
 	}
 }
@@ -605,44 +634,32 @@ bool IntefazUsuario::pedirDatosBool(std::string dato)
 void IntefazUsuario::msj(std::string mensaje)
 {
 	system("cls");
-	size_t mensajeSize = mensaje.size(); //size_t es un tipo de dato que representa el tamaño de un objeto en bytes
-	//need to ajust the size of the message to fit the box
+	size_t mensajeSize = mensaje.size();
+	size_t lineWidth = 50;
 
-	
-
-    if (mensajeSize < 30) {  
-       std::cout << "=====================================\n";  
-       std::cout << "||    " << mensaje;  
-       for (int i = 0; i < 30 - mensajeSize; i++) {  
-           std::cout << " ";  
-       }  
-       std::cout << "||\n";  
-    } else {  
-       size_t lineWidth = 30;  
-       std::cout << "=====================================\n";  
-       for (size_t i = 0; i < mensajeSize; i += lineWidth) {  
-           std::cout << "|| ";  
-           std::cout << mensaje.substr(i, lineWidth);  
-           size_t remaining = lineWidth - mensaje.substr(i, lineWidth).size();  
-           for (size_t j = 0; j < remaining; j++) {  
-               std::cout << " ";  
-           }  
-           std::cout << " ||\n";  
-       }  
-    }  
-    std::cout << "||    Presione ENTER para continuar ||\n";  
-    std::cout << "=====================================\n";  
-    system("pause");  
-    system("cls");
-
+	std::cout << "+----------------------------------------------------+" << std::endl;
+	for (size_t i = 0; i < mensajeSize; i += lineWidth) {
+		std::cout << "| ";
+		std::cout << mensaje.substr(i, lineWidth);
+		size_t remaining = lineWidth - mensaje.substr(i, lineWidth).size();
+		for (size_t j = 0; j < remaining; j++) {
+			std::cout << " ";
+		}
+		std::cout << " |" << std::endl;
+	}
+	std::cout << "+----------------------------------------------------+" << std::endl;
+	std::cout << "|          Presione ENTER para continuar            |" << std::endl;
+	std::cout << "+----------------------------------------------------+" << std::endl;
+	system("pause");
+	system("cls");
 }
 
 void IntefazUsuario::opcionInvalida()
 {
 	system("cls");
-	std::cout << "====================================================\n";
-	std::cout << "||  Opcion Invalida, Presione ENTER para continuar  ||\n";
-	std::cout << "====================================================\n";
+	std::cout << "+----------------------------------------------------+" << std::endl;
+	std::cout << "|          Opcion Invalida, Intente de Nuevo         |" << std::endl;
+	std::cout << "+----------------------------------------------------+" << std::endl;
 	system("pause");
 	system("cls");
 }
