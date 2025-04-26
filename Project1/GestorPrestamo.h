@@ -10,6 +10,8 @@ private:
 
 public:
     void registrarPrestamo(Time, Usuario*, Material*);
+    void registrarPrestamoCreado(Prestamo* p);
+    
     void devolverMaterial(int, Time, std::string);
 	Prestamo* buscarPrestamo(int idPrestamo);
 
@@ -19,11 +21,6 @@ public:
 
 	void mostrarHistorialUsuario(std::string idUsuario);
 	void mostrarHistorialMaterial(std::string idMaterial);
-
-
-
-    //void guardarEnArchivo(std::string ruta);
-    //void cargarDesdeArchivo(std::string ruta);
 
     Lista<Prestamo> getListaPrestamos();
 
