@@ -324,6 +324,7 @@ void Controladora::CargarDatos()
 	gestorArchivos->cargarUsuarios(biblioteca, "usuarios.csv");
 	gestorArchivos->cargarTiempo(biblioteca, "tiempo.csv");
 	gestorArchivos->cargarMateriales(biblioteca, "materiales.csv");
+	gestorArchivos->cargarPrestamos(biblioteca, "prestamos.csv");
 	//interfaz->msj("Datos cargados correctamente");
 	//system("pause");
 }

@@ -21,5 +21,5 @@ public:
 	static void cargarUsuarios(Biblioteca* biblioteca, const std::string& nombreArchivo);
 	static void cargarTiempo(Biblioteca* biblioteca, const std::string& nombreArchivo);
 	static void cargarMateriales(Biblioteca* biblioteca, const std::string& nombreArchivo);
-	//static void cargarPrestamos(Biblioteca* biblioteca, const std::string& nombreArchivo);
+	static void cargarPrestamos(Biblioteca* biblioteca, const std::string& nombreArchivo);
 };
