@@ -1,19 +1,28 @@
 #pragma once
 #include <iostream>
 #include <string>
-#include <sstream>
+#include "Lista.h"
 
-using namespace std;
-void imprimeCadena(string);
-void imprimeEntero(int);
-void imprimeFloat(float);
-void limpiaPantalla();
-string leerCadena();
-int leerEntero();
-double leerDouble();
-void esperandoEnter();
-bool respuestaValida(int);
-int convertirInt(string);
-double convertirDouble(string);
-float convertirFloat(string);
+#include "CustomException.h"
 
+
+class Utilidades {
+public:
+    // Limpia la pantalla (compatible con múltiples plataformas)
+    static void limpiarPantalla();
+
+    // Muestra un mensaje formateado
+    static void msj(const std::string& mensaje);
+
+    // Lee un entero con manejo de errores
+    static int inputInt();
+
+    // Lee una línea completa de texto
+    static std::string inputString();
+
+	// Recoge una lista de entradas de texto
+    static Lista<std::string> collectInputList(const std::string& prompt) ;
+
+	// lee un booleano
+	static bool inputBool();
+};

@@ -1,93 +1,90 @@
 #include "Utility.h"
 
-void imprimeCadena(string cadena) {
-	cout << cadena;
+void Utilidades::limpiarPantalla() {
+#ifdef _WIN32
+    system("cls");
+#else
+    std::cout << "\033[2J\033[1;1H"; // ANSI escape codes para limpiar pantalla
+#endif
 }
 
-void imprimeEntero(int n) {
-	cout << n;
+void Utilidades::msj(const std::string& mensaje) {
+    limpiarPantalla();
+    size_t mensajeSize = mensaje.size();
+    size_t lineWidth = 50;
+
+    std::cout << "+----------------------------------------------------+" << std::endl;
+    for (size_t i = 0; i < mensajeSize; i += lineWidth) {
+        std::cout << "| ";
+        std::cout << mensaje.substr(i, lineWidth);
+        size_t remaining = lineWidth - mensaje.substr(i, lineWidth).size();
+        for (size_t j = 0; j < remaining; j++) {
+            std::cout << " ";
+        }
+        std::cout << " |" << std::endl;
+    }
+    std::cout << "+----------------------------------------------------+" << std::endl;
+    std::cout << "|          Presione ENTER para continuar            |" << std::endl;
+    std::cout << "+----------------------------------------------------+" << std::endl;
+    system("pause");
+    limpiarPantalla();
 }
 
-void imprimeFloat(float n) {
-	cout << n;
+int Utilidades::inputInt() {
+    int input;
+    std::cin >> input;
+
+    if (std::cin.fail()) {
+        std::cin.clear(); // Limpia el flag de error
+        while (std::cin.get() != '\n'); // Limpia el buffer de entrada
+        throw InvalidInputException("Error: Entrada invalida. Por favor, ingrese un numero entero.");
+    }
+
+    return input;
 }
 
-string leerCadena() {
-	string x;
-
-	getline(cin, x);
-	return x;
+std::string Utilidades::inputString() {
+    std::string dato;
+    while (std::cin.peek() == '\n' || std::cin.peek() == '\r') {
+        std::cin.get();
+    }
+    std::getline(std::cin, dato);
+    return dato;
 }
 
-int leerEntero() {
-	int n;
-	bool continuar = true;
-	while (true) {
-		if (cin >> n) {
-			cin.clear(); // Limpia el estado del flujo..
-			cin.ignore(1024, '\n');
-			return n;
+Lista<std::string> Utilidades::collectInputList(const std::string& prompt) 
+{
+    Lista<std::string> list;
+    std::string input;
+    
+
+    std::cout << prompt << " (escriba 'fin' para terminar):" << std::endl;
+    while (true) {
+        std::cout << "- ";
+        input = inputString();
+
+        if (input == "fin") {
+            break; // Salir del bucle si el usuario escribe "fin"
+        }
+		while (std::cin.peek() == '\n' || std::cin.peek() == '\r') {
+			std::cin.get();
 		}
-		else {
-			cerr << "Valor incorrecto.. digita UN NUMERO" << endl;
-			cin.clear();
-			cin.ignore(1024, '\n');
-		}
+        list.addBegin(new std::string(input)); // Agregar la entrada a la lista
+    }
+	return list; // Retornar la lista de entradas
+}
+
+bool Utilidades::inputBool()
+{
+	std::string input;
+	std::cin >> input;
+	if (input == "true" || input == "1"|| input == "True"||"TRUE") {
+		return true;
 	}
-}
-
-double leerDouble() {
-	double n;
-	bool continuar = true;
-	while (true) {
-		if (cin >> n) {
-			cin.clear(); // Limpia el estado del flujo..
-			cin.ignore(1024, '\n');
-			return n;
-		}
-		else {
-			cerr << "Valor incorrecto.. digita UN NUMERO" << endl;
-			cin.clear();
-			cin.ignore(1024, '\n');
-		}
-	}
-}
-
-void limpiaPantalla() {
-	system("cls");
-}
-
-void esperandoEnter() {
-	system("pause");
-}
-
-bool respuestaValida(int res) {
-	bool resValida = false;
-	if (res == 1 || res == 2) {
-		resValida = true;
+	else if (input == "false" || input == "0" || input == "False" || "FALSE") {
+		return false;
 	}
 	else {
-		imprimeCadena("\nOpcion no valida. Intente nuevamente.");
+		throw InvalidInputException("Error: Entrada invalida. Se asume 'false'.");
 	}
-	return resValida;
-}
-int convertirInt(string s) {
-	stringstream r(s);
-	int v;
-	r >> v;
-	return v;
-}
-
-double convertirDouble(string s) {
-	stringstream r(s);
-	double v;
-	r >> v;
-	return v;
-}
-
-float convertirFloat(string s) {
-	stringstream r(s);
-	float v;
-	r >> v;
-	return v;
 }

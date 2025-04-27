@@ -28,7 +28,6 @@ void Controladora::iniciar(){
 	
 	interfaz->bannerBienvenida();
 	system("pause");
-	interfaz->DatosPrueba();
 	MenuPrincipal();
 
 }
@@ -49,10 +48,10 @@ void Controladora::MenuPrincipal(){
 		case 0:
 			if (interfaz->ConfirmarSalida() == true) {
 				opcion = -1;
-				interfaz->msj("Saliendo del programa...");
+				Utilidades::msj("Saliendo del programa...");
 			}
 			else {
-				interfaz->msj("Regresando al menu principal...");
+				Utilidades::msj("Regresando al menu principal...");
 			}
 			break;
 		case 1:
@@ -83,11 +82,11 @@ void Controladora::MenuPrincipal(){
 			break;
 		case 7:
 			if (interfaz->ConfirmarSalida()) {
-				interfaz->msj("Saliendo del programa...");
+				Utilidades::msj("Saliendo del programa...");
 				system("pause");
 			}
 			else {
-				interfaz->msj("Regresando al menu principal...");
+				Utilidades::msj("Regresando al menu principal...");
 				system("pause");
 			}
 			break;
@@ -125,7 +124,7 @@ void Controladora::MenusubMenuUsuario()
 		break;
 	case 1:
 		biblioteca->agregarUsuario(interfaz->crearUsuario());
-		interfaz->msj("Usuario agregado correctamente");
+		Utilidades::msj("Usuario agregado correctamente");
 		break;
 	case 2:
 		// Modificar usuario
@@ -135,14 +134,14 @@ void Controladora::MenusubMenuUsuario()
 		// Eliminar usuario
 		dato = interfaz->pedirDatos("cedula", false);
 		if (biblioteca->comprobarExistenciaUsuario(dato) == false) {
-			interfaz->msj("El usuario no existe");
+			Utilidades::msj("El usuario no existe");
 			system("pause");
 			break;
 		}
 		else
 		{
 		biblioteca->eliminarUsuario(dato);
-		interfaz->msj("Usuario eliminado correctamente");
+		Utilidades::msj("Usuario eliminado correctamente");
 		}
 		system("pause");
 	break;
@@ -201,7 +200,7 @@ void Controladora::MenuAgregarMaterial()
 		interfaz->opcionInvalida();
 	break;
 	}
-	interfaz->msj("Material agregado correctamente");
+	Utilidades::msj("Material agregado correctamente");
 	system("pause");
 }
 
@@ -209,9 +208,9 @@ void Controladora::MenuPrestamos(){
 	system("cls");
 	int opcion = interfaz->subMenuPrestamos();
 	Usuario* usuario;
-	string idPrestamo;
-	string idUsuario;
-	string idMaterial;
+	std::string idPrestamo;
+	std::string idUsuario;
+	std::string idMaterial;
 	switch (opcion) {
 	case 1:
 		biblioteca->registrarPrestamo(biblioteca->buscarUsuario(interfaz->pedirDatos("cedula ", false))->getCedula(), biblioteca->buscarMaterial(interfaz->pedirDatos("ID", false))->getIdentificador());
@@ -222,11 +221,12 @@ void Controladora::MenuPrestamos(){
 		system("cls");
 		usuario = biblioteca->buscarUsuario(idUsuario);
 		if (usuario == nullptr) {
-			interfaz->msj("Usuario no encontrado");
+			Utilidades::msj("El usuario no existe");
 			system("pause");
 			break;
 		}
-		interfaz->msj("Prestamos del usuario: " + usuario->getNombre());
+		//interfaz->msj("Prestamos del usuario: " + usuario->getNombre());
+		Utilidades::msj("Prestamos del usuario: " + usuario->getNombre()+ " ID:" + usuario->getCedula());
 		biblioteca->mostrarPrestamosPorUsuario(idUsuario);
 		idPrestamo = interfaz->pedirDatos("ID del prestamo", false);
 		biblioteca->devolverMaterial(stoi(idPrestamo),idUsuario);
@@ -320,7 +320,7 @@ void Controladora::GuardarDatos()
 
 void Controladora::CargarDatos()
 {
-	cout << "Cargando datos..." << endl;
+	std::cout << "Cargando datos..." << std::endl;
 	gestorArchivos->cargarUsuarios(biblioteca, "usuarios.csv");
 	gestorArchivos->cargarTiempo(biblioteca, "tiempo.csv");
 	gestorArchivos->cargarMateriales(biblioteca, "materiales.csv");

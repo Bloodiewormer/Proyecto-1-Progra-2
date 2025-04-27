@@ -1,7 +1,6 @@
 #include "IntefazUsuario.h"
 
-void IntefazUsuario::bannerBienvenida()
-{
+void IntefazUsuario::bannerBienvenida(){
 	std::cout << "+-----------------------------------------------------+" << std::endl;
 	std::cout << "|                                                     |" << std::endl;
 	std::cout << "| (c) 2025                                            |" << std::endl;
@@ -16,16 +15,10 @@ void IntefazUsuario::bannerBienvenida()
 	std::cout << "| versión 1.0.0 2025-04-01                            |" << std::endl;
 	std::cout << "|                                                     |" << std::endl;
 	std::cout << "+-----------------------------------------------------+" << std::endl;
-
 }
 
-void IntefazUsuario::DatosPrueba()
-{
 
-}
-
-int IntefazUsuario::mostrarMenuPrincipal()
-{
+int IntefazUsuario::mostrarMenuPrincipal(){
 	int opcion;
 	std::cout << "+----------------------------------------------------+" << std::endl;
 	std::cout << "|                    MENU PRINCIPAL                  |" << std::endl;
@@ -39,12 +32,11 @@ int IntefazUsuario::mostrarMenuPrincipal()
 	std::cout << "|  0. Salir                                          |" << std::endl;
 	std::cout << "+----------------------------------------------------+" << std::endl;
 	std::cout << "Seleccione una opcion: ";
-	opcion = inputInt();
+	opcion = Utilidades::inputInt();
 	return opcion;
 }
 
-int IntefazUsuario::subMenuReportes()
-{
+int IntefazUsuario::subMenuReportes(){
 	system("cls");
 	int opcion;
 	std::cout << "+------------------------------------------------------+" << std::endl;
@@ -58,12 +50,11 @@ int IntefazUsuario::subMenuReportes()
 	std::cout << "|  0. Salir                                            |" << std::endl;
 	std::cout << "+------------------------------------------------------+" << std::endl;
 	std::cout << "Seleccione una opcion: ";
-	opcion = inputInt();
+	opcion = Utilidades::inputInt();
 	return opcion;
 }
 
-int IntefazUsuario::mostrarSubMenuUsuario()
-{
+int IntefazUsuario::mostrarSubMenuUsuario(){
 	system("cls");
 	int opcion;
 	std::cout << "+----------------------------------------------------+" << std::endl;
@@ -76,12 +67,11 @@ int IntefazUsuario::mostrarSubMenuUsuario()
 	std::cout << "|  0. Salir                                          |" << std::endl;
 	std::cout << "+----------------------------------------------------+" << std::endl;
 	std::cout << "Seleccione una opcion: ";
-	opcion = inputInt();
+	opcion = Utilidades::inputInt();
 	return opcion;
 }
 
-int IntefazUsuario::mostrarSubMenuModificarUsuario()
-{
+int IntefazUsuario::mostrarSubMenuModificarUsuario(){
 	system("cls");
 	int opcion;
 	std::cout << "+----------------------------------------------------+" << std::endl;
@@ -94,19 +84,16 @@ int IntefazUsuario::mostrarSubMenuModificarUsuario()
 	std::cout << "|  0. Salir                                          |" << std::endl;
 	std::cout << "+----------------------------------------------------+" << std::endl;
 	std::cout << "Seleccione una opcion: ";
-	opcion = inputInt();
+	opcion = Utilidades::inputInt();
 	return opcion;
 }
 
-Usuario* IntefazUsuario::crearUsuario()
-{
+Usuario* IntefazUsuario::crearUsuario(){
 	system("cls");
 	std::string cedula, nombre, apellido;
-
 	std::cout << "+---------------------------------------------+" << std::endl;
 	std::cout << "|            CREAR NUEVO USUARIO              |" << std::endl;
 	std::cout << "+---------------------------------------------+" << std::endl;
-
 	std::cout << "Ingrese la cedula del usuario: ";
 	std::cin >> cedula;
 	std::cout << "Ingrese el nombre del usuario: ";
@@ -116,382 +103,164 @@ Usuario* IntefazUsuario::crearUsuario()
 	return new Usuario(cedula, nombre, apellido, true);
 }
 
-int IntefazUsuario::tipoMaterial()
-{
+int IntefazUsuario::tipoMaterial(){
 	system("cls");
 	int opcion;
-	std::cout << "Seleccione el tipo de material:" << std::endl;
-	std::cout << "1. Fisico" << std::endl;
-	std::cout << "2. Digital" << std::endl;
+	std::cout << "+---------------------------------------------+" << std::endl;
+	std::cout << "|           SELECCIONAR TIPO DE MATERIAL      |" << std::endl;
+	std::cout << "+---------------------------------------------+" << std::endl;
+	std::cout << "|  1. Fisico                                  |" << std::endl;
+	std::cout << "|  2. Digital                                 |" << std::endl;
+	std::cout << "+---------------------------------------------+" << std::endl;
 	std::cout << "Seleccione una opcion: ";
-	opcion = inputInt();
+	opcion = Utilidades::inputInt();
 	return opcion;
 }
 
-int IntefazUsuario::tipoMaterialDigital()
-{
+int IntefazUsuario::tipoMaterialDigital(){
 	system("cls");
 	int opcion;
-	std::cout << "Seleccione el tipo de material digital:" << std::endl;
-	std::cout << "1. Video Digital" << std::endl;
-	std::cout << "2. Otro" << std::endl;
+	std::cout << "+---------------------------------------------+" << std::endl;
+	std::cout << "|       SELECCIONAR TIPO DE MATERIAL DIGITAL  |" << std::endl;
+	std::cout << "+---------------------------------------------+" << std::endl;
+	std::cout << "|  1. Video Digital                           |" << std::endl;
+	std::cout << "|  2. Otro                                    |" << std::endl;
+	std::cout << "+---------------------------------------------+" << std::endl;
 	std::cout << "Seleccione una opcion: ";
-	opcion = inputInt();
+	opcion = Utilidades::inputInt();
 	return opcion;
 }
 
-int IntefazUsuario::tipoMaterialFisico()
-{
+int IntefazUsuario::tipoMaterialFisico(){
 	system("cls");
 	int opcion;
-	std::cout << "Seleccione el tipo de material fisico:" << std::endl;
-	std::cout << "1. Libro" << std::endl;
-	std::cout << "2. Revista" << std::endl;
-	std::cout << "3. Video Fisico" << std::endl;
-	std::cout << "4. Otro" << std::endl;
+	std::cout << "+---------------------------------------------+" << std::endl;
+	std::cout << "|       SELECCIONAR TIPO DE MATERIAL FISICO   |" << std::endl;
+	std::cout << "+---------------------------------------------+" << std::endl;
+	std::cout << "|  1. Libro                                   |" << std::endl;
+	std::cout << "|  2. Revista                                 |" << std::endl;
+	std::cout << "|  3. Video Fisico                            |" << std::endl;
+	std::cout << "|  4. Otro                                    |" << std::endl;
+	std::cout << "+---------------------------------------------+" << std::endl;
 	std::cout << "Seleccione una opcion: ";
-	opcion = inputInt();
+	opcion = Utilidades::inputInt();
 	return opcion;
 }
 
-Libro* IntefazUsuario::crearLibro()
-{
-	//Libro(std::string identificador, std::string titulo, Lista<std::string> palabrasClave, Lista<std::string> autores, std::string tipoMaterial, std::string estado, int dias, std::string isbn, std::string editorial);
-	//ask for the data
-
+Libro* IntefazUsuario::crearLibro(){
 	system("cls");
-	std::string identificador;
-	std::string titulo;
-	Lista<std::string> palabrasClave;
-	Lista<std::string> autores;
-	std::string tipoMaterial;
-	std::string estado;
-	std::string isbn;
-	std::string editorial;
-	std::cout << "Ingrese el identificador del libro: ";
-	std::cin >> identificador;
-	std::cout << "Ingrese el titulo del libro: ";
-	std::cin >> titulo;
-	//lista de palabras clave
-	std::cout << "Ingrese las palabras clave del libro: ";
-	std::string palabra;
-	while (true) {
-		std::cout << "Ingrese una palabra clave: ";
-		std::cin >> palabra;
-		palabrasClave.addBegin(new std::string(palabra));
-		std::cout << "Desea agregar otra palabra clave? (s/n): ";
-		std::string opcion;
-		std::cin >> opcion;
-		if (opcion == "n" || opcion == "N") {
-			break;
-		}
-	}
-
-	std::cout << "Ingrese los autores del libro: ";
-	std::string autor;
-	while (true) {
-		std::cout << "Ingrese un autor: ";
-		std::cin >> autor;
-		autores.addBegin(new std::string(autor));
-		std::cout << "Desea agregar otro autor? (s/n): ";
-		std::string opcion;
-		std::cin >> opcion;
-		if (opcion == "n" || opcion == "N") {
-			break;
-		}
-	}
-	std::cout << "Ingrese el tipo de material del libro: ";
-	std::cin >> tipoMaterial;
-	std::cout << "Ingrese el estado del libro: ";
-	std::cin >> estado;
-	std::cout << "Ingrese el isbn del libro: ";
-	std::cin >> isbn;
-	std::cout << "Ingrese la editorial del libro: ";
-	std::cin >> editorial;
-	Libro* libro = new Libro(identificador, titulo, palabrasClave, autores, tipoMaterial, estado, isbn, editorial);
-	return libro;
+	std::string identificador, titulo, isbn, editorial, tipoMaterial, estado;
+	Lista<std::string> palabrasClave, autores;
+	std::cout << "+---------------------------------------------+" << std::endl;
+	std::cout << "|            CREAR NUEVO LIBRO                |" << std::endl;
+	std::cout << "+---------------------------------------------+" << std::endl;
+	std::cout << "Identificador: "; std::cin >> identificador;
+	std::cout << "Titulo: "; titulo = Utilidades::inputString();
+	std::cout << "ISBN: "; std::cin >> isbn;
+	std::cout << "Editorial: "; editorial = Utilidades::inputString();
+	std::cout << "Tipo de Material: "; std::cin >> tipoMaterial;
+	std::cout << "Estado: "; std::cin >> estado;
+	palabrasClave = Utilidades::collectInputList("Palabras clave");
+	autores = Utilidades::collectInputList("Autores");
+	return new Libro(identificador, titulo, palabrasClave, autores, tipoMaterial, estado, isbn, editorial);
 }
-ArticuloDigital* IntefazUsuario::crearArticuloDigital()
-{
-//ArticuloDigital(std::string identificador, std::string titulo, Lista<std::string> palabrasClave, Lista<std::string> autores, std::string tipoArchivo, double tamano, int dias, std::string TipoArticulo);
-	
+
+ArticuloDigital* IntefazUsuario::crearArticuloDigital(){
 	system("cls");
-	std::string identificador;
-	std::string titulo;
-	Lista<std::string> palabrasClave;
-	Lista<std::string> autores;
-	std::string tipoArchivo;
+	std::string identificador, titulo, tipoArchivo, tipoArticulo;
 	double tamano;
-	std::string TipoArticulo;
-	std::cout << "Ingrese el identificador del articulo: ";
-	std::cin >> identificador;
-	std::cout << "Ingrese el titulo del articulo: ";
-	std::cin >> titulo;
-	//lista de palabras clave
-	std::cout << "Ingrese las palabras clave del articulo: ";
-	std::string palabra;
-	while (true) {
-		std::cout << "Ingrese una palabra clave: ";
-		std::cin >> palabra;
-		palabrasClave.addBegin(new std::string(palabra));
-		std::cout << "Desea agregar otra palabra clave? (s/n): ";
-		std::string opcion;
-		std::cin >> opcion;
-		if (opcion == "n" || opcion == "N") {
-			break;
-		}
-	}
-	std::cout << "Ingrese los autores del articulo: ";
-	std::string autor;
-	while (true) {
-		std::cout << "Ingrese un autor: ";
-		std::cin >> autor;
-		autores.addBegin(new std::string(autor));
-		std::cout << "Desea agregar otro autor? (s/n): ";
-		std::string opcion;
-		std::cin >> opcion;
-		if (opcion == "n" || opcion == "N") {
-			break;
-		}
-	}
-	std::cout << "Ingrese el tipo de archivo del articulo: ";
-	std::cin >> tipoArchivo;
-	std::cout << "Ingrese el tamano del articulo: ";
-	std::cin >> tamano;
-	std::cout << "Ingrese el tipo de articulo: ";
-	std::cin >> TipoArticulo;
-	return new ArticuloDigital(identificador, titulo, palabrasClave, autores, tipoArchivo, tamano, TipoArticulo);
+	Lista<std::string> palabrasClave, autores;
+	std::cout << "+---------------------------------------------+" << std::endl;
+	std::cout << "|        CREAR NUEVO ARTICULO DIGITAL         |" << std::endl;
+	std::cout << "+---------------------------------------------+" << std::endl;
+	std::cout << "Identificador: "; std::cin >> identificador;
+	std::cout << "Titulo: "; titulo = Utilidades::inputString();
+	std::cout << "Tipo de Archivo: "; tipoArchivo = Utilidades::inputString();
+	std::cout << "Tamano (MB): "; tamano = Utilidades::inputInt();
+	std::cout << "Tipo de Articulo: "; tipoArticulo = Utilidades::inputString();
+	palabrasClave = Utilidades::collectInputList("Palabras clave");
+	autores = Utilidades::collectInputList("Autores");
+	return new ArticuloDigital(identificador, titulo, palabrasClave, autores, tipoArchivo, tamano, tipoArticulo);
 }
 
-ArticuloFisico* IntefazUsuario::crearArticuloFisico()
-{
-	//ArticuloFisico(std::string identificador, std::string titulo, Lista<std::string> palabrasClave, Lista<std::string> autores, std::string tipoMaterial, std::string estado, int dias, std::string tipoArticulo);
-
+ArticuloFisico* IntefazUsuario::crearArticuloFisico(){
 	system("cls");
-	std::string identificador;
-	std::string titulo;
-	Lista<std::string> palabrasClave;
-	Lista<std::string> autores;
-	std::string tipoMaterial;
-	std::string estado;
-	std::string tipoArticulo;
-	std::cout << "Ingrese el identificador del articulo: ";
-	std::cin >> identificador;
-	std::cout << "Ingrese el titulo del articulo: ";
-	std::cin >> titulo;
-	//lista de palabras clave
-	std::cout << "Ingrese las palabras clave del articulo: ";
-	std::string palabra;
-	while (true) {
-		std::cout << "Ingrese una palabra clave: ";
-		std::cin >> palabra;
-		palabrasClave.addBegin(new std::string(palabra));
-		std::cout << "Desea agregar otra palabra clave? (s/n): ";
-		std::string opcion;
-		std::cin >> opcion;
-		if (opcion == "n" || opcion == "N") {
-			break;
-		}
-	}
-	std::cout << "Ingrese los autores del articulo: ";
-	std::string autor;
-	while (true) {
-		std::cout << "Ingrese un autor: ";
-		std::cin >> autor;
-		autores.addBegin(new std::string(autor));
-		std::cout << "Desea agregar otro autor? (s/n): ";
-		std::string opcion;
-		std::cin >> opcion;
-		if (opcion == "n" || opcion == "N") {
-			break;
-		}
-	}
-	std::cout << "Ingrese el tipo de material del articulo: ";
-	std::cin >> tipoMaterial;
-	std::cout << "Ingrese el estado del articulo: ";
-	std::cin >> estado;
-	std::cout << "Ingrese el tipo de articulo: ";
-	std::cin >> tipoArticulo;
+	std::string identificador, titulo, tipoMaterial, estado, tipoArticulo;
+	Lista<std::string> palabrasClave, autores;
+	std::cout << "+---------------------------------------------+" << std::endl;
+	std::cout << "|         CREAR NUEVO ARTICULO FISICO         |" << std::endl;
+	std::cout << "+---------------------------------------------+" << std::endl;
+	std::cout << "Identificador: "; std::cin >> identificador;
+	std::cout << "Titulo: "; titulo = Utilidades::inputString();
+	std::cout << "Tipo de Material: "; tipoMaterial = Utilidades::inputString();
+	std::cout << "Estado: "; estado = Utilidades::inputString();
+	std::cout << "Tipo de Articulo: "; tipoArticulo = Utilidades::inputString();
+	palabrasClave = Utilidades::collectInputList("Palabras clave");
+	autores = Utilidades::collectInputList("Autores");
 	return new ArticuloFisico(identificador, titulo, palabrasClave, autores, tipoMaterial, estado, tipoArticulo);
-
 }
 
-VideoFisico* IntefazUsuario::crearVideoFisico()
-{
-	//VideoFisico(std::string identificador, std::string titulo, Lista<std::string> palabrasClave, Lista<std::string> autores, std::string tipoMaterial, std::string estado, int dias, std::string formato, int duracion, std::string resolucion);
+VideoFisico* IntefazUsuario::crearVideoFisico(){
 	system("cls");
-	std::string identificador;
-	std::string titulo;
-	Lista<std::string> palabrasClave;
-	Lista<std::string> autores;
-	std::string tipoMaterial;
-	std::string estado;
-	std::string formato;
+	std::string identificador, titulo, tipoMaterial, estado, formato, resolucion;
 	int duracion;
-	std::string resolucion;
-	std::cout << "Ingrese el identificador del video: ";
-	std::cin >> identificador;
-	std::cout << "Ingrese el titulo del video: ";
-	std::cin >> titulo;
-	//lista de palabras clave
-	std::cout << "Ingrese las palabras clave del video: ";
-	std::string palabra;
-	while (true) {
-		std::cout << "Ingrese una palabra clave: ";
-		std::cin >> palabra;
-		palabrasClave.addBegin(new std::string(palabra));
-		std::cout << "Desea agregar otra palabra clave? (s/n): ";
-		std::string opcion;
-		std::cin >> opcion;
-		if (opcion == "n" || opcion == "N") {
-			break;
-		}
-	}
-	std::cout << "Ingrese los autores del video: ";
-	std::string autor;
-	while (true) {
-		std::cout << "Ingrese un autor: ";
-		std::cin >> autor;
-		autores.addBegin(new std::string(autor));
-		std::cout << "Desea agregar otro autor? (s/n): ";
-		std::string opcion;
-		std::cin >> opcion;
-		if (opcion == "n" || opcion == "N") {
-			break;
-		}
-	}
-	std::cout << "Ingrese el tipo de material del video: ";
-	std::cin >> tipoMaterial;
-	std::cout << "Ingrese el estado del video: ";
-	std::cin >> estado;
-	std::cout << "Ingrese el formato del video: ";
-	std::cin >> formato;
-	std::cout << "Ingrese la duracion del video: ";
-	duracion = inputInt();
-	std::cout << "Ingrese la resolucion del video: ";
-	std::cin >> resolucion;
+	Lista<std::string> palabrasClave, autores;
+	std::cout << "+---------------------------------------------+" << std::endl;
+	std::cout << "|           CREAR NUEVO VIDEO FISICO          |" << std::endl;
+	std::cout << "+---------------------------------------------+" << std::endl;
+	std::cout << "Identificador: "; std::cin >> identificador;
+	std::cout << "Titulo: "; titulo = Utilidades::inputString();
+	std::cout << "Tipo de Material: "; tipoMaterial = Utilidades::inputString();
+	std::cout << "Estado: "; estado = Utilidades::inputString();
+	std::cout << "Formato: "; formato = Utilidades::inputString();
+	std::cout << "Duracion (minutos): "; duracion = Utilidades::inputInt();
+	std::cout << "Resolucion: "; resolucion = Utilidades::inputString();
+	palabrasClave = Utilidades::collectInputList("Palabras clave (escriba 'fin' para terminar)");
+	autores = Utilidades::collectInputList("Autores (escriba 'fin' para terminar)");
 	return new VideoFisico(identificador, titulo, palabrasClave, autores, tipoMaterial, estado, formato, duracion, resolucion);
-
-
 }
 
 VideoDigital* IntefazUsuario::crearVideoDigital()
 {
-	//VideoDigital(std::string identificador, std::string titulo, Lista<std::string> palabrasClave, Lista<std::string> autores, std::string tipoArchivo, double tamano, int dias, std::string duracion, std::string resolucion);
-
 	system("cls");
-	std::string identificador;
-	std::string titulo;
-	Lista<std::string> palabrasClave;
-	Lista<std::string> autores;
-	std::string tipoArchivo;
+	std::string identificador, titulo, tipoArchivo, duracion, resolucion;
 	double tamano;
-	std::string duracion;
-	std::string resolucion;
-	std::cout << "Ingrese el identificador del video: ";
-	std::cin >> identificador;
-	std::cout << "Ingrese el titulo del video: ";
-	std::cin >> titulo;
-	//lista de palabras clave
-	std::cout << "Ingrese las palabras clave del video: ";
-	std::string palabra;
-	while (true) {
-		std::cout << "Ingrese una palabra clave: ";
-		std::cin >> palabra;
-		palabrasClave.addBegin(new std::string(palabra));
-		std::cout << "Desea agregar otra palabra clave? (s/n): ";
-		std::string opcion;
-		std::cin >> opcion;
-		if (opcion == "n" || opcion == "N") {
-			break;
-		}
-	}
-	std::cout << "Ingrese los autores del video: ";
-	std::string autor;
-	while (true) {
-		std::cout << "Ingrese un autor: ";
-		std::cin >> autor;
-		autores.addBegin(new std::string(autor));
-		std::cout << "Desea agregar otro autor? (s/n): ";
-		std::string opcion;
-		std::cin >> opcion;
-		if (opcion == "n" || opcion == "N") {
-			break;
-		}
-	}
-	std::cout << "Ingrese el tipo de archivo del video: ";
-	std::cin >> tipoArchivo;
-	std::cout << "Ingrese el tamano del video: ";
-	tamano = inputInt();
-	std::cout << "Ingrese la duracion del video: ";
-	std::cin >> duracion;
-	std::cout << "Ingrese la resolucion del video: ";
-	std::cin >> resolucion;
+	Lista<std::string> palabrasClave, autores;
+	std::cout << "+---------------------------------------------+" << std::endl;
+	std::cout << "|          CREAR NUEVO VIDEO DIGITAL          |" << std::endl;
+	std::cout << "+---------------------------------------------+" << std::endl;
+	std::cout << "Identificador: "; std::cin >> identificador;
+	std::cout << "Titulo: "; titulo = Utilidades::inputString();
+	std::cout << "Tipo de Archivo: "; tipoArchivo = Utilidades::inputString();
+	std::cout << "Tamano (MB): "; tamano = Utilidades::inputInt();
+	std::cout << "Duracion: "; duracion = Utilidades::inputString();
+	std::cout << "Resolucion: "; resolucion = Utilidades::inputString();
+	palabrasClave = Utilidades::collectInputList("Palabras clave (escriba 'fin' para terminar)");
+	autores = Utilidades::collectInputList("Autores (escriba 'fin' para terminar)");
 	return new VideoDigital(identificador, titulo, palabrasClave, autores, tipoArchivo, tamano, duracion, resolucion);
-
 }
 
-Revista* IntefazUsuario::crearRevista()
-{
-	//Revista(std::string identificador, std::string titulo, Lista<std::string> palabrasClave, Lista<std::string> autores, std::string tipoMaterial, std::string estado, int dias, std::string volumen, std::string numero);
-
+Revista* IntefazUsuario::crearRevista(){
 	system("cls");
-	std::string identificador;
-	std::string titulo;
-	Lista<std::string> palabrasClave;
-	Lista<std::string> autores;
-	std::string tipoMaterial;
-	std::string estado;
-	std::string volumen;
-	std::string numero;
-	std::cout << "Ingrese el identificador de la revista: ";
-	std::cin >> identificador;
-	std::cout << "Ingrese el titulo de la revista: ";
-	std::cin >> titulo;
-	//lista de palabras clave
-	std::cout << "Ingrese las palabras clave de la revista: ";
-	std::string palabra;
-	while (true) {
-		std::cout << "Ingrese una palabra clave: ";
-		std::cin >> palabra;
-		palabrasClave.addBegin(new std::string(palabra));
-		std::cout << "Desea agregar otra palabra clave? (s/n): ";
-		std::string opcion;
-		std::cin >> opcion;
-		if (opcion == "n" || opcion == "N") {
-			break;
-		}
-	}
-	std::cout << "Ingrese los autores de la revista: ";
-	std::string autor;
-	while (true) {
-		std::cout << "Ingrese un autor: ";
-		std::cin >> autor;
-		autores.addBegin(new std::string(autor));
-		std::cout << "Desea agregar otro autor? (s/n): ";
-		std::string opcion;
-		std::cin >> opcion;
-		if (opcion == "n" || opcion == "N") {
-			break;
-		}
-	}
-	std::cout << "Ingrese el tipo de material de la revista: ";
-	std::cin >> tipoMaterial;
-	std::cout << "Ingrese el estado de la revista: ";
-	std::cin >> estado;
-	std::cout << "Ingrese el volumen de la revista: ";
-	std::cin >> volumen;
-	std::cout << "Ingrese el numero de la revista: ";
-	std::cin >> numero;
+	std::string identificador, titulo, tipoMaterial, estado, volumen, numero;
+	Lista<std::string> palabrasClave, autores;
+	std::cout << "+---------------------------------------------+" << std::endl;
+	std::cout << "|             CREAR NUEVA REVISTA             |" << std::endl;
+	std::cout << "+---------------------------------------------+" << std::endl;
+	std::cout << "Identificador: "; std::cin >> identificador;
+	std::cout << "Titulo: "; titulo = Utilidades::inputString();
+	std::cout << "Tipo de Material: "; tipoMaterial = Utilidades::inputString();
+	std::cout << "Estado: "; estado = Utilidades::inputString();
+	std::cout << "Volumen: "; volumen = Utilidades::inputString();
+	std::cout << "Numero: "; numero = Utilidades::inputString();
+	palabrasClave = Utilidades::collectInputList("Palabras clave (escriba 'fin' para terminar)");
+	autores = Utilidades::collectInputList("Autores (escriba 'fin' para terminar)");
 	return new Revista(identificador, titulo, palabrasClave, autores, tipoMaterial, estado, volumen, numero);
-
 }
 
-int IntefazUsuario::subMenuPrestamos()
-{
+int IntefazUsuario::subMenuPrestamos(){
 	system("cls");
 	int opcion;
-
 	std::cout << "+---------------------------------------------+" << std::endl;
 	std::cout << "|              MENU DE PRESTAMOS              |" << std::endl;
 	std::cout << "+---------------------------------------------+" << std::endl;
@@ -500,15 +269,13 @@ int IntefazUsuario::subMenuPrestamos()
 	std::cout << "|  0. Salir                                   |" << std::endl;
 	std::cout << "+---------------------------------------------+" << std::endl;
 	std::cout << "Seleccione una opcion: ";
-	opcion = inputInt();
+	opcion = Utilidades::inputInt();
 	return opcion;
 }
 
-int IntefazUsuario::subMenuTiempo()
-{
+int IntefazUsuario::subMenuTiempo(){
 	system("cls");
 	int opcion;
-
 	std::cout << "+---------------------------------------------+" << std::endl;
 	std::cout << "|               MENU DE TIEMPO                |" << std::endl;
 	std::cout << "+---------------------------------------------+" << std::endl;
@@ -519,28 +286,24 @@ int IntefazUsuario::subMenuTiempo()
 	std::cout << "|  0. Salir                                   |" << std::endl;
 	std::cout << "+---------------------------------------------+" << std::endl;
 	std::cout << "Seleccione una opcion: ";
-	opcion = inputInt();
+	opcion = Utilidades::inputInt();
 	return opcion;
 }
 
-int IntefazUsuario::pedirDias()
-{
+int IntefazUsuario::pedirDias(){
     system("cls");
     int dias;
-
     std::cout << "+---------------------------------------------+" << std::endl;
     std::cout << "|            INGRESAR CANTIDAD DE DIAS        |" << std::endl;
     std::cout << "+---------------------------------------------+" << std::endl;
     std::cout << "Ingrese la cantidad de dias: ";
-    dias = inputInt();
+    dias = Utilidades::inputInt();
     return dias;
 }
 
-int* IntefazUsuario::pedirFecha()
-{
+int* IntefazUsuario::pedirFecha(){
 	system("cls");
 	int* fecha = new int[2];
-
 	std::cout << "+---------------------------------------------+" << std::endl;
 	std::cout << "|              INGRESAR FECHA (DD MM)         |" << std::endl;
 	std::cout << "+---------------------------------------------+" << std::endl;
@@ -550,19 +313,7 @@ int* IntefazUsuario::pedirFecha()
 }
 
 
-int IntefazUsuario::inputInt()
-{	int input;
-	std::cin >> input;
-	if (std::cin.fail()) {
-		std::cin.clear(); // clear the error flag
-		std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); // ignore the invalid input,
-		throw InvalidInputException("Invalid input, please enter a number");
-	}
-	return input;
-}
-
-bool IntefazUsuario::ConfirmarSalida()
-{
+bool IntefazUsuario::ConfirmarSalida(){
 	system("cls");
 	std::string opcion;
 	std::cout << "====================================================\n";
@@ -574,8 +325,7 @@ bool IntefazUsuario::ConfirmarSalida()
 	system("cls");
 }
 
-bool IntefazUsuario::agregarOtro()
-{
+bool IntefazUsuario::agregarOtro(){
 	system("cls");
 	std::string opcion;
 	std::cout << "====================================================\n";
@@ -586,76 +336,40 @@ bool IntefazUsuario::agregarOtro()
 	system("cls");
 }
 
-std::string IntefazUsuario::pedirDatos(std::string dato, bool modificar)
-{
-		system("cls");
-		std::string datoIngresado;
-
-		std::cout << "+---------------------------------------------+" << std::endl;
-		if (modificar) {
-			std::cout << "|         MODIFICAR " << dato << "                |" << std::endl;
-		}
-		else {
-			std::cout << "|         INGRESAR " << dato << "                 |" << std::endl;
-		}
-		std::cout << "+---------------------------------------------+" << std::endl;
-
-		std::cout << "Ingrese " << dato << ": ";
-		std::cin >> datoIngresado;
-
-		return datoIngresado; 
-}
-
-
-bool IntefazUsuario::pedirDatosBool(std::string dato) //se puede pasar a utilidades
-{
+std::string IntefazUsuario::pedirDatos(std::string dato, bool modificar){
 	system("cls");
 	std::string datoIngresado;
-
 	std::cout << "+---------------------------------------------+" << std::endl;
-	std::cout << "|         INGRESAR " << dato << " (true/false)         |" << std::endl;
-	std::cout << "+---------------------------------------------+" << std::endl;
-
-	std::cout << "Ingrese el valor para " << dato << " (true/false): ";
-	std::cin >> datoIngresado;
-
-	if (datoIngresado == "true" || datoIngresado == "True" || datoIngresado == "TRUE") {
-		return true;
-	}
-	else if (datoIngresado == "false" || datoIngresado == "False" || datoIngresado == "FALSE") {
-		return false;
+	if (modificar) {
+	std::cout << "|         MODIFICAR " << dato << "                |" << std::endl;
 	}
 	else {
-		std::cout << "Entrada invalida. Se asumirá 'false'." << std::endl;
+		std::cout << "|         INGRESAR " << dato << "                 |" << std::endl;
+	}
+	std::cout << "+---------------------------------------------+" << std::endl;
+	std::cout << "Ingrese " << dato << ": ";
+	std::cin >> datoIngresado;
+	return datoIngresado; 
+}
+
+
+bool IntefazUsuario::pedirDatosBool(std::string dato){
+	system("cls");
+	std::string datoIngresado;
+	std::cout << "+---------------------------------------------+" << std::endl;
+	std::cout << "|   INGRESAR " << dato << " (true/false)      |" << std::endl;
+	std::cout << "+---------------------------------------------+" << std::endl;
+	try {
+		datoIngresado = Utilidades::inputBool();
+	}
+	catch (const std::invalid_argument& e) {
+		std::cerr << e.what() << std::endl;
+		system("pause");
 		return false;
 	}
 }
 
-void IntefazUsuario::msj(std::string mensaje)
-{
-	system("cls");
-	size_t mensajeSize = mensaje.size();
-	size_t lineWidth = 50;
-
-	std::cout << "+----------------------------------------------------+" << std::endl;
-	for (size_t i = 0; i < mensajeSize; i += lineWidth) {
-		std::cout << "| ";
-		std::cout << mensaje.substr(i, lineWidth);
-		size_t remaining = lineWidth - mensaje.substr(i, lineWidth).size();
-		for (size_t j = 0; j < remaining; j++) {
-			std::cout << " ";
-		}
-		std::cout << " |" << std::endl;
-	}
-	std::cout << "+----------------------------------------------------+" << std::endl;
-	std::cout << "|          Presione ENTER para continuar            |" << std::endl;
-	std::cout << "+----------------------------------------------------+" << std::endl;
-	system("pause");
-	system("cls");
-}
-
-void IntefazUsuario::opcionInvalida()
-{
+void IntefazUsuario::opcionInvalida(){
 	system("cls");
 	std::cout << "+----------------------------------------------------+" << std::endl;
 	std::cout << "|          Opcion Invalida, Intente de Nuevo         |" << std::endl;
@@ -663,4 +377,3 @@ void IntefazUsuario::opcionInvalida()
 	system("pause");
 	system("cls");
 }
-
