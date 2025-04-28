@@ -61,8 +61,7 @@ void GestorArchivos::guardarPrestamos(const Lista<Prestamo>& listaPrestamos, con
 	if (!archivo.is_open()) {
 		throw FileOperationException("Error al abrir el archivo para guardar prestamos.");
 	}
-
-	archivo << "cedula, idMaterial, fechaPrestamo, fechaDevolucion, estado" << std::endl;
+	archivo << "IdPrestamo" << "," << "Usuario" << "," << "Material" << "," << "FechaPrestamo" << "," << "FechaDevolucion" << "," << "Estado" << std::endl;
 
 	for (int i = 0; i < listaPrestamos.getLength(); i++) {
 		Prestamo* p = listaPrestamos.get(i);
@@ -270,48 +269,34 @@ void GestorArchivos::cargarPrestamos(Biblioteca* biblioteca, const std::string& 
 
     std::string linea;
     std::getline(archivo, linea); // Leer encabezado
+    //archivo << "IdPrestamo" << "," << "Usuario" << "," << "Material" << "," << "FechaPrestamo" << "," << "FechaDevolucion" << "," << "Estado" << std::endl;
 
     while (std::getline(archivo, linea)) {
         std::istringstream iss(linea);
-        std::string idStr, cedula, idMaterial;
-        std::string diaPrestamoStr;
-        std::string estado;
-        std::string diaDevolucionStr, mesDevolucionStr, anioDevolucionStr;
-
-        if (std::getline(iss, idStr, ',') &&
-            std::getline(iss, cedula, ',') &&
+        std::string idPrest, cedulaUsuario, idMaterial, fechaPrestamo, fechaDevolucion, estado;
+        if (std::getline(iss, idPrest, ',') &&
+            std::getline(iss, cedulaUsuario, ',') &&
             std::getline(iss, idMaterial, ',') &&
-            std::getline(iss, diaPrestamoStr, ',') &&
- 
-            std::getline(iss, estado, ',') &&
-            std::getline(iss, diaDevolucionStr, ',') &&
-            std::getline(iss, mesDevolucionStr, ',') &&
-            std::getline(iss, anioDevolucionStr)) {
-
-            int id = std::stoi(idStr);
-            int diaPrestamo = std::stoi(diaPrestamoStr);
+            std::getline(iss, fechaPrestamo, ',') &&
+            std::getline(iss, fechaDevolucion, ',') &&
+            std::getline(iss, estado, ',')){
            
-
-            Time fechaPrestamo(diaPrestamo);
-
+			int id = std::stoi(idPrest);
+			int diasPrestamo = std::stoi(fechaPrestamo);
+			int diasDevolucion = std::stoi(fechaDevolucion);
             // Buscar el usuario y material en la biblioteca
-            Usuario* usuario = biblioteca->buscarUsuario(cedula);
+            Usuario* usuario = biblioteca->buscarUsuario(cedulaUsuario);
             Material* material = biblioteca->buscarMaterial(idMaterial);
 
             if (usuario == nullptr || material == nullptr) {
                 std::cout << "Advertencia: Usuario o Material no encontrado para prestamo ID " << id << std::endl;
                 continue;
             }
-
-            Prestamo* prestamo = new Prestamo(id, fechaPrestamo, usuario, material);
-
+            //Prestamo(int id,Time fechaA, Usuario* usuarioA, Material* materialA);	
+            Prestamo* prestamo = new Prestamo(id, diasPrestamo, usuario, material);
             if (estado == "devuelto") {
-                int diaDev = std::stoi(diaDevolucionStr);
-                int mesDev = std::stoi(mesDevolucionStr);
-                int anioDev = std::stoi(anioDevolucionStr);
-                Time fechaDevolucion(diaDev);
-                prestamo->devolver(fechaDevolucion);
-            }
+				prestamo->devolver(diasDevolucion);
+			}
             biblioteca->registrarPrestamoCreado(prestamo);
         }
     }
