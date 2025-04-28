@@ -12,6 +12,7 @@ public:
         const std::string& est,
         const std::string& tipoArt);
     ~ArticuloFisico();
+    std::string getTipoArticulo();
 	std::string toString() const override;
     std::string toStringCSV() const override;
 

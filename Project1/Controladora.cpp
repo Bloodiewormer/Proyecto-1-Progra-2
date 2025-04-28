@@ -32,10 +32,6 @@ void Controladora::iniciar(){
 
 }
 
-void Controladora::datosPrueba()
-{
-	system("pause");
-}
 
 void Controladora::MenuPrincipal(){
 	int opcion = 20;
@@ -56,7 +52,7 @@ void Controladora::MenuPrincipal(){
 			break;
 		case 1:
 			// Agregar material
-			MenuAgregarMaterial();
+			MenuMaterial();
 			break;
 		case 2:
 			// Agregar usuario
@@ -100,10 +96,6 @@ void Controladora::MenuPrincipal(){
 			std::cerr << "Error: " << e.what() << std::endl;
 			system("pause");
 		}
-		/*catch (const InvalidInputException& e) {
-			std::cerr << "Error: " << e.what() << std::endl;
-			system("pause");
-		}*/
 		catch (...) {
 			std::cerr << "Error desconocido" << std::endl;
 		}
@@ -149,6 +141,46 @@ void Controladora::MenusubMenuUsuario()
 		// Buscar usuario
 		std::cout<<biblioteca->buscarUsuario(interfaz->pedirDatos("cedula", false))->toString();
 		system("pause");
+		break;
+	default:
+		interfaz->opcionInvalida();
+		break;
+	}
+}
+
+void Controladora::MenuMaterial()
+{
+	int opcion;
+	system("cls");
+	opcion = interfaz->mostrarSubMenuMateriales();
+	std::string idmat;
+	switch (opcion) {
+	case 0:
+		opcion = -2;
+		break;
+	case 1:
+		MenuAgregarMaterial();
+		break;
+	case 2:
+		//pedir ID de material Existente
+		idmat = interfaz->pedirDatos("ID", false);
+		if (biblioteca->comprobarExistenciaMaterial(idmat) == false) {
+			Utilidades::msj("El material no existe");
+			system("pause");
+			break;
+		}
+		else
+		{
+			biblioteca->agregarCopiaMaterial(idmat, interfaz->pedirDatos("ID de la copia", false));
+			Utilidades::msj("Copia agregada correctamente");
+		}
+		break;
+	case 3:
+		biblioteca->eliminarMaterial(interfaz->pedirDatos("ID", false));
+		break;
+	case 4:
+		// Buscar material
+		std::cout << biblioteca->buscarMaterial(interfaz->pedirDatos("ID", false))->toString();
 		break;
 	default:
 		interfaz->opcionInvalida();
@@ -239,8 +271,13 @@ void Controladora::MenuPrestamos(){
 
 void Controladora::MenuReportes()
 {
+
 	system("cls");
 	int opcion = interfaz->subMenuReportes();
+	int tipo;
+	int tipoEspecifico;
+	Lista<Material> listaM;
+
 	switch (opcion) {
 	case 1:
 		biblioteca->mostrarMateriales();
@@ -249,13 +286,62 @@ void Controladora::MenuReportes()
 		biblioteca->mostrarUsuarios();
 		break;
 	case 3:
-		biblioteca->mostrarPrestamos();
+		tipo = interfaz->tipoMaterial();
+		switch (tipo) {
+		case 1:
+			tipoEspecifico = interfaz->tipoMaterialFisico();
+			switch (tipoEspecifico) {
+			case 1:
+				listaM=biblioteca->mostrarMaterialesClase("libro");
+				break;
+			case 2:
+				listaM = biblioteca->mostrarMaterialesClase("revista");
+				break;
+			case 3:
+				listaM= biblioteca->mostrarMaterialesClase("video fisico");
+				break;
+			case 4:
+				listaM = biblioteca->mostrarMaterialesClase("articulo fisico");
+				break;
+			default:
+				interfaz->opcionInvalida();
+				break;
+			}
+			break;
+		case 2:
+			tipoEspecifico = interfaz->tipoMaterialDigital();
+			switch (tipoEspecifico) {
+			case 1:
+				listaM = biblioteca->mostrarMaterialesClase("video digital");
+				break;
+			case 2:
+				listaM = biblioteca->mostrarMaterialesClase("articulo digital");
+				break;
+			default:
+				interfaz->opcionInvalida();
+				break;
+			}
+			break;
+		default:
+			interfaz->opcionInvalida();
+			break;
+		}
+		if (listaM.isEmpty()) {
+			throw ObjectCreationException("No hay materiales de este tipo");
+			system("pause");
+		}
+		else {
+			std::cout << listaM.toString();
+		}
 		break;
 	case 4:
 		biblioteca->mostrarPrestamosPorUsuario(interfaz->pedirDatos("cedula del usuario", false));
 		break;
 	case 5:
 		biblioteca->mostrarPrestamosPorMaterial(interfaz->pedirDatos("ID de Material", false));
+		break;
+	case 6:
+		biblioteca->mostrarPrestamos();
 		break;
 	default:
 		interfaz->opcionInvalida();

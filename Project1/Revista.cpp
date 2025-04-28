@@ -10,6 +10,16 @@ Revista::~Revista(){
 	// Destructor
 }
 
+std::string Revista::getVolumen()
+{
+	return volumen;
+}
+
+std::string Revista::getNumero()
+{
+	return numero;
+}
+
 std::string Revista::toString() const{
 	std::ostringstream oss;
 	oss << "====================" << std::endl;

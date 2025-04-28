@@ -7,6 +7,12 @@
 #include "GestorPrestamo.h"
 #include "CustomException.h"
 #include "Time.h"
+#include "Libro.h"
+#include "ArticuloDigital.h"
+#include "ArticuloFisico.h"
+#include "VideoFisico.h"
+#include "VideoDigital.h"
+#include "Revista.h"
 class Biblioteca{
 private:
 	Lista<Material> listaMateriales;
@@ -20,8 +26,10 @@ public:
 	bool comprobarExistenciaMaterial(std::string ID);
 	void agregarMaterial(Material* material);
 	void mostrarMateriales();
+	Lista<Material> mostrarMaterialesClase(std::string tipo);
 	void eliminarMaterial(std::string ID);
 	Material* buscarMaterial(std::string ID);
+	void agregarCopiaMaterial(std::string ID, std::string newID);
 	//Metodos para gestionar usuarios
 	bool comprobarExistenciaUsuario(std::string ID);
 	void agregarUsuario(Usuario* usuario);

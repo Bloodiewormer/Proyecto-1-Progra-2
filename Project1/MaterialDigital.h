@@ -10,6 +10,7 @@ public:
 		const std::string& tipoArchivo,
 		double sizeMB);
 	~MaterialDigital();
+	double getTamano();
 	virtual std::string toString() const = 0;
 	virtual std::string toStringCSV() const = 0;
 

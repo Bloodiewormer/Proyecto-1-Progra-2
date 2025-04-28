@@ -15,9 +15,9 @@ public:
 	Controladora();
 	virtual ~Controladora();
 	void iniciar();
-	void datosPrueba();
 	void MenuPrincipal();
 	void MenusubMenuUsuario();
+	void MenuMaterial();
 	void MenuAgregarMaterial();
 	void MenuPrestamos();
 	void MenuReportes();

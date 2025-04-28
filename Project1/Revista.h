@@ -14,6 +14,8 @@ public:
         const std::string& vol,
         const std::string& num);
     ~Revista();
+    std::string getVolumen();
+    std::string getNumero();
 	std::string toString() const override;
     std::string toStringCSV() const override;
 };

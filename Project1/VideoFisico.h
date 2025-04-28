@@ -18,6 +18,11 @@ public:
         const std::string& form,
         int dur,
         const std::string& res);
+
+    std::string getFormato();
+    int getDuracion();
+    std::string getResolucion();
+
 	~VideoFisico();
 	std::string toString() const override;
     std::string toStringCSV() const override;

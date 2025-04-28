@@ -12,6 +12,10 @@ public:
         double sizeMB,
         const std::string& tipoArt);
 	~ArticuloDigital();
+
+
+    std::string getTipoArticulo();
+
 	std::string toString() const override;
     std::string toStringCSV() const override;
     

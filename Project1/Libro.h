@@ -14,6 +14,9 @@ public:
         const std::string& isbn_,
         const std::string& edit);
 	~Libro();
+
+    std::string getISBN();
+    std::string getEditorial();
 	std::string toString() const override;
     std::string toStringCSV() const override;
 };

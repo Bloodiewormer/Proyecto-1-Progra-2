@@ -22,11 +22,19 @@ public:
 		const Lista<std::string>& palabras, 
 		const Lista<std::string>& auts, 
 		const std::string tipo);
+
+
 	~Material();
+	//get
 	std::string getIdentificador() const;
 	int getDiasPrestamo();
 	std::string getTitulo();
 	std::string getDisponibilidad();
+	Lista<std::string> getAutores();
+	Lista<std::string> getPalabrasClave();
+	std::string getTipo();
+
+
 
 	void setDisponibilidad(std::string disponibilidad);
 	

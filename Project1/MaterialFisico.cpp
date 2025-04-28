@@ -7,3 +7,8 @@ MaterialFisico::~MaterialFisico()
 {
 	// Destructor
 }
+
+std::string MaterialFisico::getEstado()
+{
+	return estado;
+}

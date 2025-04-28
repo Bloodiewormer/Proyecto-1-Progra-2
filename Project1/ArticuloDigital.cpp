@@ -17,6 +17,11 @@ ArticuloDigital::~ArticuloDigital()
 	// Destructor
 }
 
+std::string ArticuloDigital::getTipoArticulo()
+{
+	return TipoArticulo;
+}
+
 std::string ArticuloDigital::toString() const
 {
 	std::ostringstream oss;

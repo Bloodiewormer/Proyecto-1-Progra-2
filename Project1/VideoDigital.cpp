@@ -13,6 +13,16 @@ VideoDigital::~VideoDigital()
 	// Destructor
 }
 
+std::string VideoDigital::getDuracion()
+{
+	return duracion;
+}
+
+std::string VideoDigital::getResolucion()
+{
+	return resolucion;
+}
+
 std::string VideoDigital::toString() const
 {
 	std::ostringstream oss;
