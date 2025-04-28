@@ -213,6 +213,15 @@ void Biblioteca::registrarPrestamo(std::string idUsuario, std::string idMaterial
 	}
 }
 
+void Biblioteca::registrarPrestamoCreado(Prestamo* p){
+	if (p != nullptr) {
+		gestorPrestamos.registrarPrestamoCreado(p);
+	}
+	else {
+		throw ObjectCreationException("Prestamo no creado");
+	}
+}
+
 void Biblioteca::devolverMaterial(int idPrestamo,std::string idUsuario)
 {
 

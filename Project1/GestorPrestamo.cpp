@@ -29,6 +29,15 @@ void GestorPrestamo::registrarPrestamo(Time fechaActual, Usuario* u, Material* m
 	listaPrestamos.addBegin(nuevo);
 }
 
+void GestorPrestamo::registrarPrestamoCreado(Prestamo* p){
+	if (p != nullptr) {
+		listaPrestamos.addBegin(p);
+	}
+	else {
+		throw ObjectCreationException("Prestamo no creado");
+	}
+}
+
 void GestorPrestamo::devolverMaterial(int idP, Time fechaActual, std::string idUsuario) {
 	
 	// realmente idUsuario no es necesario, la comprobacion se debe hacer antes pues este metodo solo se encarga de devolver el material

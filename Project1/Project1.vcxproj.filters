@@ -87,11 +87,11 @@
     <ClInclude Include="GestorPrestamo.h">
       <Filter>Header Files\otros</Filter>
     </ClInclude>
-    <ClInclude Include="Time.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Utility.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\Control</Filter>
+    </ClInclude>
+    <ClInclude Include="Time.h">
+      <Filter>Header Files\otros</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

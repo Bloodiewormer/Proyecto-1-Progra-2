@@ -31,6 +31,7 @@ public:
 	Usuario* buscarUsuario(std::string ID);
 	//Metodos para gestionar prestamos
 	void registrarPrestamo(std::string, std::string);
+	void registrarPrestamoCreado(Prestamo* p);
 	void devolverMaterial(int idPrestamo, std::string);
 	void mostrarPrestamos();
 	void mostrarPrestamosPorUsuario(std::string);
