@@ -556,6 +556,7 @@ int IntefazUsuario::inputInt()
 	if (std::cin.fail()) {
 		std::cin.clear(); // clear the error flag
 		//std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); // ignore the invalid input,
+		while (std::cin.get() != '\n'); // discard the rest of the line
 		throw InvalidInputException("Invalid input, please enter a number");
 	}
 	return input;
