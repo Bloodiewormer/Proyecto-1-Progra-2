@@ -11,6 +11,11 @@ ArticuloFisico::~ArticuloFisico()
 	// Destructor
 }
 
+std::string ArticuloFisico::getTipoArticulo()
+{
+	return tipoArticulo;
+}
+
 std::string ArticuloFisico::toString() const
 {
 	std::ostringstream oss;

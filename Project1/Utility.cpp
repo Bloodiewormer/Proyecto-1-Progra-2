@@ -27,7 +27,6 @@ void Utilidades::msj(const std::string& mensaje) {
     std::cout << "|          Presione ENTER para continuar            |" << std::endl;
     std::cout << "+----------------------------------------------------+" << std::endl;
     system("pause");
-    limpiarPantalla();
 }
 
 int Utilidades::inputInt() {
@@ -66,9 +65,6 @@ Lista<std::string> Utilidades::collectInputList(const std::string& prompt)
         if (input == "fin") {
             break; // Salir del bucle si el usuario escribe "fin"
         }
-		while (std::cin.peek() == '\n' || std::cin.peek() == '\r') {
-			std::cin.get();
-		}
         list.addBegin(new std::string(input)); // Agregar la entrada a la lista
     }
 	return list; // Retornar la lista de entradas

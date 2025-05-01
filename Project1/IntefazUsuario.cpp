@@ -42,17 +42,20 @@ int IntefazUsuario::subMenuReportes(){
 	std::cout << "+------------------------------------------------------+" << std::endl;
 	std::cout << "|                    MENU REPORTES                     |" << std::endl;
 	std::cout << "+------------------------------------------------------+" << std::endl;
-	std::cout << "|  1. Reporte de Materiales                            |" << std::endl;
-	std::cout << "|  2. Reporte de Usuarios                              |" << std::endl;
-	std::cout << "|  3. Reporte de Prestamos                             |" << std::endl;
+	std::cout << "|  1. Reporte de Usuarios			                     |" << std::endl;
+	std::cout << "|  2. Reporte de Materiales (TODOS)                    |" << std::endl;
+	std::cout << "|  3. Reporte Materiales Por Tipo                      |" << std::endl;
 	std::cout << "|  4. Historial de Prestamos por Usuario               |" << std::endl;
 	std::cout << "|  5. Historial de Prestamos por Material              |" << std::endl;
+	std::cout << "|  6. Reporte de Prestamos                             |" << std::endl;
+	std::cout << "|  7. Reporte de Prestamos por Tipo                    |" << std::endl;
 	std::cout << "|  0. Salir                                            |" << std::endl;
 	std::cout << "+------------------------------------------------------+" << std::endl;
 	std::cout << "Seleccione una opcion: ";
 	opcion = Utilidades::inputInt();
 	return opcion;
 }
+
 
 int IntefazUsuario::mostrarSubMenuUsuario(){
 	system("cls");
@@ -101,6 +104,23 @@ Usuario* IntefazUsuario::crearUsuario(){
 	std::cout << "Ingrese el apellido del usuario: ";
 	std::cin >> apellido;
 	return new Usuario(cedula, nombre, apellido, true);
+}
+
+int IntefazUsuario::mostrarSubMenuMateriales(){
+	system("cls");
+	int opcion;
+	std::cout << "+----------------------------------------------------+" << std::endl;
+	std::cout << "|                  MENU DE MATERIALES                |" << std::endl;
+	std::cout << "+----------------------------------------------------+" << std::endl;
+	std::cout << "|  1. Agregar Material                               |" << std::endl;
+	std::cout << "|  2. Agregar Copia de Material                      |" << std::endl;
+	std::cout << "|  3. Eliminar Material                              |" << std::endl;
+	std::cout << "|  4. Buscar Material                                |" << std::endl;
+	std::cout << "|  0. Salir                                          |" << std::endl;
+	std::cout << "+----------------------------------------------------+" << std::endl;
+	std::cout << "Seleccione una opcion: ";
+	opcion = Utilidades::inputInt();
+	return opcion;
 }
 
 int IntefazUsuario::tipoMaterial(){
@@ -314,6 +334,7 @@ int* IntefazUsuario::pedirFecha(){
 
 
 bool IntefazUsuario::ConfirmarSalida(){
+
 	system("cls");
 	std::string opcion;
 	std::cout << "====================================================\n";

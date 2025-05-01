@@ -10,6 +10,16 @@ Libro::~Libro() {
 	// Destructor
 }
 
+std::string Libro::getISBN()
+{
+	return isbn;
+}
+
+std::string Libro::getEditorial()
+{
+	return editorial;
+}
+
 std::string Libro::toString() const {
 	std::ostringstream oss;
 	oss << "====================" << std::endl;

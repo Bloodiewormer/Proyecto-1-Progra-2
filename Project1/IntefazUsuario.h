@@ -18,6 +18,10 @@ public:
     // ===========================
     static void bannerBienvenida();
     static int mostrarMenuPrincipal();
+
+    // ===========================
+   // Submenús de Reportes
+   // ===========================
     static int subMenuReportes();
 
     // ===========================

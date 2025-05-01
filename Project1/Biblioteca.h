@@ -1,12 +1,13 @@
 #pragma once
 #include <iostream>
-#include <ctime>
+#include <sstream>
 #include "Lista.h"
 #include "Usuario.h"
 #include "Material.h"
 #include "GestorPrestamo.h"
 #include "CustomException.h"
 #include "Time.h"
+#include "Utility.h"
 class Biblioteca{
 private:
 	Lista<Material> listaMateriales;
@@ -20,8 +21,10 @@ public:
 	bool comprobarExistenciaMaterial(std::string ID);
 	void agregarMaterial(Material* material);
 	void mostrarMateriales();
+	Lista<Material> mostrarMaterialesClase(std::string tipo);
 	void eliminarMaterial(std::string ID);
 	Material* buscarMaterial(std::string ID);
+	void agregarCopiaMaterial(std::string ID, std::string newID);
 	//Metodos para gestionar usuarios
 	bool comprobarExistenciaUsuario(std::string ID);
 	void agregarUsuario(Usuario* usuario);
@@ -34,8 +37,9 @@ public:
 	void registrarPrestamoCreado(Prestamo* p);
 	void devolverMaterial(int idPrestamo, std::string);
 	void mostrarPrestamos();
-	void mostrarPrestamosPorUsuario(std::string);
-	void mostrarPrestamosPorMaterial(std::string);
+	std::string mostrarPrestamosPorUsuario(std::string id);
+	std::string mostrarPrestamosPorMaterial(std::string id);
+	std::string mostrarPrestamosPorClase(std::string tipo);
 	
 
 	//Metodos tiempos

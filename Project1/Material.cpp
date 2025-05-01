@@ -10,6 +10,8 @@ Material::Material(const std::string& id, const std::string& tit, const Lista<st
 
 }
 
+
+
 Material::~Material()
 {
 }
@@ -32,6 +34,21 @@ std::string Material::getTitulo()
 std::string Material::getDisponibilidad()
 {
 	return disponibilidad;
+}
+
+Lista<std::string> Material::getAutores()
+{
+    return autores;
+}
+
+Lista<std::string> Material::getPalabrasClave()
+{
+	return palabrasClave;
+}
+
+std::string Material::getTipo()
+{
+	return tipo;
 }
 
 void Material::setDisponibilidad(std::string disponibilidad)

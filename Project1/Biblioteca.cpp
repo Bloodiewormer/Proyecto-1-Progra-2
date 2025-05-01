@@ -36,6 +36,7 @@ void Biblioteca::agregarMaterial(Material* material)
 
 void Biblioteca::mostrarMateriales()
 {
+	system("cls");
 	if (listaMateriales.isEmpty()) {
 		std::cout << "No hay materiales registrados." << std::endl;
 	}
@@ -47,6 +48,41 @@ void Biblioteca::mostrarMateriales()
 		}*/
 		std::cout << listaMateriales.toString();
 	}
+}
+
+Lista<Material> Biblioteca::mostrarMaterialesClase(std::string tipo)
+{
+	//tipo can be libro, revista, articulo fisico, articulo digital, video fisico, video digital
+	if (tipo.empty()) {
+		throw ObjectCreationException("Tipo cannot be empty");
+	}
+	Lista<Material> materialesTipo;
+
+	//dynamic_cast
+
+	for (int i = 0; i < listaMateriales.getLength(); i++) {
+		Material* material = listaMateriales.get(i);
+		if (tipo == "libro" && dynamic_cast<Libro*>(material)) {
+			materialesTipo.addBegin(material);
+		}
+		else if (tipo == "revista" && dynamic_cast<Revista*>(material)) {
+			materialesTipo.addBegin(material);
+		}
+		else if (tipo == "articulo fisico" && dynamic_cast<ArticuloFisico*>(material)) {
+			materialesTipo.addBegin(material);
+		}
+		else if (tipo == "articulo digital" && dynamic_cast<ArticuloDigital*>(material)) {
+			materialesTipo.addBegin(material);
+		}
+		else if (tipo == "video fisico" && dynamic_cast<VideoFisico*>(material)) {
+			materialesTipo.addBegin(material);
+		}
+		else if (tipo == "video digital" && dynamic_cast<VideoDigital*>(material)) {
+			materialesTipo.addBegin(material);
+		}
+	}
+	system("cls");
+	return materialesTipo;
 }
 
 void Biblioteca::eliminarMaterial(std::string ID)
@@ -77,6 +113,63 @@ Material* Biblioteca::buscarMaterial(std::string ID)
 	}
 	throw InvalidInputException("Material no encontrado");
 }
+
+void Biblioteca::agregarCopiaMaterial(std::string ID, std::string newID)
+{
+	if (ID.empty()) {
+		throw ObjectCreationException("ID cannot be empty");
+	}
+	if (newID.empty()) {
+		throw ObjectCreationException("New ID cannot be empty");
+	}
+	if (comprobarExistenciaMaterial(newID)) {
+		throw ObjectCreationException("New ID already exists in the list");
+	}
+
+	Material* existingMaterial = buscarMaterial(ID);
+	if (!existingMaterial) {
+		throw ObjectCreationException("Material not found");
+	}
+
+	Material* copia = nullptr;
+
+	// Determine the type of the existing material and create a copy
+	if (auto* libro = dynamic_cast<Libro*>(existingMaterial)) {
+		copia = new Libro(newID, libro->getTitulo(), libro->getPalabrasClave(), libro->getAutores(),
+			libro->getTipo(), libro->getEstado(), libro->getISBN(), libro->getEditorial());
+	}
+	else if (auto* revista = dynamic_cast<Revista*>(existingMaterial)) {
+		copia = new Revista(newID, revista->getTitulo(), revista->getPalabrasClave(), revista->getAutores(),
+			revista->getTipo(), revista->getEstado(), revista->getVolumen(), revista->getNumero());
+	}
+	else if (auto* articuloFisico = dynamic_cast<ArticuloFisico*>(existingMaterial)) {
+		copia = new ArticuloFisico(newID, articuloFisico->getTitulo(), articuloFisico->getPalabrasClave(),
+			articuloFisico->getAutores(), articuloFisico->getTipo(), articuloFisico->getEstado(),
+			articuloFisico->getTipoArticulo());
+	}
+	else if (auto* articuloDigital = dynamic_cast<ArticuloDigital*>(existingMaterial)) {
+		copia = new ArticuloDigital(newID, articuloDigital->getTitulo(), articuloDigital->getPalabrasClave(),
+			articuloDigital->getAutores(), articuloDigital->getTipo(),
+			articuloDigital->getTamano(), articuloDigital->getTipoArticulo());
+	}
+	else if (auto* videoFisico = dynamic_cast<VideoFisico*>(existingMaterial)) {
+		copia = new VideoFisico(newID, videoFisico->getTitulo(), videoFisico->getPalabrasClave(),
+			videoFisico->getAutores(), videoFisico->getTipo(), videoFisico->getEstado(),
+			videoFisico->getFormato(), videoFisico->getDuracion(), videoFisico->getResolucion());
+	}
+	else if (auto* videoDigital = dynamic_cast<VideoDigital*>(existingMaterial)) {
+		copia = new VideoDigital(newID, videoDigital->getTitulo(), videoDigital->getPalabrasClave(),
+			videoDigital->getAutores(), videoDigital->getTipo(), videoDigital->getTamano(),
+			videoDigital->getDuracion(), videoDigital->getResolucion());
+	}
+	else {
+		throw ObjectCreationException("Unsupported material type");
+	}
+
+	agregarMaterial(copia);
+	std::cout << "Copia agregada correctamente." << std::endl;
+}
+
 
 
 bool Biblioteca::comprobarExistenciaUsuario(std::string ID) {
@@ -198,18 +291,22 @@ void Biblioteca::registrarPrestamo(std::string idUsuario, std::string idMaterial
 	if (u != nullptr && m != nullptr) {
 
 		if (u->getEstado() == false) {
-			std::cout << "El usuario no esta activo." << std::endl;
+			//std::cout << "El usuario no esta activo." << std::endl;
+			throw ObjectCreationException("El usuario no esta activo");
 			return;
 		}
 		if (m->getDiasPrestamo() == 0) {
-			std::cout << "El material no tiene dias de prestamo." << std::endl;
+			//std::cout << "El material no tiene dias de prestamo." << std::endl;
+			throw ObjectCreationException("El material no tiene dias de prestamo");
 			return;
 		}
 		gestorPrestamos.registrarPrestamo(currentTime, u, m);
 		std::cout << "Prestamo registrado correctamente.\n";
+		system("pause");
 	}
 	else {
-		std::cout << "Usuario o material no encontrado.\n";
+	//	std::cout << "Usuario o material no encontrado.\n";
+		throw ObjectCreationException("Usuario o material no encontrado");
 	}
 }
 
@@ -233,15 +330,55 @@ void Biblioteca::mostrarPrestamos()
 	gestorPrestamos.mostrarPrestamos();
 }
 
-void Biblioteca::mostrarPrestamosPorUsuario(std::string idUsuario)
+std::string Biblioteca::mostrarPrestamosPorUsuario(std::string id)
 {
-	gestorPrestamos.mostrarPrestamosPorUsuario(idUsuario);
+	std::ostringstream oss;
+	oss << "Prestamos de " << id << buscarUsuario(id)->getNombre() << ":\n";
+	Lista<Prestamo> prestamosUsuario = gestorPrestamos.mostrarPrestamosPorUsuario(id);
+	if (prestamosUsuario.isEmpty()) {
+		oss << "No hay prestamos registrados para este usuario.\n";
+	}
+	else {
+		for (int i = 0; i < prestamosUsuario.getLength(); i++) {
+			oss << prestamosUsuario.get(i)->toString() << "\n";
+		}
+	}
+	return oss.str();
 }
 
-void Biblioteca::mostrarPrestamosPorMaterial(std::string idMaterial)
+std::string Biblioteca::mostrarPrestamosPorMaterial(std::string id)
 {
-	gestorPrestamos.mostrarPrestamosPorMaterial(idMaterial);
+	std::ostringstream oss;
+	oss << "Prestamos de " << id << buscarMaterial(id)->getTitulo() << ":\n";
+	Lista<Prestamo> prestamosMaterial = gestorPrestamos.mostrarPrestamosPorMaterial(id);
+	if (prestamosMaterial.isEmpty()) {
+		oss << "No hay prestamos registrados para este material.\n";
+	}
+	else {
+		for (int i = 0; i < prestamosMaterial.getLength(); i++) {
+			oss << prestamosMaterial.get(i)->toString() << "\n";
+		}
+	}
+	return oss.str();
 }
+
+std::string Biblioteca::mostrarPrestamosPorClase(std::string tipo)
+{
+	std::ostringstream oss;
+	oss << "Prestamos de " << tipo << ":\n";
+	Lista<Prestamo> prestamosClase = gestorPrestamos.MostrarPrestamosClase(tipo);
+	if (prestamosClase.isEmpty()) {
+		oss << "No hay prestamos registrados para este tipo.\n";
+	}
+	else {
+		for (int i = 0; i < prestamosClase.getLength(); i++) {
+			oss << prestamosClase.get(i)->toString() << "\n";
+		}
+	}
+	return oss.str();
+}
+
+
 
 Time Biblioteca::getCurrentTime()
 {

@@ -10,3 +10,8 @@ MaterialDigital::~MaterialDigital()
 {
 	// Destructor
 }
+
+double MaterialDigital::getTamano()
+{
+	return tamano;
+}

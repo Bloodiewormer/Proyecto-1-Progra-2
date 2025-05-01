@@ -112,7 +112,7 @@ void GestorPrestamo::mostrarPrestamos(){
 	}
 }
 
-void GestorPrestamo::mostrarPrestamosPorUsuario(std::string idUsuario){
+Lista<Prestamo> GestorPrestamo::mostrarPrestamosPorUsuario(std::string idUsuario){
 	if (idUsuario.empty()) {
 		throw InvalidInputException("ID cannot be empty");
 	}
@@ -127,12 +127,12 @@ void GestorPrestamo::mostrarPrestamosPorUsuario(std::string idUsuario){
 	if (prestamosUsuario.isEmpty()) {
 		throw InvalidInputException("Usuario no tiene prestamos");
 	}
-	prestamosUsuario.toString();
+	return prestamosUsuario;
 }
 
 
 
-void GestorPrestamo::mostrarPrestamosPorMaterial(std::string idMaterial){
+Lista<Prestamo> GestorPrestamo::mostrarPrestamosPorMaterial(std::string idMaterial){
 	if (idMaterial.empty()) {
 		throw InvalidInputException("ID cannot be empty");
 	}
@@ -146,8 +146,45 @@ void GestorPrestamo::mostrarPrestamosPorMaterial(std::string idMaterial){
 	if (prestamosMaterial.isEmpty()) {
 		throw InvalidInputException("Material no tiene prestamos");
 	}
-	prestamosMaterial.toString();
+	return prestamosMaterial;
 	
+}
+
+Lista<Prestamo> GestorPrestamo::MostrarPrestamosClase(std::string tipo)
+{
+	//dinamic_cast
+	if (tipo.empty()) {
+		throw InvalidInputException("Tipo cannot be empty");
+	}
+	Lista<Prestamo> prestamosTipo;
+	for (int i = 0; i < listaPrestamos.getLength(); i++) {
+		Prestamo* prestamo = listaPrestamos.get(i);
+		if (tipo == "libro" && dynamic_cast<Libro*>(prestamo->getMaterial())) {
+			prestamosTipo.addBegin(prestamo);
+		}
+		else if (tipo == "revista" && dynamic_cast<Revista*>(prestamo->getMaterial())) {
+			prestamosTipo.addBegin(prestamo);
+		}
+		else if (tipo == "articulo fisico" && dynamic_cast<ArticuloFisico*>(prestamo->getMaterial())) {
+			prestamosTipo.addBegin(prestamo);
+		}
+		else if (tipo == "articulo digital" && dynamic_cast<ArticuloDigital*>(prestamo->getMaterial())) {
+			prestamosTipo.addBegin(prestamo);
+		}
+		else if (tipo == "video fisico" && dynamic_cast<VideoFisico*>(prestamo->getMaterial())) {
+			prestamosTipo.addBegin(prestamo);
+		}
+		else if (tipo == "video digital" && dynamic_cast<VideoDigital*>(prestamo->getMaterial())) {
+			prestamosTipo.addBegin(prestamo);
+		}
+
+	}
+	if (prestamosTipo.isEmpty()) {
+		throw InvalidInputException("No hay prestamos de este tipo");
+	}
+	return prestamosTipo;
+
+
 }
 
 void GestorPrestamo::mostrarHistorialUsuario(std::string idUsuario)

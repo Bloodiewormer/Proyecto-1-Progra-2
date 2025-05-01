@@ -8,6 +8,21 @@ VideoFisico::VideoFisico(const std::string& id, const std::string& tit, const Li
 	diasPrestamo = DIAS_PRESTAMO_VIDEO;
 }
 
+std::string VideoFisico::getFormato()
+{
+	return formato;
+}
+
+int VideoFisico::getDuracion()
+{
+	return duracion;
+}
+
+std::string VideoFisico::getResolucion()
+{
+	return resolucion;
+}
+
 VideoFisico::~VideoFisico()
 {
 	// Destructor

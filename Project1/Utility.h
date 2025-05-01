@@ -3,6 +3,16 @@
 #include <string>
 #include "Lista.h"
 
+//patra incluir las clases de materiales
+#include "Libro.h"
+#include "Revista.h"
+#include "ArticuloFisico.h"
+#include "ArticuloDigital.h"
+#include "VideoFisico.h"
+#include "VideoDigital.h"
+
+
+
 #include "CustomException.h"
 
 

@@ -17,6 +17,10 @@ public:
         const std::string& dur,
         const std::string& res);
 	~VideoDigital();
+    std::string getDuracion();
+    std::string getResolucion();
+
+
 	std::string toString() const override;
     std::string toStringCSV() const override;
 

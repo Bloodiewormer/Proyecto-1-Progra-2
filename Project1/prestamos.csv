@@ -1,2 +1,2 @@
-cedula, idMaterial, fechaPrestamo, fechaDevolucion, estado
-1,1,1,2,5,prestado
+IdPrestamo,Usuario,Material,FechaPrestamo,FechaDevolucion,Estado
+1,208540087,2,0,5,prestado

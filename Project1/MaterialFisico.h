@@ -14,6 +14,9 @@ public:
 		const std::string& tipoMaterial,
 		const std::string& est);
 	virtual ~MaterialFisico();
+
+	std::string getEstado();
+
 	virtual std::string toString() const = 0;
 	virtual std::string toStringCSV() const = 0;
 };

@@ -35,17 +35,38 @@ void Prestamo::devolver(Time fechaActual) {
 }
 
 std::string Prestamo::toString() const{
-	std::stringstream ss;
-	ss  << "==================================="
-		<< "\nPrestamo ID: " << idPrestamo
-		<< "\nUsuario: " << usuario->getCedula()
-		<< "\nMaterial: " << material->getIdentificador()
-		<< "\nFecha del Prestamo: " << fechaPrestamo.toString()
-		<< "\nEstado: " << estado;
-	if (estado != "prestado") {
-		ss << "\nFecha Devolucion: " << fechaDevolucion.toString();
+
+
+	bool tarde;
+	int cantDiasPrestamo = material->getDiasPrestamo();
+	if (fechaDevolucion.getDia() > fechaPrestamo.getDia() + cantDiasPrestamo) {
+		tarde = true;
 	}
-	ss << "\n===================================";
+	else {
+		tarde = false;
+	}
+
+	std::stringstream ss;
+
+	ss << "===================================\n";
+	ss << "ID Prestamo: " << idPrestamo << "\n";
+	ss << "Usuario: " << usuario->getNombre() << "\n";
+	ss << "Material: " << material->getTitulo() << "\n";
+	ss << "Fecha de prestamo: " << fechaPrestamo.toString() << "\n";
+	ss << "Fecha de devolucion: " << fechaDevolucion.toString() << "\n";
+	ss << "Estado: " << estado << "\n";
+	if (estado == "prestado") {
+		ss << "El material no ha sido devuelto\n";
+	}
+	else {
+		if (tarde) {
+			ss << "El material fue devuelto tarde\n";
+		}
+		else {
+			ss << "El material fue devuelto a tiempo\n";
+		}
+	}
+	ss << "===================================";
 
 
 	return ss.str();
