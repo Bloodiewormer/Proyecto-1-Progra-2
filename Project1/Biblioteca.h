@@ -7,7 +7,16 @@
 #include "GestorPrestamo.h"
 #include "CustomException.h"
 #include "Time.h"
+<<<<<<< HEAD
 #include "Utility.h"
+=======
+#include "Libro.h"
+#include "ArticuloDigital.h"
+#include "ArticuloFisico.h"
+#include "VideoFisico.h"
+#include "VideoDigital.h"
+#include "Revista.h"
+>>>>>>> 879200a1e6ae1a4c512d2d0f3c2ab6fb014cd04e
 class Biblioteca{
 private:
 	Lista<Material> listaMateriales;

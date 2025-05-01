@@ -181,7 +181,10 @@ void Controladora::MenuMaterial()
 	case 4:
 		// Buscar material
 		std::cout << biblioteca->buscarMaterial(interfaz->pedirDatos("ID", false))->toString();
+<<<<<<< HEAD
 		system("pause");
+=======
+>>>>>>> 879200a1e6ae1a4c512d2d0f3c2ab6fb014cd04e
 		break;
 	default:
 		interfaz->opcionInvalida();
@@ -383,6 +386,9 @@ void Controladora::MenuReportes()
 			}
 			break;
 		}
+		break;
+	case 6:
+		biblioteca->mostrarPrestamos();
 		break;
 	default:
 		interfaz->opcionInvalida();

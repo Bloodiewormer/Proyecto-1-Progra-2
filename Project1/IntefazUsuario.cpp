@@ -42,13 +42,21 @@ int IntefazUsuario::subMenuReportes(){
 	std::cout << "+------------------------------------------------------+" << std::endl;
 	std::cout << "|                    MENU REPORTES                     |" << std::endl;
 	std::cout << "+------------------------------------------------------+" << std::endl;
+<<<<<<< HEAD
 	std::cout << "|  1. Reporte de Usuarios			                     |" << std::endl;
 	std::cout << "|  2. Reporte de Materiales (TODOS)                    |" << std::endl;
+=======
+	std::cout << "|  1. Reporte de Materiales (TODOS)                    |" << std::endl;
+	std::cout << "|  2. Reporte de Usuarios			                     |" << std::endl;
+>>>>>>> 879200a1e6ae1a4c512d2d0f3c2ab6fb014cd04e
 	std::cout << "|  3. Reporte Materiales Por Tipo                      |" << std::endl;
 	std::cout << "|  4. Historial de Prestamos por Usuario               |" << std::endl;
 	std::cout << "|  5. Historial de Prestamos por Material              |" << std::endl;
 	std::cout << "|  6. Reporte de Prestamos                             |" << std::endl;
+<<<<<<< HEAD
 	std::cout << "|  7. Reporte de Prestamos por Tipo                    |" << std::endl;
+=======
+>>>>>>> 879200a1e6ae1a4c512d2d0f3c2ab6fb014cd04e
 	std::cout << "|  0. Salir                                            |" << std::endl;
 	std::cout << "+------------------------------------------------------+" << std::endl;
 	std::cout << "Seleccione una opcion: ";
