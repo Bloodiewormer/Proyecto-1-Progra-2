@@ -2,7 +2,7 @@
 
 ## Library Management System  
 
-This project is a Library Management System developed for the course "Programación 2,EIF205, I ciclo 2025" at the Universidad Nacional de Costa Rica. It provides a comprehensive solution for managing library resources, including books, magazines, articles, videos, users, and loan records.  
+This project is a Library Management System developed for the course "Programación 2,EIF204, I ciclo 2025" at the Universidad Nacional de Costa Rica. It provides a comprehensive solution for managing library resources, including books, magazines, articles, videos, users, and loan records.  
 
 ## Table of Contents  
 
